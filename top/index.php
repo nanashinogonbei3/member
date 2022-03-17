@@ -130,13 +130,13 @@ try {
 
   //  親カテゴリーID(2)階層下に登録済みの、子カテゴリー名とIDをFETCHする
   // 子カテゴリー (2) 副菜・おかず
-
+  // 管理者が作ったカテゴリーIDだけを表示する
   $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
             AND categories.users_id = 56";
-  // 管理者が作ったカテゴリーIDだけを表示する";
+
 
 
   $stmt = $dbh->prepare($sql);
@@ -151,13 +151,12 @@ try {
 
   //  親カテゴリーID(3)の階層下に登録済みの、子カテゴリー名とIDをFETCHする       
   // カテゴリー (3) 具材・カレーの色
-
+  // 管理者が作ったカテゴリーIDだけを表示する
   $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
-  // 管理者が作ったカテゴリーIDだけを表示する";";
 
 
   $stmt = $dbh->prepare($sql);
@@ -172,13 +171,13 @@ try {
   //  親カテゴリーID(4)の階層下に登録済みの、子カテゴリー名とIDをFETCHする   
 
   //  (4) ナン/ライス
-  // 管理者が作ったカテゴリーIDだけを表示する"
+  // 管理者が作ったカテゴリーIDだけを表示する
   $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
- 
+
 
 
   $stmt = $dbh->prepare($sql);
@@ -189,19 +188,19 @@ try {
 
   $category4 = $result->fetchAll(PDO::FETCH_ASSOC);
 
- 
+
 
 
   //  親カテゴリーID(5)階層下に登録済みの、子カテゴリー名とIDをFETCHする   
 
   //  (5) スィーツ・飲み物
-  // 管理者が作ったカテゴリーIDだけを表示する"
+  // 管理者が作ったカテゴリーIDだけを表示する
   $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
-  
+
 
 
   $stmt = $dbh->prepare($sql);
@@ -222,7 +221,7 @@ try {
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id 
             WHERE parent_categories.id = 6 AND categories.is_deleted = 0 ";
- 
+
 
 
   $stmt = $dbh->prepare($sql);
@@ -274,12 +273,11 @@ try {
   <link rel="stylesheet" href="css/stylesheet7.css">
   <!--  アコーディオン検索バー -->
   <link rel="stylesheet" href="./css/stylesheet_a.css">
-  
+
 
 </head>
 
 
-<!-- ボディ メイン -->
 
 <body>
 
@@ -289,138 +287,138 @@ try {
     <!-- マイページ -->
     <div class="div_logout1">
       <input type="button" value='マイページ' class="logout_btn" onclick="location.href='../login/join.php'">
- 
+
     </div>
 
     <!-- ログイン -->
     <div class="div_logout1">
       <input type="button" value='ログイン' class="logout_btn" onclick="location.href='../login/join.php'">
-    
+
     </div>
 
 
-     <!-- 虫眼鏡 検索バー -->
+    <!-- 虫眼鏡 検索バー -->
 
-      <!-- ここにレシピアイテム検索ツールがはいります -->
-      <form action="serch_mushimegane.php" method="GET">
-                <!-- 検索ワード入力画面 -->
+    <!-- ここにレシピアイテム検索ツールがはいります -->
+    <form action="serch_mushimegane.php" method="GET">
+      <!-- 検索ワード入力画面 -->
 
 
-              <!-- 虫眼鏡検索で何か入力がされたら、 -->
-              <input type="text" name="serch"  value="" placeholder='レシピ/カテゴリ/ニックネーム' style="width:200px;"/>
-            
-                    <!-- 虫眼鏡のボタン -->
-                    <button type="mushimegane" class="form-button" type="submit"><img id="mushimegane" src="./css_img/mushimegane.png" >
-                    </button>
+      <!-- 虫眼鏡検索で何か入力がされたら、 -->
+      <input type="text" name="serch" value="" placeholder='レシピ/カテゴリ/ニックネーム' style="width:200px;" />
 
-          <!-- ↓ div_mushimegane おわり -->
-          </div>
+      <!-- 虫眼鏡のボタン -->
+      <button type="mushimegane" class="form-button" type="submit"><img id="mushimegane" src="./css_img/mushimegane.png">
+      </button>
+
+      <!-- ↓ div_mushimegane おわり -->
+  </div>
+  </form>
+
+
+  <!-- エラー 検索結果が無い時 -->
+  <div class="div_error">
+    <?php
+    if (!empty($_SESSION['error'])) {
+      // 虫眼鏡検索の検索結果のエラーmessageを変数に受け取る /serch_mushimegane.php
+      $error = $_SESSION['error'];
+      // エラーを表示
+      echo "<dt>" . "$error" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
       </form>
 
 
-      <!-- エラー 検索結果が無い時 -->
-      <div class="div_error">
-            <?php
-            if (!empty($_SESSION['error'])) { 
-                    // 虫眼鏡検索の検索結果のエラーmessageを変数に受け取る /serch_mushimegane.php
-                    $error = $_SESSION['error'];
-                    // エラーを表示
-                    echo "<dt>". "$error" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
 
-           
-            
-            <?php } elseif (!empty($_SESSION['error1'])) {
+    <?php } elseif (!empty($_SESSION['error1'])) {
 
-                    // 食材✅検索結果のエラーmessageを変数に受け取る /serch_material.php
-                    $error1 = $_SESSION['error1'];
-                    // エラーを表示
-                    echo "<dt>". "$error1" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error1']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
+      // 食材✅検索結果のエラーmessageを変数に受け取る /serch_material.php
+      $error1 = $_SESSION['error1'];
+      // エラーを表示
+      echo "<dt>" . "$error1" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error1']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
 
-            <?php } elseif (!empty($_SESSION['error2'])) { 
+    <?php } elseif (!empty($_SESSION['error2'])) {
 
-                    // カテゴリー✅ボックスのカテゴリ検索した結果を受け取る ./serch_multiple.php
-                    $error2 = $_SESSION['error2'];
-                    // エラーを表示
-                    echo "<dt>". "$error2" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error2']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
+      // カテゴリー✅ボックスのカテゴリ検索した結果を受け取る ./serch_multiple.php
+      $error2 = $_SESSION['error2'];
+      // エラーを表示
+      echo "<dt>" . "$error2" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error2']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
 
-            <?php } elseif (!empty($_SESSION['error3'])) { 
+    <?php } elseif (!empty($_SESSION['error3'])) {
 
-                    // 食材テキスト入力フォーム検索結果を受け取る serch_material_multiple.php'(テキストフォーム)
-                    $error3 = $_SESSION['error3'];  
-                    echo "<dt>". "$error3" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error3']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
+      // 食材テキスト入力フォーム検索結果を受け取る serch_material_multiple.php'(テキストフォーム)
+      $error3 = $_SESSION['error3'];
+      echo "<dt>" . "$error3" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error3']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
 
-            <?php } elseif (!empty($_SESSION['error5'])) { 
+    <?php } elseif (!empty($_SESSION['error5'])) {
 
-                    // メンバーの「ニックネームのテキスト入力フォーム」の検索結果を受け取る。 serch_member.phpの検索結果
-                    $error5 = $_SESSION['error5'];
-                    echo "<dt>". "$error5" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error5']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
+      // メンバーの「ニックネームのテキスト入力フォーム」の検索結果を受け取る。 serch_member.phpの検索結果
+      $error5 = $_SESSION['error5'];
+      echo "<dt>" . "$error5" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error5']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
 
-            <?php } elseif (!empty($_SESSION['error6'])) { 
+    <?php } elseif (!empty($_SESSION['error6'])) {
 
-                    // レシピIDをテキスト入力した検索結果を受け取る。serch_recipe_id.php
-                    $error6 = $_SESSION['error6'];
-                    echo "<dt>". "$error6" ."</dt>"; ?>
-                    <form action="" method="POST">
-                          <?php if (isset($_POST['clear'])) : ?>
-                            <?php unset($_SESSION['error6']); ?>
-                          <?php endif ?>
-                          <!-- 「クリア」ボタンでエラーメッセージを削除 -->
-                          <input type="submit" name="clear" value="クリア" />
-                    </form>
-                
-            <?php } elseif (!empty($_SESSION['product_error'])) { 
+      // レシピIDをテキスト入力した検索結果を受け取る。serch_recipe_id.php
+      $error6 = $_SESSION['error6'];
+      echo "<dt>" . "$error6" . "</dt>"; ?>
+      <form action="" method="POST">
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['error6']); ?>
+        <?php endif ?>
+        <!-- 「クリア」ボタンでエラーメッセージを削除 -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
 
-                    // 商品名テキスト入力した検索結果を受け取る。(serch_products.php)
-                    $productError = $_SESSION['product_error'];
-                    echo "<dt>". "$productError" ."</dt>"; ?>
-                    <form action="" method="POST"> ?>
-                      <?php if (isset($_POST['clear'])) : ?>
-                        <?php unset($_SESSION['product_error']); ?>
-                      <?php endif ?>
-                      <!-- セッション破棄（結果の削除） -->
-                      <input type="submit" name="clear" value="クリア" />
-                    </form>
+    <?php } elseif (!empty($_SESSION['product_error'])) {
 
-            <?php } ?> 
+      // 商品名テキスト入力した検索結果を受け取る。(serch_products.php)
+      $productError = $_SESSION['product_error'];
+      echo "<dt>" . "$productError" . "</dt>"; ?>
+      <form action="" method="POST"> ?>
+        <?php if (isset($_POST['clear'])) : ?>
+          <?php unset($_SESSION['product_error']); ?>
+        <?php endif ?>
+        <!-- セッション破棄（結果の削除） -->
+        <input type="submit" name="clear" value="クリア" />
+      </form>
+
+    <?php } ?>
 
 
-      <!-- div_error おわり -->
-      </div>
+    <!-- div_error おわり -->
+  </div>
 
 
   <!-- ↓ div_p おわり -->
@@ -1033,17 +1031,17 @@ try {
 
           </div>
           </form>
-         
-        <!-- div widthおわり -->        
+
+          <!-- div widthおわり -->
         </div>
-        
+
 
 
         <!-- -------------------------------------------------------------------- -->
         <!-- タブ -->
         <div class="block1">
-          
-        
+
+
           <div class="div_hidari">
 
             <div class="tabs">
@@ -1096,7 +1094,7 @@ try {
                   <!-- 小さいサムネイル画像 -->
                   <?php foreach ($list as $v) : ?>
                     <div class="imageList__thumbnail selected">
-                      
+
 
 
                       <img id="img_s" src="../create/recipe/images/<?php echo $v['complete_img'] ?>" onclick="changeimg('../create/recipe/images/<?php echo $v['complete_img'] ?>')" />
@@ -1236,7 +1234,7 @@ try {
           </tbody>
 
           </table>
-      
+
           </div>
 
 
@@ -1267,7 +1265,6 @@ try {
                     } else {
                       // それ以外のページの数字には、リンクを貼る
                       echo "<a href='?page_id=$n' style='padding: 5px;'>$n</a>";
-                      
                     }
                   }
                   ?>

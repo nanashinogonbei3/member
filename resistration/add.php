@@ -13,32 +13,30 @@ try {
     $dbh = new PDO($dsn,'root','');
 
 
-$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
-$sql='INSERT into members(last_name, first_name, members_id, nickname, icon_img, phone_number, password)';
-$sql.='values(:last_name, :first_name, :members_id, :nickname, :icon_img, :phone_number, :password)';
+    $sql='INSERT into members(last_name, first_name, members_id, nickname, icon_img, phone_number, password)';
+    $sql.='values(:last_name, :first_name, :members_id, :nickname, :icon_img, :phone_number, :password)';
 
 
-$stmt = $dbh->prepare($sql);
+    $stmt = $dbh->prepare($sql);
 
 
 
-$stmt->bindValue(':last_name',$_SESSION['personal']['last_name'],PDO::PARAM_STR);
-$stmt->bindValue(':first_name',$_SESSION['personal']['first_name'],PDO::PARAM_STR);
-$stmt->bindValue(':members_id',$_SESSION['personal']['members_id'],PDO::PARAM_STR);
-$stmt->bindValue(':nickname',$_SESSION['personal']['nickname'],PDO::PARAM_STR);
-$stmt->bindValue(':icon_img',$_SESSION['personal']['icon_img'],PDO::PARAM_STR);
-$stmt->bindValue(':phone_number',$_SESSION['personal']['phone_number'],PDO::PARAM_INT);
-// sha1($_SESSION) sha1 でパスワードを暗号化することができます。
-$stmt->bindValue(':password',sha1($_SESSION['personal']['password']),PDO::PARAM_STR);
+    $stmt->bindValue(':last_name',$_SESSION['personal']['last_name'],PDO::PARAM_STR);
+    $stmt->bindValue(':first_name',$_SESSION['personal']['first_name'],PDO::PARAM_STR);
+    $stmt->bindValue(':members_id',$_SESSION['personal']['members_id'],PDO::PARAM_STR);
+    $stmt->bindValue(':nickname',$_SESSION['personal']['nickname'],PDO::PARAM_STR);
+    $stmt->bindValue(':icon_img',$_SESSION['personal']['icon_img'],PDO::PARAM_STR);
+    $stmt->bindValue(':phone_number',$_SESSION['personal']['phone_number'],PDO::PARAM_INT);
+    // sha1($_SESSION) sha1 でパスワードを暗号化することができます。
+    $stmt->bindValue(':password',sha1($_SESSION['personal']['password']),PDO::PARAM_STR);
                             
 
 
-
-
-//SQLを実行します。
-$stmt->execute();
+    //SQLを実行します。
+    $stmt->execute();
 
 
 
@@ -49,12 +47,12 @@ $stmt->execute();
 }
 
 
-header("Location: ./process.php");
-exit;
+    header("Location: ./process.php");
+    exit;
 
-// 使い終わったセッションを全て削除します。
-// 残しておくと、登録ボタンで誤って重複してデータベースに登録してしまう危険があるためです
-unset($_SESSION['personal']);
+    // 使い終わったセッションを全て削除します。
+    // 残しておくと、登録ボタンで誤って重複してデータベースに登録してしまう危険があるためです
+    unset($_SESSION['personal']);
 
 ?>
 

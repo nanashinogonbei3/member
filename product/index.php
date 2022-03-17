@@ -6,7 +6,7 @@ session_start();
 // ログインメンバーが管理者でなかったら、ログイン画面に遷移する
 if ($_SESSION['member'] !== 104) {
     header('Location: ../../member/login/join.php');
-        exit();
+    exit();
 }
 
 // 必要なファイルを読み込む
@@ -24,9 +24,9 @@ try {
     // データベースに接続するための文字列（DSN・接続文字列）
     $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
 
-    $dbh = new PDO($dsn, 'root', '');
     // エラーが起きたときのモードを指定する
     // 「PDO::ERRMODE_EXCEPTION」を指定すると、エラー発生時に例外がスローされる
+    $dbh = new PDO($dsn, 'root', '');
 
 
     //  membersテーブルmenbers.id=104 の管理者の「アイコン画像」だけ表示)
@@ -63,12 +63,12 @@ try {
 
     // ここから、マイレシピのページングの処理
     $total_count = count($list);
-  
+
 
     // ページ数= 全商品数/1ページの表示数
     // トータルページ数※ceilは小数点を切り捨てる関数
     $pages = ceil($total_count / max_view);
-    
+
 
 
     //現在いるページのページ番号を取得
@@ -99,10 +99,6 @@ try {
     //実行し結果を取り出しておく
     $select->execute();
     $data = $select->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -182,7 +178,6 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
     header('Location: ../login/join.php');
     exit();
-    
 }
 
 
@@ -208,7 +203,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <link rel="stylesheet" href="css/stylesheet1.css">
     <!--  ページネーション -->
     <link rel="stylesheet" href="css/style_paging.css">
-    
+
 
 
 </head>
@@ -518,13 +513,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                                         <!-- 削除（Delete） ボタン -->
 
                                     <td><input type="submit" class="update" name="del" value="Delete" onClick="return dispDelete();" style="
-        font-size: 12px;
-        width: 45px;
-        height: 20px; 
-        border-radius: 6px;
-        border:none;
-        color: #ffffff;
-        background: #000000;" /></td>
+                                    font-size: 12px;
+                                    width: 45px;
+                                    height: 20px; 
+                                    border-radius: 6px;
+                                    border:none;
+                                    color: #ffffff;
+                                    background: #000000;" /></td>
                             </tr>
                             </form>
 
@@ -581,9 +576,9 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     if ($now < $pages) {
                         // 表示ページが最終ページより小さいなら、「次へ」表示
                         echo '<a href="?page_id=', ($now + 1), '">
-        <img src="../icon_img/next.png"
-            alt="次へ" width="25" height="25" border="0" margin-top:1px>
-        </a>';
+                        <img src="../icon_img/next.png"
+                            alt="次へ" width="25" height="25" border="0" margin-top:1px>
+                        </a>';
                     }
                     ?>
                 </li>

@@ -85,8 +85,9 @@ try {
 
 
         //membersテーブルを読み込む
-        $sql3 = "SELECT * FROM members WHERE id= '" . $_SESSION['member'] . "' ";
         // ログインのメンバー（index.phpから受信した$_GET['id']の代入変数$members_id）と紐づける
+        $sql3 = "SELECT * FROM members WHERE id= '" . $_SESSION['member'] . "' ";
+        
 
         $stmt3 = $dbh->prepare($sql3);
 
@@ -122,22 +123,22 @@ try {
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/stylesheet2.css">
-    <!-- css 改正version. -->
+
 </head>
 
 
-<!-- ボディ メイン -->
+
 
 <body>
 
-    <!-- <div class='inline_block_1'> -->
+  
 
     <div class='div_p'>
         <p class="title_font">レシピの公開</p>
 
         <!-- みんなのレシピ -->
         <div class="div_login "><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-            <!-- /member/top/confirm.php -->
+      
         </div>
 
     </div>
@@ -195,13 +196,13 @@ try {
 
                                 $no_published  =  'レシピ未公開';
                                 echo $no_published;
-                                // exit;
+                                
 
                             } else {
 
                                 $published  =  'レシピ公開中';
                                 echo $published;
-                                // exit;
+                                
                             }
                             ?>
 
@@ -256,8 +257,9 @@ try {
                             <p class="wf-sawarabimincho">調理動画</P>
                             <img class="img" src="./images/<?php echo $video ?>" width="250px" height="auto">
                     </div>
+                    <!-- DIV 左側おわり -->
                 </div>
-                <!-- DIV 左側おわり -->
+                
 
 
 
@@ -338,10 +340,7 @@ try {
                                     <!-- 入力フォーム値  分量 -->
                                     <td></td>
 
-                                    <td>
-                                        <!-- 追加ボタン -->
-
-                                    </td>
+                     
 
                                 </tr>
                             </tbody>
@@ -400,14 +399,14 @@ try {
             <!-- div_w -->
 
             <!-- DIV 右側おわり -->
-            <!-- </div> -->
+        
         </div>
+        <!-- div class="comprehensive" おわり-->
     </div>
-    <!-- div class="comprehensive" おわり-->
+    
 
 
     <!-- ↓ ここから、Proceser 調理手順 -->
-
     <div class="inline_block_4">
         <p class="p_font_rarge">🔲調理手順</p>
         <dt>
@@ -440,9 +439,9 @@ try {
                 </div>
 
             <?php endforeach ?>
-
-        </div>
         <!-- precent -->
+        </div>
+        
 
 
     </div>

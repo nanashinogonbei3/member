@@ -47,12 +47,9 @@ try{
             $list = $result->fetchAll( PDO::FETCH_ASSOC );
 
             foreach ($list as $v) {
-              // var_dump($v['recipe_id']);
-              //  echo '<pre>';
-              //  echo $v['recipe_id'];
-              //  echo '</pre>';
+           
                $recipeId = $v['recipe_id'];
-              //  echo $recipeId;
+              
             }
     
            
@@ -133,13 +130,13 @@ try{
 
             //  親カテゴリーID(2)階層下に登録済みの、子カテゴリー名とIDをFETCHする
             // 子カテゴリー (2) 副菜・おかず
-
+            // 管理者が作ったカテゴリーIDだけを表示する   
             $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
             AND categories.users_id = 56";
-            // 管理者が作ったカテゴリーIDだけを表示する";
+            
 
 
             $stmt = $dbh->prepare($sql);
@@ -154,13 +151,13 @@ try{
 
             //  親カテゴリーID(3)の階層下に登録済みの、子カテゴリー名とIDをFETCHする       
             // カテゴリー (3) 具材・カレーの色
-
+            // 管理者が作ったカテゴリーIDだけを表示する   
             $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
-            // 管理者が作ったカテゴリーIDだけを表示する";";
+            
 
 
             $stmt = $dbh->prepare($sql);
@@ -175,13 +172,13 @@ try{
             //  親カテゴリーID(4)の階層下に登録済みの、子カテゴリー名とIDをFETCHする   
 
             //  (4) ナン/ライス
-
+            // 管理者が作ったカテゴリーIDだけを表示する    
             $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
-            // 管理者が作ったカテゴリーIDだけを表示する";";
+            
 
 
             $stmt = $dbh->prepare($sql);
@@ -197,12 +194,13 @@ try{
             //  親カテゴリーID(5)階層下に登録済みの、子カテゴリー名とIDをFETCHする   
 
             //  (5) スィーツ・飲み物
+            // 管理者が作ったカテゴリーIDだけを表示する
             $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
             AND categories.users_id = 56 ";
-            // 管理者が作ったカテゴリーIDだけを表示する";";
+            
 
 
             $stmt = $dbh->prepare($sql);
@@ -217,14 +215,14 @@ try{
             //  親カテゴリーID(6)の階層下に登録済みの、子供カテゴリーをFETCHする
 
             //  (6) [趣向のカレー]
-            
+            // 管理者が作ったカテゴリーIDも、ユーザーが作ったカテゴリも全て表示する
             $sql = "SELECT  categories.id, categories.categories_name, 
             categories.parent_category_id
             FROM parent_categories JOIN categories ON parent_categories.id = 
             categories.parent_category_id 
             WHERE parent_categories.id = 6 AND categories.is_deleted = 0 ";
-            // AND categories.users_id = 56 
-            // 管理者が作ったカテゴリーIDも、ユーザーが作ったカテゴリも全て表示する";";
+          
+            
 
 
             $stmt = $dbh->prepare($sql);
@@ -235,7 +233,7 @@ try{
 
             $category6 = $result->fetchAll( PDO::FETCH_ASSOC );
 
-            // 親カテゴリーテーブル おわり
+            
 
 
 
@@ -1309,18 +1307,9 @@ try{
             </div>
            
 
-
+            <!-- div class="comprehensive" おわり-->                    
             </div>
-            <!-- div class="comprehensive" おわり-->
-
-
-         
-
-    <!-- precent -->
- 
-
-      
-                          
+            
 
   
 <!-- Javascript ファイルを読み込む -->

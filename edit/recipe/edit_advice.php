@@ -124,9 +124,10 @@ $id = $_POST['recipe_id'];
         <div class="div_logout"><input type="button"  value='みんなのレシピ' class="logout_btn"
                     onclick="location.href='../../top/confirm.php'" >
                         <!-- /member/top/confirm.php -->
-        </div>        
+        </div> 
+    <!-- div_p おわり -->       
     </div>
-    <!-- div_p おわり -->
+    
        
 
     <div class="comprehensive">

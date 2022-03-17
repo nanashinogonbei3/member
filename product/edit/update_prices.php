@@ -62,7 +62,7 @@ if (empty($_POST['amount']) || empty($_POST['coo']) || empty($_POST['price'])
     } catch (PDOException $e) {
         echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
         var_dump($e);
-        // echo $e->getMessage();
+        echo $e->getMessage();
         exit;
     }
 

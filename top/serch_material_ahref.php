@@ -11,7 +11,7 @@ require_once('../class/db/CreateRecipes.php');
     if (empty($_GET['material']) ) {
         
         header("Location: ../edit/recipe/release_recipe.php?id=");
-        // confirm.pnpへリダイレクト
+        // リダイレクト
         exit;
     }
      
@@ -31,12 +31,10 @@ require_once('../class/db/CreateRecipes.php');
                 $stmt = $dbh->prepare("SELECT my_recipes.id, my_recipes.recipe_name, my_recipes.complete_img,
                 categories.categories_name, members.nickname, categories.categories_name,
                 materials.material_name
-                -- product_lists.product_name
-                -- product_lists.makers_name
+
                 FROM materials
                 
-                -- JOIN product_lists ON materials.product_id = product_lists.id
-                -- left JOIN makers ON product_lists.maker_id = makers.id
+
                 JOIN my_recipes ON materials.recipe_id = my_recipes.id
                 JOIN members ON my_recipes.members_id = members.id
                 left outer JOIN recipe_categories ON my_recipes.id = recipe_categories.my_recipe_id

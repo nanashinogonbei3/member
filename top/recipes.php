@@ -44,9 +44,9 @@ try {
         $record = $result->fetch(PDO::FETCH_ASSOC);
 
 
-
-        $is_released = $record['is_released'];
         // 「公開済み判定カラム/=0;公開済み=1」に対して変数を作成し値を代入する
+        $is_released = $record['is_released'];
+
 
 
         $rcipeId = $record["id"];
@@ -104,10 +104,10 @@ try {
         $report = $result2->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($report as $v) {
-            // echo $v['p_recipe_id'];
+
             $p_recipeId = $v['p_recipe_id'];
         }
-        // exit;
+
 
 
 
@@ -159,7 +159,7 @@ try {
 </head>
 
 
-<!-- ボディ メイン -->
+
 
 <body>
 
@@ -220,7 +220,7 @@ try {
 
                         <div class="line"></div>
                         <!-- データベースからFETCH()した、  レシピID -->
-                        <dt class="wf-sawarabimincho">レシピID：
+                        <dt class="wf-sawarabimincho">レシピID:
                             <span style="color:green"><?php echo $id ?></span>
 
 
@@ -330,10 +330,7 @@ try {
                                             <!-- 入力フォーム値  分量 -->
                                             <td></td>
 
-                                            <td>
-                                                <!-- 追加ボタン -->
 
-                                            </td>
 
                                         </tr>
                                     </tbody>

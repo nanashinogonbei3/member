@@ -97,9 +97,6 @@ try {
         $result = $dbh->query($sql);
 
         $list = $result->fetchAll(PDO::FETCH_ASSOC);
-
-
-
     }
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
@@ -127,7 +124,7 @@ try {
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/stylesheet2.css">
- 
+
 </head>
 
 
@@ -139,7 +136,7 @@ try {
             <p class="title_font">商品アイテムの編集（管理者用）</p>
             <!-- 商品の詳細 -->
             <div class="div_logout2"><input type="button" value='商品の詳細' class="logout_btn" onclick="location.href='../product_introduction.php?id=<?php echo $product_id ?>'">
-               
+
             </div>
         </a>
 
@@ -164,7 +161,7 @@ try {
                             
 
                             location.href='../index.php?idm=<?php echo $record['id'] ?> action=rewrite'" value='商品アイテムを選び直す'>
-          
+
                         </div>
 
 
@@ -250,7 +247,7 @@ try {
                                 <div class="test">
                                     <!-- 戻る -->
                                     <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-                                 
+
                                 </div>
                             </div>
 
@@ -261,7 +258,7 @@ try {
                 </div>
                 <!-- div_hidariおわり -->
                 </form>
-            
+
 
 
 
@@ -376,7 +373,7 @@ try {
                         </dt>
                     </div>
                     </form>
-             
+
 
 
 
@@ -461,8 +458,8 @@ try {
                             </form>
 
                         </div>
-                      
-                    <!-- div_w おわり -->
+
+                        <!-- div_w おわり -->
                     </div>
 
 
@@ -518,16 +515,16 @@ try {
                     </table>
                     </form>
                 </div>
-             
+
             </div>
-            
-
-  
 
 
-        <!-- div class="comprehensive" おわり-->
+
+
+
+            <!-- div class="comprehensive" おわり-->
         </div>
-        
+
 
 
     </div>
@@ -661,8 +658,8 @@ try {
 
                 <div style="display:inline-flex">
 
-            <!-- 表示欄   商品説明 -->
-            <form method="POST" action="update.php">
+                    <!-- 表示欄   商品説明 -->
+                    <form method="POST" action="update.php">
                 </div>
 
                 <div class="contents">
@@ -691,16 +688,16 @@ try {
                 <div class="to_top">
                     <a href="#"><img src="../../icon_img/top.png" alt="topへ" width="80%"></a>
                 </div>
-                </div>
+            </div>
 
-                </div>
-            </form>
+        </div>
+        </form>
 
-    <!-- inline_block_4 -->
+        <!-- inline_block_4 -->
     </div>
     <!-- div_precent -->
     </div>
-    
+
 
 
     <script src="./js/movepage.js"></script>

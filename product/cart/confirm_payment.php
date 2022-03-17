@@ -2,30 +2,6 @@
 session_start();
 
 
-// var_dump($_SESSION["orderCustomerId"]);
-
-// // ----------------------------
-// echo 'orderセッション';
-// echo '<pre>';
-// var_dump($_SESSION['orderCustomerId']);
-// echo '</pre>';
-// // -----------------------------
-// echo 'cartセッション';
-// echo '<pre>';
-// var_dump($_SESSION['cart']);
-// echo '</pre>';
-// // -----------------------------
-// exit;
-
-
-
-// if (empty($_SESSION['payment'])) {
-//     header('Location: ./payment_method.php');
-//     exit;
-// }
-
-
-
 
 
 // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
@@ -91,31 +67,31 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
                     <p class="p_font_rarge">●支払方法</p>
-               
-                        <?= (htmlspecialchars($_SESSION['payment']['method'], ENT_QUOTES)); ?>
+
+                    <?= (htmlspecialchars($_SESSION['payment']['method'], ENT_QUOTES)); ?>
 
                     <dt class="wf-sawarabimincho">
-                    <!-- 支払方法を変更するボタン -->
+                        <!-- 支払方法を変更するボタン -->
 
-                    <input type="button" value='&laquo;&nbsp;支払方法を変更する' style="width: 180px; height: 25px" onclick="location.href='./payment_method.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
+                        <input type="button" value='&laquo;&nbsp;支払方法を変更する' style="width: 180px; height: 25px" onclick="location.href='./payment_method.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
                     </dt>
                     <br>
 
                     <!-- -------------------------------------------------- -->
-                  
+
                     <?php if (!empty($_SESSION['cart'])) : ?>
-                        
-                <form action="order_middle_add.php" method="POST" enctype="multipart/form-data">
+
+                        <form action="order_middle_add.php" method="POST" enctype="multipart/form-data">
 
                             <input type="submit" id="submit" class="re-order" value="注文を確定する" />
-                        <!-- </div> -->
-                </form>
+
+                        </form>
 
 
-            <?php endif ?>
+                    <?php endif ?>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 

@@ -25,8 +25,7 @@ if (!empty($materials)) {
     // フォーム未入力ならリダイレクト
     if (empty($_GET) ) {
         
-        header("Location: ./acodion.php?id=");
-        // confirm.pnpへリダイレクト
+        header("Location: ./acodion.php?id="); 
         exit;
     }
      
@@ -48,12 +47,9 @@ if (!empty($materials)) {
             } elseif(count($materials) >=2 ) {
                 $a = implode("','",$materials);
             }
-                // // $c = implode("','",$materials);
+                // $c = implode("','",$materials);
                 // $b = implode(",", $a);
                 // implodeは、配列要素を連結する「ニンジン, 豆, じゃがいも」GETの配列をカンマ区切る
-
-              
-
                 $sql = "SELECT distinct
                     my_recipes.id, my_recipes.recipe_name, my_recipes.complete_img,
                     categories.categories_name, members.nickname, categories.categories_name,
@@ -75,45 +71,41 @@ if (!empty($materials)) {
 
                 $list = $result->fetchAll( PDO::FETCH_ASSOC );   
  
-                // 検索したFETCHしたレシピIDとカテゴリーIDをセッションに渡し、
-                // 表示画面でレシピの一覧を表示する 
+               
 
-                // var_dump($list);
-                // exit;
-
+            // 検索したFETCHしたレシピIDとカテゴリーIDをセッションに渡し、
+            // 表示画面でレシピの一覧を表示する 
             if(!empty($list)) {
 
                 $_SESSION['materials1'] = $list;
 
 
-               
-                header("Location: ./acodion.php?id=");
                 // DB登録処理完了後、リダイレクト
+                header("Location: ./acodion.php?id=");
+                
                 exit;
 
             } elseif (empty($list)) {
 
                 if (isset($_SESSION['member'])) {
 
+                    // エラー表示
                     $error1 = 'この食材を使用したレシピの登録はありません。';
                     $_SESSION['error1'] = $error1;
                     header("Location: ./confirm.php?id=");
-                    // エラー表示
+                    
                     exit; 
                 
                 } else {
-
+                    // エラー表示
                     $error1 = 'この食材を使用したレシピの登録はありません。';
                     $_SESSION['error1'] = $error1;
                     header("Location: ./index.php?id=");
-                    // エラー表示
+                    
                     exit; 
 
                 }
             }        
-       
-
-
 
 
 
@@ -122,7 +114,7 @@ if (!empty($materials)) {
                 echo '<pre>';
                 var_dump($e);
                 echo '</pre>';
-                // echo $e->getMessage();
+                echo $e->getMessage();
                 exit;
         }
 

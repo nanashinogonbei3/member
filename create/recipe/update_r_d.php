@@ -11,9 +11,6 @@ require_once('./class/db/Base.php');
 require_once('./class/db/CreateRecipes.php');
 
    
-    // var_dump($_POST);
-    // exit;
-
 
     // マイレシピ＊テーブルへ// インスタンス生成
     $db_Myrecipe = new Myrecipes(); 

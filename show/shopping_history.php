@@ -66,7 +66,7 @@ try {
 
 
     // order_productsテーブルの、settlementカラムの重複しない値をカウントして、注文回数を出力する。
-    $sql = 'SELECT COUNT(DISTINCT settlement_no ) FROM order_products WHERE members_id = '.$_SESSION['member'].'
+    $sql = 'SELECT COUNT(DISTINCT settlement_no ) FROM order_products WHERE members_id = ' . $_SESSION['member'] . '
  
     ';
 
@@ -83,12 +83,13 @@ try {
     }
 
 
-  
-   
+
+
 
     // ページネーションの1ページ目のsqlの処理・1ページ以外のsqlの処理
     //表示するページを取得するSQLを準備
-    $select = $dbh->prepare("SELECT DISTINCT 
+    $select = $dbh->prepare(
+        "SELECT DISTINCT 
         order_products.settlement_no, order_products.order_date,
         order_products.product_lists_id, order_products.product_name, 
         order_products.price, order_products.num, order_products.payment_method,
@@ -98,8 +99,8 @@ try {
         WHERE order_products.members_id = '" . $_SESSION['member'] . "'
         ORDER BY order_products.id DESC LIMIT :start,:max "
     );
-   
-      
+
+
 
     if ($now == 1) {
         //1ページ目の処理
@@ -110,12 +111,12 @@ try {
         $select->bindValue(":start", ($now - 1) * max_view, PDO::PARAM_INT);
         $select->bindValue(":max", max_view, PDO::PARAM_INT);
     }
-        //実行し結果を取り出しておく
-        $select->execute();
+    //実行し結果を取り出しておく
+    $select->execute();
 
-        $data = $select->fetchAll(PDO::FETCH_ASSOC);
+    $data = $select->fetchAll(PDO::FETCH_ASSOC);
 
-  
+
 
 
     // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
@@ -166,52 +167,52 @@ try {
             <ul class="bar">
                 <li>
                     <span style="color:#000000;font-size:15px;font-weight:lighter">
-                  <?php  foreach ($countSettlement as $v) { ?>
-                        購入履歴は、全:<span style="color:green;font-size:24px"><?php echo $v ?></span>回です。</span>
-                  <?php } ?>
-                    &nbsp;&nbsp;
+                        <?php foreach ($countSettlement as $v) { ?>
+                            購入履歴は、全:<span style="color:green;font-size:24px"><?php echo $v ?></span>回です。</span>
+                <?php } ?>
+                &nbsp;&nbsp;
 
-                    <?php if ($pages >= 2) { ?>
-                        <!-- ページが２ページ以上あればページングを表示する -->
-                        <?php
-                        //ページネーションを表示    
-                        if ($now > 1) {
-                            // 1ページより大きいなら、「前へ」表示
-                            echo '<a href="?page_id=', ($now - 1), '">  
+                <?php if ($pages >= 2) { ?>
+                    <!-- ページが２ページ以上あればページングを表示する -->
+                    <?php
+                    //ページネーションを表示    
+                    if ($now > 1) {
+                        // 1ページより大きいなら、「前へ」表示
+                        echo '<a href="?page_id=', ($now - 1), '">  
                             <img src="../icon_img/pre.png"
                             alt="前へ" width="25" height="25" border="0">
                             </a>';
+                    } else {
+                        //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
+                    }
+                    ?>
+
+                    <?php
+                    // 1 2 3 
+                    for ($n = 1; $n <= $pages; $n++) {
+                        if ($n == $now) {
+                            // 現在表示されているページなら、リンクは付けない。
+                            echo "<span style='padding: 5px;'>$now</span>";
                         } else {
-                            //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
+                            echo "<a href='./shopping_history.php?page_id=$n' style='padding: 5px;'>$n</a>";
+                            // それ以外のページの数字には、リンクを貼る
+                            // hrefのリンクは、表示現在表示するリンクに修正して使うこと。
                         }
-                        ?>
+                    }
+                    ?>
 
-                        <?php
-                        // 1 2 3 
-                        for ($n = 1; $n <= $pages; $n++) {
-                            if ($n == $now) {
-                                // 現在表示されているページなら、リンクは付けない。
-                                echo "<span style='padding: 5px;'>$now</span>";
-                            } else {
-                                echo "<a href='./shopping_history.php?page_id=$n' style='padding: 5px;'>$n</a>";
-                                // それ以外のページの数字には、リンクを貼る
-                                // hrefのリンクは、表示現在表示するリンクに修正して使うこと。
-                            }
-                        }
-                        ?>
-
-                        <?php
-                        if ($now < $pages) {
-                            // 表示ページが最終ページより小さいなら、「次へ」表示
-                            echo '<a href="?page_id=', ($now + 1), '">  
+                    <?php
+                    if ($now < $pages) {
+                        // 表示ページが最終ページより小さいなら、「次へ」表示
+                        echo '<a href="?page_id=', ($now + 1), '">  
                     <img src="../icon_img/next.png"
                         alt="次へ" width="25" height="25" border="0" margin-top:1px>
                     </a>';
-                        }
-                        ?>
-                    <?php } elseif ($pages == 1) {
-                        // ページ数が1なら、ページングは非表示。
-                    } ?>
+                    }
+                    ?>
+                <?php } elseif ($pages == 1) {
+                    // ページ数が1なら、ページングは非表示。
+                } ?>
                 </li>
             </ul>
         </div>
@@ -223,41 +224,41 @@ try {
 
         <!-- テーブル -->
         <?php if (!empty($data)) : ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>注文時刻</th>
-                    <th>注文番号</th>
-                    <th>小計</th>
-                    <th>お支払方法</th>
-                    <th></th>
-                </tr>
-            </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>注文時刻</th>
+                        <th>注文番号</th>
+                        <th>小計</th>
+                        <th>お支払方法</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <?php foreach ($data as $key => $v) : ?>
+                <tbody>
+                    <tr>
+                        <?php foreach ($data as $key => $v) : ?>
 
-                        <td><?= $v['order_date'] ?></td>
-                        <td><?= $v['settlement_no'] ?></td>
-                        <td><?= ($v['price']) * ($v['num']) ?>円</td>
-                        <td><?= $v['payment_method'] ?></td>
-                        <td>
-                            <form action="shopping_history_product.php" method="POST">
-                                <input type="hidden" name="settlement_no" value="<?= $v['settlement_no'] ?>">
+                            <td><?= $v['order_date'] ?></td>
+                            <td><?= $v['settlement_no'] ?></td>
+                            <td><?= ($v['price']) * ($v['num']) ?>円</td>
+                            <td><?= $v['payment_method'] ?></td>
+                            <td>
+                                <form action="shopping_history_product.php" method="POST">
+                                    <input type="hidden" name="settlement_no" value="<?= $v['settlement_no'] ?>">
 
-                                <!-- ボタン -->
-                                <div class="div_re-order">
-                                    <input type="submit" class="re-order3" value="詳細">
-                                </div>
-                            </form>
-                        </td>
-                </tr>
+                                    <!-- ボタン -->
+                                    <div class="div_re-order">
+                                        <input type="submit" class="re-order3" value="詳細">
+                                    </div>
+                                </form>
+                            </td>
+                    </tr>
 
-            <?php endforeach ?>
+                <?php endforeach ?>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
         <?php endif ?>
 
@@ -282,10 +283,10 @@ try {
             <input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../logout/process.php'">
 
 
-        <!-- DIV inlineBlock -->
+            <!-- DIV inlineBlock -->
         </div>
 
-    <!-- DIV div_1 -->
+        <!-- DIV div_1 -->
     </div>
 
 

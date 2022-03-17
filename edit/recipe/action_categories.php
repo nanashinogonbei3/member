@@ -10,9 +10,9 @@ $dbh = new PDO($dsn,'root','');
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-
+// $_POST['del'] (index.php91行目、 name="del" →チェックボックスのname属性）
 if(isset($_POST["del"])) {
-// $_POST['del'] (index.php91行目、 name="del" →チェックボックスの名前）
+
 
 // データベースmaterial_categoriesのカラム'id'を削除します。
 // 「:id」の部分は「パラメータ」といいます。データベースのidカラムです。

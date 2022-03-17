@@ -9,8 +9,7 @@ echo('<pre>');
 var_dump($_SESSION['recipe']['how_many_servings']);
 var_dump($_SESSION['recipe']['cost']);
 echo('<pre>');
-// exit;
-// 成功!
+
 
    $fileName = $_FILES['video']['name']; 
 

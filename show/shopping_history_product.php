@@ -28,7 +28,7 @@ try {
 
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- 
+
 
     //現在いるページのページ番号を取得
     if (!isset($_GET['page_id'])) {
@@ -54,7 +54,7 @@ try {
         LEFT JOIN product_lists ON product_lists.id = order_products.product_lists_id
         WHERE order_products.settlement_no = '" . $_POST['settlement_no'] . "'
         ");
-      
+
 
     if ($now == 1) {
         //1ページ目の処理
@@ -65,14 +65,14 @@ try {
         $select->bindValue(":start", ($now - 1) * max_view, PDO::PARAM_INT);
         $select->bindValue(":max", max_view, PDO::PARAM_INT);
     }
-        //実行し結果を取り出しておく
-        $select->execute();
+    //実行し結果を取り出しておく
+    $select->execute();
 
-        $data = $select->fetchAll(PDO::FETCH_ASSOC);
+    $data = $select->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-    foreach ($data as $key =>$v) {
+    foreach ($data as $key => $v) {
         $first_name = $v['first_name'];
         $last_name = $v['last_name'];
         $post_number = $v['post_number'];
@@ -81,16 +81,15 @@ try {
         $address3 = $v['address3'];
         $address4 = $v['address4'];
         $address5 = $v['address5'];
-     
     }
 
 
-  
-        $total_count = count($data);
 
-        // ページ数= 全商品数/1ページの表示数
-        // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
-        $pages = ceil($total_count / max_view);
+    $total_count = count($data);
+
+    // ページ数= 全商品数/1ページの表示数
+    // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
+    $pages = ceil($total_count / max_view);
 
 
     // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
@@ -108,7 +107,6 @@ try {
     } else {
         header('Location: ../login/join.php');
         exit();
-        
     }
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
@@ -123,11 +121,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>購入履歴</title>
-     <!-- 全体CSS -->
+    <!-- 全体CSS -->
     <link rel="stylesheet" href="css/stylesheet5.css">
     <!-- ページネーション -->
     <link rel="stylesheet" href="css/style_paging3.css">
-    
+
 </head>
 
 <body>
@@ -181,8 +179,8 @@ try {
                         }
                         ?>
                     <?php
-                     // ページ数が1なら、ページングは非表示。
-                     } elseif ($pages == 1) {
+                        // ページ数が1なら、ページングは非表示。
+                    } elseif ($pages == 1) {
                     } ?>
                 </li>
             </ul>
@@ -190,7 +188,7 @@ try {
     </div>
     <!-- ---------------------------------------------- -->
 
-  
+
 
     <!-- 購入商品履歴 表示欄 -->
     <div class="div_2">
@@ -208,7 +206,7 @@ try {
                     <th>小計</th>
                     <th>お支払方法</th>
                     <th>注文日</th>
-         
+
 
 
                 </tr>
@@ -216,11 +214,11 @@ try {
 
             <tbody>
                 <tr>
-                    <?php 
+                    <?php
                     $total = 0;
                     $settlement_no  = $_POST['settlement_no'];
 
-                        foreach ($data as $key => $v) : ?>
+                    foreach ($data as $key => $v) : ?>
                         <!-- 商品ID(商品コード) -->
 
                         <td><?= $settlement_no ?></td>
@@ -247,34 +245,35 @@ try {
 
                 </form>
                 <?php
-                        
-                        $total += ($v['price']*$v['num']);   
 
-            
+                        $total += ($v['price'] * $v['num']);
+
+
 
                 ?>
             <?php endforeach ?>
 
-                <tr>
-                        <td>お届け先</td>
+            <tr>
+                <td>お届け先</td>
 
-                   
-                        <td>
-                            <?= $last_name.$first_name.'様'?>&nbsp;&nbsp;<?= $post_number.$address1.$address2.
-                            $address3.$address4.$address5 ?>
-                        </td>
-                    
-                
-                </tr>            
-                
+
+                <td>
+                    <?= $last_name . $first_name . '様' ?>&nbsp;&nbsp;<?= $post_number . $address1 . $address2 .
+                                                                    $address3 . $address4 . $address5 ?>
+                </td>
+
+
+            </tr>
+
 
             </tbody>
 
-            
+
         </table>
 
         <!-- 合計金額を出す。 -->
-        <p class='p'><?php echo "<h3>お支払金額:" .$total. "円" ?></h3></p>
+        <p class='p'><?php echo "<h3>お支払金額:" . $total . "円" ?></h3>
+        </p>
 
         <!-- -------------------------------------------------------- -->
 
@@ -289,26 +288,23 @@ try {
 
             <!-- マイページ -->
             <input type="button" value='マイページ' class="logout_btn" onclick="location.href='../login/process.php'">
-   
+
 
             <!-- みんなのレシピ -->
             <input type="button" value='みんなのレシピ' class="logout_btn3" onclick="location.href='../top/confirm.php'">
-        
+
 
             <!-- ログアウト -->
             <input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../logout/process.php'">
-          
+
 
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="location.href='./shopping_history.php?id'" value="前のページに戻る">
-        
+
         </div>
-     
+
 
     </div>
- 
-
-
 
 
 </body>

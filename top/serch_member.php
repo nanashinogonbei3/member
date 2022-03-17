@@ -11,8 +11,7 @@ require_once('../class/db/CreateRecipes.php');
     // フォーム未入力ならリダイレクト
     if (empty($_GET) ) {
         
-        // header("Location: ./acodion.php?id=");
-        // confirm.pnpへリダイレクト
+        header("Location: ./acodion.php?id=");
         exit;
     }
      
@@ -50,8 +49,7 @@ require_once('../class/db/CreateRecipes.php');
                }
             
                 // exit; addcslashes($_GET['name']のGETの名前にアンダーバー'_'をつけると不成功。アンダーバーを消したら出来た
-                // 注意::
-
+                // 注意:
 
                 if ($stmt->rowCount()) {
 
@@ -64,19 +62,19 @@ require_once('../class/db/CreateRecipes.php');
 
              
                 } else {
-
+                    // エラー表示
                     if (isset($_SESSION['member'])) {
                         $error5 = 'お探しのユーザーがいません。'; 
                         $_SESSION['error5'] = $error5;
                         header("Location: ./confirm.php?id=");
-                        // エラー表示
+                        
                         exit;
-
+                    // エラー表示    
                     } else {
                         $error5 = 'お探しのユーザーがいません。'; 
                         $_SESSION['error5'] = $error5;
                         header("Location: ./index.php?id=");
-                        // エラー表示
+                        
                         exit;
 
                     }
@@ -89,7 +87,7 @@ require_once('../class/db/CreateRecipes.php');
             echo '<pre>';
             var_dump($e);
             echo '</pre>';
-            // echo $e->getMessage();
+            echo $e->getMessage();
             exit;
     }
 

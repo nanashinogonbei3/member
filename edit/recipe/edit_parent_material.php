@@ -67,7 +67,7 @@ try {
 
     $material_category = $result->fetchAll(PDO::FETCH_ASSOC);
 
- 
+
 
 
     // メンバーズ・テーブルに接続する
@@ -98,7 +98,6 @@ try {
         exit();
         // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
     }
-
 } catch (PDOException $e) {
     echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
     echo '<pre>';
@@ -163,19 +162,19 @@ if (!empty($_POST['send'])) {
 
             <!-- ログアウト -->
             <div class="div_logout"><input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../../logout/process.php'">
-                
+
             </div>
             <!-- マイページ -->
             <div class="div_logout"><input type="button" value='マイページ' class="logout_btn" onclick="location.href='../../login/process.php'">
-               
+
             </div>
             <!-- みんなのレシピ -->
             <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-               
+
             </div>
-        <!-- div_p おわり -->
+            <!-- div_p おわり -->
         </div>
-        
+
 
 
         <div class="comprehensive">
@@ -189,11 +188,11 @@ if (!empty($_POST['send'])) {
                         <dt class="p_font_rarge"><span style="font-size:18px">材料カテゴリーの作成</span></dt>
                         <!-- 区切り線 -->
                         <div class="line"></div>
-                        
+
                     </div>
 
                     <div class="categories_comprehensive">
-                        
+
 
                         <!-- 左側 はじまり -->
                         <div class="div_width">
@@ -239,7 +238,7 @@ if (!empty($_POST['send'])) {
                                 <!-- </label> -->
                             </div>
 
-                            
+
 
 
                             <tr></tr>
@@ -324,7 +323,7 @@ if (!empty($_POST['send'])) {
                                                     <input type="checkbox" name="id" value="<?php echo $v['id'] ?>">
                                                     <!--  カテゴリー名 -->
                                                     <p><input type="text" name="material_category_name" size="24" value="<?php echo $v['material_category_name'] ?>">
-                                                        
+
                                                         <!--  編集 ボタン -->
                                                         <input type="submit" class="update" value="update" name="edit" class="execution-btn">
                                                     </p>
@@ -333,7 +332,7 @@ if (!empty($_POST['send'])) {
                                             </td>
                     </div>
 
-                
+
 
                     <td>
                         <!-- フォーム 登録カテゴリ削除 -->
@@ -362,13 +361,13 @@ if (!empty($_POST['send'])) {
 
                     <!-- 戻る -->
                     <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-                  
+
 
                 </div>
-            <!-- 入力フォーム緑枠終わり -->            
+                <!-- 入力フォーム緑枠終わり -->
             </div>
-            
-           
+
+
         </div>
     </div>
     </div>

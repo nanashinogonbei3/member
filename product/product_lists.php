@@ -5,9 +5,9 @@ session_start();
 // 必要なファイルを読み込む
 require_once('../class/db/Base.php');
 require_once('../class/db/CreateRecipes.php');
-
-define('max_view', 15);
 // 1ページの$list でFETCH ALL の表示数
+define('max_view', 15);
+
 
 try {
 
@@ -52,8 +52,9 @@ try {
     // echo($total_count);
 
     // ページ数= 全商品数/1ページの表示数
-    $pages = ceil($total_count / max_view);
     // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
+    $pages = ceil($total_count / max_view);
+
 
 
     //現在いるページのページ番号を取得
@@ -65,7 +66,6 @@ try {
 
     // ページネーションの1ページ目のsqlの処理・1ページ以外のsqlの処理
     //表示するページを取得するSQLを準備
-
     $select = $dbh->prepare("SELECT distinct *
             FROM product_lists
             INNER JOIN makers ON product_lists.maker_id = makers.id
@@ -118,7 +118,7 @@ if (!empty($_REQUEST['action'])) {
     <link rel="stylesheet" href="css/stylesheet1.css">
     <!--  ページネーション -->
     <link rel="stylesheet" href="css/style_paging.css">
-    
+
 
 
 </head>
@@ -134,9 +134,9 @@ if (!empty($_REQUEST['action'])) {
 
     </script>
 
-  
-        <div class='div_p'><span style="font-size:18px;color:green;"></span>Product lists 商品リスト
-    
+
+    <div class='div_p'><span style="font-size:18px;color:green;"></span>Product lists 商品リスト
+
 
         <?php if (!empty($_SESSION['member'])) { ?>
             <!-- ログアウト -->
@@ -163,24 +163,24 @@ if (!empty($_REQUEST['action'])) {
             <!-- 管理者id === 104 なら商品の編集ボタンを表示する -->
             <?php if ($_SESSION['member'] === 104) { ?>
                 <!-- 管理者ログイン -->
-                <div class="div_logout"><input type="button" value='商品の編集' class="logout_btn" onclick="location.href='index.php'">   
+                <div class="div_logout"><input type="button" value='商品の編集' class="logout_btn" onclick="location.href='index.php'">
                 </div>
-            <!-- // ログインメンバーのid が104以外なら、「商品の編集」ボタンは表示しない。 -->
+                <!-- // ログインメンバーのid が104以外なら、「商品の編集」ボタンは表示しない。 -->
             <?php } elseif ($_SESSION['member'] !== 104) { ?>
 
-             
-                 
-               
+
+
+
             <?php } ?>
         <?php endif ?>
 
 
         <?php if (!empty($_SESSION['member'])) { ?>
-                <!-- 買い物カゴボタン -->
-                <div class="div_logout3">
-                    <input type="button" value="カートを見る" class="shop-order" onclick="
+            <!-- 買い物カゴボタン -->
+            <div class="div_logout3">
+                <input type="button" value="カートを見る" class="shop-order" onclick="
                         location.href='./cart/cart_show.php'">
-                </div>
+            </div>
         <?php } ?>
 
 
@@ -227,9 +227,9 @@ if (!empty($_REQUEST['action'])) {
                             if ($now > 1) {
                                 // 1ページより大きいなら、「前へ」表示
                                 echo '<a href="?page_id=', ($now - 1), '">
-                 <img src="../icon_img/pre.png"
-                 alt="前へ" width="25" height="25" border="0">
-                </a>';
+                                <img src="../icon_img/pre.png"
+                                alt="前へ" width="25" height="25" border="0">
+                                </a>';
                             } else {
                                 //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
                             }
@@ -254,9 +254,9 @@ if (!empty($_REQUEST['action'])) {
                             if ($now < $pages) {
                                 // 表示ページが最終ページより小さいなら、「次へ」表示
                                 echo '<a href="?page_id=', ($now + 1), '">
-                    <img src="../icon_img/next.png"
-                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
-                    </a>';
+                                <img src="../icon_img/next.png"
+                                    alt="次へ" width="25" height="25" border="0" margin-top:1px>
+                                </a>';
                             }
                             ?>
                         </li>
@@ -294,8 +294,9 @@ if (!empty($_REQUEST['action'])) {
                         </div>
                     <?php endforeach ?>
                 </div>
+                <!-- div_Comprehensive -->
             </div>
-            <!-- div_Comprehensive -->
+
 
 
 

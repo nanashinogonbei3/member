@@ -11,7 +11,6 @@ require_once('../class/db/CreateRecipes.php');
     if (empty($_GET['serch']) ) {
         
         header("Location: ./acodion.php?id=");
-        // confirm.pnpへリダイレクト
         exit;
     }
      
@@ -93,7 +92,7 @@ require_once('../class/db/CreateRecipes.php');
             echo '<pre>';
             var_dump($e);
             echo '</pre>';
-            // echo $e->getMessage();
+            echo $e->getMessage();
             exit;
     }
 

@@ -142,7 +142,7 @@ try {
            
 
             
-            <!-- 戻る -->
+            <!-- キャンセル -->
             <br><br><br>
             <input type="button" value='キャンセル' class="re-order" onclick="location.href='../../login/process.php'">
   

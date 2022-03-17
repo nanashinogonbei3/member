@@ -11,7 +11,6 @@ require_once('../class/db/CreateRecipes.php');
     if (!isset($_SESSION['recipe_id']) ) {
         
         header("Location: ./login_recipe.php?id=");
-        // confirm.pnpへリダイレクト
         exit;
    
     // これらの入力があれば、それぞれの変数に値を代入する
@@ -58,8 +57,7 @@ require_once('../class/db/CreateRecipes.php');
                 // 全調理手順を表示するための、FETCHAll()
                 $data= $stmt->fetchAll( PDO::FETCH_ASSOC );
 
-                // var_dump($data);
-                // exit;
+             
 
                 foreach ($data as $key => $v) {
                     // echo $v['recipe_name'];
@@ -84,12 +82,12 @@ require_once('../class/db/CreateRecipes.php');
                 echo '<pre>';
                 var_dump($e);
                 echo '</pre>';
-                // echo $e->getMessage();
+                echo $e->getMessage();
                 exit;
         }
 
         header("Location: ./login_recipe.php?id=");
-        // DB登録処理完了後、インデックスページ（index.php）へリダイレクト
+        // DB登録処理完了後、リダイレクト
         exit; 
     } 
     ?>

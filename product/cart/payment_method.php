@@ -17,17 +17,15 @@ if (isset($_POST['pay'])) {
     // なので$_POST['method']事態が存在しなくなるので、===''でなく!issetで設定する。 
     if (!isset($_POST['method'])) {
         $error['method'] = 'blank';
-        
     }
 
     if (empty($error)) {
 
-    $_SESSION['payment'] = $_POST;
-    echo 'お支払方法が選択されました。';
-    // exit;
-    header('Location: ./confirm_payment.php');
-    exit();
-
+        $_SESSION['payment'] = $_POST;
+        echo 'お支払方法が選択されました。';
+        // exit;
+        header('Location: ./confirm_payment.php');
+        exit();
     }
 }
 // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
@@ -58,7 +56,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お支払方法</title>
 
-<!-- 郵便局のAPI〒番号から住所検索機能 -->
+    <!-- 郵便局のAPI〒番号から住所検索機能 -->
 
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
@@ -100,14 +98,14 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                 <table>
                     <h3>●お支払方法をお選びください</h3>
 
-                  
-                    
+
+
                     <tr>
                         <?php if (!empty($error['method'])) : ?>
                             <p class="error">* お支払方法をお選びください</p>
                         <?php endif ?>
                     </tr>
-           
+
 
                     <tr>
                         <th>1.</th>
@@ -165,12 +163,12 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-       
+
         </div>
     </div>
     <!-- DIV block1おわり -->
     </div>
-    
+
 
     <script src="js/japan_post_num.js"></script>
 

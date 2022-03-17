@@ -5,9 +5,6 @@ session_start();
 require_once('./class/db/Base.php');
 require_once('./class/db/CreateRecipes.php');
 
-   
-    // var_dump($_POST);
-    // exit;
 
 
     // マイレシピ＊テーブルへ// インスタンス生成
@@ -47,16 +44,16 @@ require_once('./class/db/CreateRecipes.php');
         $stmt->execute ();
            
 
-            // 処理が完了したら（confirm.php）へリダイレクト
-            header("Location: ./confirm.php?id=" . $_POST['id']);
-            // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
-            exit;
+        // 処理が完了したら（confirm.php）へリダイレクト
+        header("Location: ./confirm.php?id=" . $_POST['id']);
+        // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
+        exit;
 
 
     } catch (PDOException $e) {
         echo 'my_recipeのDBに接続できません: ',  $e->getMessage(), "\n";
         var_dump($e);
-        // echo $e->getMessage();
+        echo $e->getMessage();
         exit;
     }
     

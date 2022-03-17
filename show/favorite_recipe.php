@@ -137,22 +137,22 @@ try {
         <?php if ($_SESSION['member'] == 104) : ?>
             <div class="div_logout1">
                 <input type="button" value='商品の編集' class="logout_btn" onclick="location.href='./edit/confirm.php?id=<?php echo $id  ?>'">
-             
+
             </div>
-          
+
 
         <?php endif ?>
         <!-- マイページ -->
         <div class="div_logout1">
             <input type="button" value='マイページ' class="logout_btn" onclick="location.href='../login/process.php'">
-         
+
         </div>
         <!-- 商品一覧ボタン -->
         <div class="div_logout3">
 
         </div>
 
-    <!-- div_pおわり -->
+        <!-- div_pおわり -->
     </div>
 
 

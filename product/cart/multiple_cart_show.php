@@ -50,10 +50,10 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>ショッピングカート</title>
-    
+
     <!-- 全体CSS -->
     <link rel="stylesheet" href="css/stylesheet5.css">
-    
+
 </head>
 
 <body>

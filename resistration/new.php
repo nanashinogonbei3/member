@@ -118,8 +118,7 @@ if (!empty($_FILES['icon_img']['name'])) {
         // $_POSTに挿入されたファイルデータが、$_SESSION['personal']に代入され、
         // $image（アップロードした画像を $_SESSION['personal']['icon_img']に代入した
 
-        // echo $_SESSION['personal']['icon_img']; (ここで$_SESSION['personal']['icon_img']が空かどうかをチェックした)
-        // exit;
+     
 	}
 
                 

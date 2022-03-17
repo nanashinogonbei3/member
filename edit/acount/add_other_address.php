@@ -66,7 +66,6 @@ session_start();
 
 
 
-        // **************
         
         // 中間テーブル（addressテーブル)にインサートする。
          $sql = 'INSERT INTO addresses(';

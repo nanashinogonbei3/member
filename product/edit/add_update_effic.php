@@ -69,7 +69,7 @@ if ($limit < $efficacyLength ) {
     } catch (PDOException $e) {
         echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
         var_dump($e);
-        // echo $e->getMessage();
+        echo $e->getMessage();
         exit;
     }
 

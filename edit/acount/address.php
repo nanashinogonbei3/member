@@ -263,12 +263,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
             </form>
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-            <!-- 戻るおわり -->
+    
         </div>
 
     </div>
-    </div>
     <!-- DIV block1おわり -->
+    </div>
+    
 
     <script src="japan_post_num.js"></script>
 

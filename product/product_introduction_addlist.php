@@ -165,7 +165,7 @@ try {
 
 
                     <!-- データベースからFETCH()した、商品ID -->
-                    <dt class="wf-sawarabimincho">商品ID：
+                    <dt class="wf-sawarabimincho">商品ID:
                         <span style="color:green"><?php echo $list['id'] ?></span>
                     </dt>
 
@@ -214,19 +214,14 @@ try {
                     <!-- データベースからFETCH()した、商品画像 -->
                     <img id="img3" src="./images/<?php echo $list['img'] ?>">
                 </div>
-
+                <!-- edit_6おわり -->
             </div>
-            <!-- edit_6おわり -->
 
 
-            <!-- フォームおわり -->
 
-
-            <!-- div class="comprehensive" おわり-->
-
-
+            <!-- div_precent -->
         </div>
-        <!-- div_precent -->
+
 
         <?php if (!empty($productUsedRecipeName)) { ?>
             <!-- 商品を使ったレシピがあれば -->
@@ -246,9 +241,9 @@ try {
                                 if ($now > 1) {
                                     // 1ページより大きいなら、「前へ」表示
                                     echo '<a href="?id=', ($id), '&page_id=', ($now - 1), '">  
-                 <img src="../icon_img/pre.png"
-                 alt="前へ" width="25" height="25" border="0">
-                </a>';
+                                    <img src="../icon_img/pre.png"
+                                    alt="前へ" width="25" height="25" border="0">
+                                    </a>';
                                 } else {
                                     //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
                                 }
@@ -273,9 +268,9 @@ try {
                                 if ($now < $pages) {
                                     // 表示ページが最終ページより小さいなら、「次へ」表示
                                     echo '<a href="?id=', ($id), '&page_id=', ($now + 1), '">  
-                    <img src="../icon_img/next.png"
-                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
-                    </a>';
+                                    <img src="../icon_img/next.png"
+                                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
+                                    </a>';
                                 }
                                 ?>
                             <?php } elseif ($pages == 1) {
@@ -290,12 +285,12 @@ try {
 
 
                 </div>
-
+                <!-- ページネーション囲むDIVおわり -->
             </div>
 
 
 
-            <!-- ページネーション囲むDIVおわり -->
+
 
             <!-- 商品を使ったレシピ一覧表示欄 -->
             <div class="inline_block_7">
@@ -328,9 +323,6 @@ try {
     </div>
     <!-- inlin_block_7おわり -->
     </div>
-
-
-
 
 
     <!-- compresive -->

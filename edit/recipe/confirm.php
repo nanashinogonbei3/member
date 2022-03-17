@@ -22,27 +22,27 @@ $id = $_GET['id'];
 
 
 
-if (!empty($_GET['recipe_id'])) {
-    $id = $_GET['recipe_id'];
-    echo $id;
-} elseif (!empty($_POST['recipe_id'])) {
-    $id = $_POST['recipe_id'];
-    echo $id;
-}
+        if (!empty($_GET['recipe_id'])) {
+            $id = $_GET['recipe_id'];
+            echo $id;
+        } elseif (!empty($_POST['recipe_id'])) {
+            $id = $_POST['recipe_id'];
+            echo $id;
+        }
 
-// action_m.phpで材料削除後、リダイレクトさせる変数を代入する
-// $_SESSION['recipe_id'] = $id;
-// action_subtitle.phpから、./confirm.phpへリダイレクトするため
-// 削除したidだと戻れないのでセッションにいれておく。
-if (!empty($id)) {
-    $_SESSION['recipe_id'] = $id;
-}
+        // action_m.phpで材料削除後、リダイレクトさせる変数を代入する
+        // $_SESSION['recipe_id'] = $id;
+        // action_subtitle.phpから、./confirm.phpへリダイレクトするため
+        // 削除したidだと戻れないのでセッションにいれておく。
+        if (!empty($id)) {
+            $_SESSION['recipe_id'] = $id;
+        }
 
-// もしも、ログイン会員idが空なら、ログイン画面へリダイレクトさせる。
-if ($_SESSION['member'] == '') {
+        // もしも、ログイン会員idが空なら、ログイン画面へリダイレクトさせる。
+        if ($_SESSION['member'] == '') {
 
-    header("Location: ../../login/join.php");
-}
+            header("Location: ../../login/join.php");
+        }
 
 
 try {
@@ -63,15 +63,9 @@ try {
 
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
         $sql = 'SELECT * FROM my_recipes WHERE id=' . $id;
 
-
-        // 内部結合
-        // SELECT * FROM my_recipes, materials WHERE my_recipes.id = materials.recipe_id;
-        // 外部結合
-        // 材料 が未登録の, レシピも表示が可能
 
         $stmt = $dbh->prepare($sql);
 

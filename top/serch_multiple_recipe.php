@@ -5,9 +5,6 @@ require_once('../class/db/Base.php');
 require_once('../class/db/CreateRecipes.php');
 
 
-// var_dump($_SESSION);
-// exit;
-
 
 // このファイルでは、レシピ名を検索（あいまい検索）し、リレーションした調理手順の結果を渡す準備をします
 
@@ -15,7 +12,6 @@ require_once('../class/db/CreateRecipes.php');
     if (empty($_SESSION['serch1']) ) {
         
         header("Location: ./login_recipe.php?id=");
-        // confirm.pnpへリダイレクト
         exit;
    
     } else {
@@ -121,9 +117,9 @@ require_once('../class/db/CreateRecipes.php');
         }
 
                 header("Location: ./login_recipe.php?id=");
-                // DB登録処理完了後、インデックスページ（index.php）へリダイレクト
+                // DB登録処理完了後、リダイレクト
                 exit; 
-// end foreach
+
     } 
 } 
  

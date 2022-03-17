@@ -51,10 +51,10 @@ try {
 
 
         // ページ数= 全商品数/1ページの表示数
-        $pages = ceil($total_count / max_view);
         // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
-        // echo $pages;
-        // exit;
+        $pages = ceil($total_count / max_view);
+        
+ 
 
         //現在いるページのページ番号を取得
         if (!isset($_GET['page_id'])) {
@@ -165,7 +165,7 @@ try {
 
 
                     <!-- データベースからFETCH()した、商品ID -->
-                    <dt class="wf-sawarabimincho">商品ID：
+                    <dt class="wf-sawarabimincho">商品ID:
                         <span style="color:green"><?php echo $list['id'] ?></span>
                     </dt>
 
@@ -179,7 +179,7 @@ try {
             </div>
         </div>
         </form>
-        <!-- フォームおわり -->
+       
 
 
         <div class="item_6">
@@ -196,8 +196,6 @@ try {
 
 
             <!-- DIV 右側はじまり -->
-
-
             <div class="div_edit_r6">
 
 
@@ -214,17 +212,13 @@ try {
 
 
                 </div>
-
+            <!-- edit_6おわり -->        
             </div>
-            <!-- edit_6おわり -->
+            
 
-
-            <!-- フォームおわり -->
 
 
             <!-- div class="comprehensive" おわり-->
-
-
         </div>
         <!-- div_precent -->
 
@@ -246,9 +240,9 @@ try {
                                 if ($now > 1) {
                                     // 1ページより大きいなら、「前へ」表示
                                     echo '<a href="?id=', ($id), '&page_id=', ($now - 1), '">  
-                 <img src="../icon_img/pre.png"
-                 alt="前へ" width="25" height="25" border="0">
-                </a>';
+                                    <img src="../icon_img/pre.png"
+                                    alt="前へ" width="25" height="25" border="0">
+                                    </a>';
                                 } else {
                                     //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
                                 }
@@ -273,9 +267,9 @@ try {
                                 if ($now < $pages) {
                                     // 表示ページが最終ページより小さいなら、「次へ」表示
                                     echo '<a href="?id=', ($id), '&page_id=', ($now + 1), '">  
-                    <img src="../icon_img/next.png"
-                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
-                    </a>';
+                                    <img src="../icon_img/next.png"
+                                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
+                                    </a>';
                                 }
                                 ?>
                             <?php } elseif ($pages == 1) {

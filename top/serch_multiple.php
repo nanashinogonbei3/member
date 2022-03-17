@@ -38,7 +38,6 @@
                             // $categoryIds= count($categoryid);
                             // 実行結果 ok INT(3) = 3ヶ選択
                             // implodeは、配列要素を連結する・便利
-
                             $a = implode("','", $categoryid);
                         
 

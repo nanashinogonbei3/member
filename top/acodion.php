@@ -34,14 +34,14 @@ if (!empty($_SESSION['members_recipes'])) {
 // recipe ID をテキスト入力した検索結果を受け取る。serch_recipe_id.phpの検索結果をセッションに格納したものを変数に渡す。
 if (!empty($_SESSION['serchRecipeId'])) {
   $recipeId = $_SESSION['serchRecipeId'];
-} 
+}
 
 
 // 商品一覧/product/index.php で検索して、serch_mushimegane.phpの実行結果をセッションで受け取る。
 if (!empty($_SESSION['productList'])) {
   $productListUp = $_SESSION['productList'];
   // 上記のセッションが空なら、下記のエラーメッセージを表示する。
-} 
+}
 
 
 
@@ -214,16 +214,16 @@ try {
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>カテゴリー検索</title>
-  
+
 
   <!-- CSS -->
-  
+
 
   <link rel="stylesheet" href="css/stylesheet2_3.css">
   <!-- アコーディオン検索バー -->
   <link rel="stylesheet" href="css/stylesheet_a.css">
-  
- 
+
+
 
   <style>
     /* ボタン⓵ [材料に追加]のCSSの*ID */
@@ -998,7 +998,7 @@ try {
               <br><br>
               <!-- カテゴリ検索結果表示 おわり -->
               <pre></pre>
-     
+
 
             <?php } ?>
 
@@ -1120,7 +1120,7 @@ try {
                 </div>
                 <!-- precent -->
                 <br><br>
-           
+
               <?php } ?>
 
 
@@ -1242,10 +1242,10 @@ try {
                       </div>
 
                     <?php endforeach ?>
-                  <!-- precent -->                      
+                    <!-- precent -->
                   </div>
-                  
-       
+
+
                 <?php } ?>
 
 
@@ -1348,7 +1348,7 @@ try {
                   <?php endforeach ?>
 
                   </div>
-                
+
                 <?php } ?>
 
 
@@ -1361,7 +1361,7 @@ try {
 
 
 
-                
+
 
                 <!-- //////////////// -->
 
@@ -1496,7 +1496,7 @@ try {
 
 
                 </div>
-              
+
               <?php } ?>
 
               <!-- //////////////// -->
@@ -1504,168 +1504,169 @@ try {
 
 
 
-                <!-- 表示欄 -->
-                <?php if (!empty($recipeId)) { ?>
+              <!-- 表示欄 -->
+              <?php if (!empty($recipeId)) { ?>
 
-                    <!-- 🔎虫眼鏡のテキストフォームボックス検索 -->
-                    <br><br>
-                    <div class="margin-5 ">
-                      <dt class="wf-sawarabimincho">
-                        <img id="acd" src="../icon_img/3country.png" width="21px" height="auto">
-                        <img id="acd" src="../icon_img/meet.png" width="24px" height="auto">
-                        <span style="color:#ffffff">虫眼鏡の検索結果 レシピ一覧
-                      </dt></span>
-                      <?php foreach ($recipeId as $key => $v) : ?>
-                        <?php
-                        if (!empty($v['nickname'])) :
-                          $membersNickname = $v['nickname'];
-                        endif;
-                        ?>
-                      <?php endforeach ?>
-                      <dt><span style="color:green;font-size:21px">
-                          <!-- からのレシピ一です。</span></dt> -->
-                          <!-- form送信でボタンを押したらセッションを削除できます -->
-                          <br><br><br>
+                <!-- 🔎虫眼鏡のテキストフォームボックス検索 -->
+                <br><br>
+                <div class="margin-5 ">
+                  <dt class="wf-sawarabimincho">
+                    <img id="acd" src="../icon_img/3country.png" width="21px" height="auto">
+                    <img id="acd" src="../icon_img/meet.png" width="24px" height="auto">
+                    <span style="color:#ffffff">虫眼鏡の検索結果 レシピ一覧
+                  </dt></span>
+                  <?php foreach ($recipeId as $key => $v) : ?>
+                    <?php
+                    if (!empty($v['nickname'])) :
+                      $membersNickname = $v['nickname'];
+                    endif;
+                    ?>
+                  <?php endforeach ?>
+                  <dt><span style="color:green;font-size:21px">
+                      <!-- からのレシピ一です。</span></dt> -->
+                      <!-- form送信でボタンを押したらセッションを削除できます -->
+                      <br><br><br>
 
-                          <!-- ボタン -->
-                          <!-- form送信でボタンを押したらセッションを削除できます -->
-                          <form action="" method="POST">
-                            <!-- destroy ボタンが押されたら、セッションを削除し-->
-                            <?php if (isset($_POST['clear'])) : ?>
-                              <!-- もしname="destroy" がGET送信されたら、unset($_SESSION)する -->
-                              <?php unset($_SESSION['serchRecipeId']); ?>
+                      <!-- ボタン -->
+                      <!-- form送信でボタンを押したらセッションを削除できます -->
+                      <form action="" method="POST">
+                        <!-- destroy ボタンが押されたら、セッションを削除し-->
+                        <?php if (isset($_POST['clear'])) : ?>
+                          <!-- もしname="destroy" がGET送信されたら、unset($_SESSION)する -->
+                          <?php unset($_SESSION['serchRecipeId']); ?>
 
-                            <?php endif ?>
-                            <!-- セッション破棄（結果の削除） -->
-                            <input type="submit" name="clear" value="クリア" />
-                          </form>
-                    </div>
+                        <?php endif ?>
+                        <!-- セッション破棄（結果の削除） -->
+                        <input type="submit" name="clear" value="クリア" />
+                      </form>
+                </div>
 
-                    </dt>
+                </dt>
 
-                    <!-- 虫眼鏡検索 🔎テキストフォームの検索結果を表示/そのレシピ名・材料名・ニックネームでレシピを検索 -->
-                    <div class="parent">
-                      <!-- データの数だけ繰り返し -->
-                      <?php foreach ($recipeId as $v) : ?>
+                <!-- 虫眼鏡検索 🔎テキストフォームの検索結果を表示/そのレシピ名・材料名・ニックネームでレシピを検索 -->
+                <div class="parent">
+                  <!-- データの数だけ繰り返し -->
+                  <?php foreach ($recipeId as $v) : ?>
 
-                        <div class="div_100p">
-                          <div class="div_100">
-                            <!-- テーブルのデータベースからFETCH()した  完成レシピのイメージ画像 -->
-                            <?php if (empty($_SESSION['member'])) { ?>
+                    <div class="div_100p">
+                      <div class="div_100">
+                        <!-- テーブルのデータベースからFETCH()した  完成レシピのイメージ画像 -->
+                        <?php if (empty($_SESSION['member'])) { ?>
 
-                              <a href="../edit/recipe/release_recipe3.php?id=
+                          <a href="../edit/recipe/release_recipe3.php?id=
                               <?php echo $v['id'] ?>">
-                                <img id="completeimg" src="../create/recipe/images/<?php echo $v['complete_img'] ?>">
-                              </a>
-                            <?php } elseif (!empty($_SESSION['member'])) { ?>
-                              <?php if (!empty($v['id'])) : ?>
-                                <a href="../edit/recipe/release_recipe.php?id=
+                            <img id="completeimg" src="../create/recipe/images/<?php echo $v['complete_img'] ?>">
+                          </a>
+                        <?php } elseif (!empty($_SESSION['member'])) { ?>
+                          <?php if (!empty($v['id'])) : ?>
+                            <a href="../edit/recipe/release_recipe.php?id=
                                 <?php echo $v['id'] ?>">
-                                <?php endif ?>
-                                <?php if (!empty($v['complete_img'])) : ?>
-                                  <img id="completeimg" src="../create/recipe/images/<?php echo $v['complete_img'] ?>">
-                                <?php endif ?>
-                                </a>
-                              <?php } ?>
-                          </div>
-                          <div class="div_100">
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <th></th>
-                                </tr>
-                                <tr>
-                                  <th></th>
-                                </tr>
-                                <tr>
-                                  <th></th>
-                                </tr>
-                              </tbody>
+                            <?php endif ?>
+                            <?php if (!empty($v['complete_img'])) : ?>
+                              <img id="completeimg" src="../create/recipe/images/<?php echo $v['complete_img'] ?>">
+                            <?php endif ?>
+                            </a>
+                          <?php } ?>
+                      </div>
+                      <div class="div_100">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <th></th>
+                            </tr>
+                            <tr>
+                              <th></th>
+                            </tr>
+                            <tr>
+                              <th></th>
+                            </tr>
+                          </tbody>
 
-                              <thead>
-                                <tr>
-                                  <?php if (!empty($v['id'])) : ?>
-                                    <td><span style="color:green;font-size:11px">レシピID:<?php echo $v['id'] ?></span></td>
+                          <thead>
+                            <tr>
+                              <?php if (!empty($v['id'])) : ?>
+                                <td><span style="color:green;font-size:11px">レシピID:<?php echo $v['id'] ?></span></td>
+                              <?php endif ?>
+                            </tr>
+
+                            <tr>
+                              <?php if (!empty($v['categories_name'])) : ?>
+                                <td><span style="color:green;font-size:11px">カテゴリー:<?php echo $v['categories_name'] ?></span></td>
+                              <?php endif ?>
+                            <tr>
+                            <tr>
+                              <td><img id='serch' src="../icon_img/members.png">&nbsp;
+                                <?php if (!empty($v['nickname'])) : ?>
+                                  <!-- メンバー・あいこん画像 --><span style="font-size:13px"><?php echo $v['nickname'] ?>
                                   <?php endif ?>
-                                </tr>
+                              </td>
+                            </tr>
 
-                                <tr>
-                                  <?php if (!empty($v['categories_name'])) : ?>
-                                    <td><span style="color:green;font-size:11px">カテゴリー:<?php echo $v['categories_name'] ?></span></td>
-                                  <?php endif ?>
-                                <tr>
-                                <tr>
-                                  <td><img id='serch' src="../icon_img/members.png">&nbsp;
-                                    <?php if (!empty($v['nickname'])) : ?>
-                                      <!-- メンバー・あいこん画像 --><span style="font-size:13px"><?php echo $v['nickname'] ?>
-                                      <?php endif ?>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <!-- マイレシピテーブルのデータベースからFETCH()した レシピ名  -->
-                                  <td><span style="color:green;font-size:15px">
-                                      <!-- 未ログインなら -->
-                                      <?php if (empty($_SESSION['member'])) { ?>
-                                        <a id="link" href="../edit/recipe/release_recipe3.php?id=
+                            <tr>
+                              <!-- マイレシピテーブルのデータベースからFETCH()した レシピ名  -->
+                              <td><span style="color:green;font-size:15px">
+                                  <!-- 未ログインなら -->
+                                  <?php if (empty($_SESSION['member'])) { ?>
+                                    <a id="link" href="../edit/recipe/release_recipe3.php?id=
                                   <?php echo $v['id'] ?>" style="text-decoration:none;"><?php echo $v['recipe_name'] ?>
-                                        </a>
-                                        <!-- 既にログイン中なら -->
-                                      <?php } elseif (!empty($_SESSION['member'])) { ?>
-                                        <?php if (!empty($v['id'])) : ?>
-                                          <a id="link" href="../edit/recipe/release_recipe.php?id=
+                                    </a>
+                                    <!-- 既にログイン中なら -->
+                                  <?php } elseif (!empty($_SESSION['member'])) { ?>
+                                    <?php if (!empty($v['id'])) : ?>
+                                      <a id="link" href="../edit/recipe/release_recipe.php?id=
                                     <?php echo $v['id'] ?>" style="text-decoration:none;"><?php echo $v['recipe_name'] ?>
-                                          </a>
-                                        <?php endif ?>
-                                      <?php } ?>
-                                  </td>
-                                  </span>
-                                  </td>
-                                </tr>
+                                      </a>
+                                    <?php endif ?>
+                                  <?php } ?>
+                              </td>
+                              </span>
+                              </td>
+                            </tr>
 
-                              </thead>
-                            </table>
-                          </div>
-                        </div>
-
-                      <?php endforeach ?>
-                      <!-- precent -->
+                          </thead>
+                        </table>
+                      </div>
                     </div>
 
-
-                    </div>
-            
-
-                    <?php } ?>
-
-                    <!-- //////////////// -->
-
-
-
-
-
-              <div class="space_visible">
-                <div>
-
+                  <?php endforeach ?>
+                  <!-- precent -->
                 </div>
-              </div>
 
-              <div class="space_visible">
-                <div>
 
-                </div>
               </div>
 
 
+            <?php } ?>
 
-              <!-- カテゴリ検索結果表示 おわり -->
-              <!-- DIV auto_childrenおわり -->
+            <!-- //////////////// -->
+
+
+
+
+
+            <div class="space_visible">
+              <div>
+
               </div>
-              <!-- DIV comprehensiveおわり -->
+            </div>
+
+            <div class="space_visible">
+              <div>
+
+              </div>
+            </div>
+
+
+
+            <!-- カテゴリ検索結果表示 おわり -->
+            <!-- DIV auto_childrenおわり -->
           </div>
-          <!-- DIV autoおわり -->
+          <!-- DIV comprehensiveおわり -->
         </div>
+        <!-- DIV autoおわり -->
+      </div>
 
 
 </body>
+
 </html>

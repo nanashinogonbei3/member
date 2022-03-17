@@ -48,8 +48,8 @@ try {
     }
 
 
-    
-// ************************************
+
+    // ************************************
     // billing_addressesテーブルから会員情報をFETCH()する
     // 68行目 != membersテーブルの'電話番号' と同じ番号は除き
     // membersテーブルの人とbilling_addressesテーブル
@@ -77,8 +77,6 @@ try {
     foreach ($billing as $key => $v) {
         $billing_postNo = $v['post_number'];
     }
-
-
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -108,10 +106,9 @@ if (isset($_POST['kakunin'])) {
 
         $_SESSION['address'] = $_POST;
 
-     
+
         header('Location: ../../edit/acount/confirm_address.php');
         exit();
-     
     }
 }
 
@@ -143,7 +140,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ご購入手続き</title>
 
-<!-- 郵便局のAPI〒番号から住所検索機能 -->
+    <!-- 郵便局のAPI〒番号から住所検索機能 -->
 
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
@@ -179,150 +176,106 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
 
-        <?php if (!empty($member_postNo)) { ?>
+            <?php if (!empty($member_postNo)) { ?>
 
                 <form action="confirm_delivery_address.php" method="POST">
 
                     <h3>ご自宅のご住所へ送る</h3>
                     <dt>
-                    <!-- 住所（〒番号）登録があれば -->
-                  
+                        <!-- 住所（〒番号）登録があれば -->
+
 
                         <?php foreach ($member as $key => $v) : ?>
-                         
-                         
-                            <input type="radio" name ="memberid" value = "<?php echo $v['id'] ?>">   
-                            <?php echo $v['last_name'].$v['first_name']." 様：  ".$v['post_number'].$v['address1'].$v['address2'].$v['address3'].$v['address4'].$v['address5'] ?></dt>
-                            <br>
-
-                            <input type="hidden" name = "last_name" value="<?php echo $v['last_name'] ?>">
-                            <input type="hidden" name = "first_name" value="<?php echo $v['first_name'] ?>">
-                            <input type="hidden" name = "phone_number" value="<?php echo $v['phone_number'] ?>">
-                            <input type="hidden" name = "post_number" value="<?php echo $v['post_number'] ?>" >
-                            <input type="hidden" name = "address1" value="<?php echo $v['address1'] ?>">
-                            <input type="hidden" name = "address2" value="<?php echo $v['address2'] ?>">
-                            <input type="hidden" name = "address3" value="<?php echo $v['address3'] ?>" >
-                            <input type="hidden" name = "address4" value="<?php echo $v['address4'] ?>">
-                            <input type="hidden" name = "address5" value="<?php echo $v['address5'] ?>">
-
-                        <?php endforeach ?>
 
 
-                        <!-- ************************* -->
-
-
-                    <!-- 別送の住所登録があれば -->
-                    <?php if (!empty($billing)) : ?>
-
-
-                        <h3>購入履歴から住所を選ぶ</h3>
-
-                  
-                        <?php foreach ($billing as $key => $v) : ?>
-
-                           
-                            <input type="radio" name="billingid" value="<?php echo $v['id'] ?>">
-                            <?php echo $v['last_name'].$v['first_name'];   echo '  様 :   '; 
-                            echo $v['post_number'].$v['address1'].$v['address2'].$v['address3'].$v['address4'].$v['address5'].'<br>'; ?>
-                            
-                            <input type="hidden" name = "last_name" value="<?php echo $v['last_name'] ?>">
-                            <input type="hidden" name = "first_name" value="<?php echo $v['first_name'] ?>">
-                            <input type="hidden" name = "phone_number" value="<?php echo $v['phone_number'] ?>">
-                            <input type="hidden" name = "post_number" value="<?php echo $v['post_number'] ?>" >
-                            <input type="hidden" name = "address1" value="<?php echo $v['address1'] ?>">
-                            <input type="hidden" name = "address2" value="<?php echo $v['address2'] ?>">
-                            <input type="hidden" name = "address3" value="<?php echo $v['address3'] ?>" >
-                            <input type="hidden" name = "address4" value="<?php echo $v['address4'] ?>">
-                            <input type="hidden" name = "address5" value="<?php echo $v['address5'] ?>">
-                            
-
-                        <?php endforeach ?>
-
-                    <?php endif ?>
-
-                    <div class="btn">
-                        <input type="reset" value="リセット" class="btn-border">
-                    </div>
-
+                            <input type="radio" name="memberid" value="<?php echo $v['id'] ?>">
+                            <?php echo $v['last_name'] . $v['first_name'] . " 様：  " . $v['post_number'] . $v['address1'] . $v['address2'] . $v['address3'] . $v['address4'] . $v['address5'] ?>
+                    </dt>
                     <br>
-                    <input type="submit" name="kakunin" value="確認" class="shop-order">
 
-                    <br> 
+                    <input type="hidden" name="last_name" value="<?php echo $v['last_name'] ?>">
+                    <input type="hidden" name="first_name" value="<?php echo $v['first_name'] ?>">
+                    <input type="hidden" name="phone_number" value="<?php echo $v['phone_number'] ?>">
+                    <input type="hidden" name="post_number" value="<?php echo $v['post_number'] ?>">
+                    <input type="hidden" name="address1" value="<?php echo $v['address1'] ?>">
+                    <input type="hidden" name="address2" value="<?php echo $v['address2'] ?>">
+                    <input type="hidden" name="address3" value="<?php echo $v['address3'] ?>">
+                    <input type="hidden" name="address4" value="<?php echo $v['address4'] ?>">
+                    <input type="hidden" name="address5" value="<?php echo $v['address5'] ?>">
+
+                <?php endforeach ?>
+
+
+                <!-- ************************* -->
+
+
+                <!-- 別送の住所登録があれば -->
+                <?php if (!empty($billing)) : ?>
+
+
+                    <h3>購入履歴から住所を選ぶ</h3>
+
+
+                    <?php foreach ($billing as $key => $v) : ?>
+
+
+                        <input type="radio" name="billingid" value="<?php echo $v['id'] ?>">
+                        <?php echo $v['last_name'] . $v['first_name'];
+                        echo '  様 :   ';
+                        echo $v['post_number'] . $v['address1'] . $v['address2'] . $v['address3'] . $v['address4'] . $v['address5'] . '<br>'; ?>
+
+                        <input type="hidden" name="last_name" value="<?php echo $v['last_name'] ?>">
+                        <input type="hidden" name="first_name" value="<?php echo $v['first_name'] ?>">
+                        <input type="hidden" name="phone_number" value="<?php echo $v['phone_number'] ?>">
+                        <input type="hidden" name="post_number" value="<?php echo $v['post_number'] ?>">
+                        <input type="hidden" name="address1" value="<?php echo $v['address1'] ?>">
+                        <input type="hidden" name="address2" value="<?php echo $v['address2'] ?>">
+                        <input type="hidden" name="address3" value="<?php echo $v['address3'] ?>">
+                        <input type="hidden" name="address4" value="<?php echo $v['address4'] ?>">
+                        <input type="hidden" name="address5" value="<?php echo $v['address5'] ?>">
+
+
+                    <?php endforeach ?>
+
+                <?php endif ?>
+
+                <div class="btn">
+                    <input type="reset" value="リセット" class="btn-border">
+                </div>
+
+                <br>
+                <input type="submit" name="kakunin" value="確認" class="shop-order">
+
+                <br>
 
                 </form>
 
                 <!-- メインの登録住所がなければ住所登録を行う -->
-        <?php } elseif (empty($member_postNo)) { ?>
+            <?php } elseif (empty($member_postNo)) { ?>
 
-            
-                
+
+
                 <br>
 
-            <?php if (!empty($billing_postNo)) : ?>
-                <input type="button" value='ご登録の別送宛に送る' class="shop-order" onclick="location.href='./delivery_billing_address.php'">
-            <?php endif ?>    
+                <?php if (!empty($billing_postNo)) : ?>
+                    <input type="button" value='ご登録の別送宛に送る' class="shop-order" onclick="location.href='./delivery_billing_address.php'">
+                <?php endif ?>
 
 
-                <form action="" method="POST">   
+                <form action="" method="POST">
 
-                <table>
-                    <h3>●お届け先氏名</h3>
-
-
-                    <tr>
+                    <table>
+                        <h3>●お届け先氏名</h3>
 
 
-                        <th>氏名：</th>
-                        <td>
-                            <input type="text" name="last_name" value="">
-                            <?php if (!empty($error['last_name'])) : ?>
-                                <p class="error">* お届け先氏名を入力してください</p>
-                            <?php endif ?>
-                        </td>
-
-
-                    </tr>
-
-                    <tr>
-                        <th>名前：</th>
-                        <td>
-                            <input type="text" name="first_name" value="">
-                            <?php if (!empty($error['first_name'])) : ?>
-                                <p class="error">* お届け先のお名前を入力してください</p>
-                            <?php endif ?>
-                        </td>
-
-
-                    </tr>
-
-                    <tr>
-                        <th>お電話番号</th>
-                        <td>
-                            <input type="text" name="phone_number" value="">
-                            <?php if (!empty($error['phone_number'])) : ?>
-                                <p class="error">* お届け先の連絡先電話番号を入力してください</p>
-                            <?php endif ?>
-                        </td>
-
-                    </tr>
-                </table>
-                <table>
-
-                    <!-- ---------------------------------------------------------- -->
-                    <h3>●お届け先のご住所を入力してください。</h3>
-                    <tbody>
                         <tr>
 
-                            <th>郵便番号</th>
-                            <td>
-                                <input id="input" class="zipcode" type="text" size="18" name="post_number" value="" placeholder="例)812-0012">
-                                <button id="search" type="button">住所検索</button><input type="button" value="〒郵便番号検索" class="post-no-serch" onclick="window.open('//www.post.japanpost.jp/zipcode/','view');" rel="noopener noreferrer">
-                                <input type="reset" value="リセット">
-                                <p id="error"></p>
 
-                                <!-- もしPOSTされた時に -->
-                                <?php if (!empty($error['post_number'])) : ?>
-                                    <p class="error">* 郵便番号を入力してください</p>
+                            <th>氏名：</th>
+                            <td>
+                                <input type="text" name="last_name" value="">
+                                <?php if (!empty($error['last_name'])) : ?>
+                                    <p class="error">* お届け先氏名を入力してください</p>
                                 <?php endif ?>
                             </td>
 
@@ -330,86 +283,132 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         </tr>
 
                         <tr>
-                            <th>都道府県</th>
-                            <td><input id="address1" type="text" name="address1" value=""></td>
-                        </tr>
-
-                        <tr>
-                            <th>市区町村</th>
-                            <td><input id="address2" type="text" name="address2" value=""></td>
-                        </tr>
-
-                        <tr>
-                            <th>町域</th>
-                            <td><input id="address3" type="text" name="address3" value=""></td>
-                        </tr>
-
-                        <tr>
-                            <th>番地</th>
+                            <th>名前：</th>
                             <td>
-                                <input id="address4" type="text" name="address4" value="">
-
-                                <!-- もし番地が未入力でPOSTされたらエラーを表示する。 -->
-                                <?php if (!empty($error['address4'])) : ?>
-                                    <p class="error">* 番地を入力してください</p>
+                                <input type="text" name="first_name" value="">
+                                <?php if (!empty($error['first_name'])) : ?>
+                                    <p class="error">* お届け先のお名前を入力してください</p>
                                 <?php endif ?>
                             </td>
+
+
                         </tr>
 
                         <tr>
-                            <th>建物名</th>
-                            <td><input id="address5" type="text" name="address5" value=""></td>
+                            <th>お電話番号</th>
+                            <td>
+                                <input type="text" name="phone_number" value="">
+                                <?php if (!empty($error['phone_number'])) : ?>
+                                    <p class="error">* お届け先の連絡先電話番号を入力してください</p>
+                                <?php endif ?>
+                            </td>
+
                         </tr>
+                    </table>
+                    <table>
+
+                        <!-- ---------------------------------------------------------- -->
+                        <h3>●お届け先のご住所を入力してください。</h3>
+                        <tbody>
+                            <tr>
+
+                                <th>郵便番号</th>
+                                <td>
+                                    <input id="input" class="zipcode" type="text" size="18" name="post_number" value="" placeholder="例)812-0012">
+                                    <button id="search" type="button">住所検索</button><input type="button" value="〒郵便番号検索" class="post-no-serch" onclick="window.open('//www.post.japanpost.jp/zipcode/','view');" rel="noopener noreferrer">
+                                    <input type="reset" value="リセット">
+                                    <p id="error"></p>
+
+                                    <!-- もしPOSTされた時に -->
+                                    <?php if (!empty($error['post_number'])) : ?>
+                                        <p class="error">* 郵便番号を入力してください</p>
+                                    <?php endif ?>
+                                </td>
+
+
+                            </tr>
+
+                            <tr>
+                                <th>都道府県</th>
+                                <td><input id="address1" type="text" name="address1" value=""></td>
+                            </tr>
+
+                            <tr>
+                                <th>市区町村</th>
+                                <td><input id="address2" type="text" name="address2" value=""></td>
+                            </tr>
+
+                            <tr>
+                                <th>町域</th>
+                                <td><input id="address3" type="text" name="address3" value=""></td>
+                            </tr>
+
+                            <tr>
+                                <th>番地</th>
+                                <td>
+                                    <input id="address4" type="text" name="address4" value="">
+
+                                    <!-- もし番地が未入力でPOSTされたらエラーを表示する。 -->
+                                    <?php if (!empty($error['address4'])) : ?>
+                                        <p class="error">* 番地を入力してください</p>
+                                    <?php endif ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>建物名</th>
+                                <td><input id="address5" type="text" name="address5" value=""></td>
+                            </tr>
 
 
 
+
+                        </tbody>
+                    </table>
+
+
+
+
+                    <tr>
+
+                    </tr>
+
+                    <tr>
+
+                        <tbody>
+                    </tr>
 
                     </tbody>
-                </table>
+                    </table>
 
 
 
+                    <br>
+                    <td>
 
-                <tr>
-
-                </tr>
-
-                <tr>
-
-                    <tbody>
-                </tr>
-
-                </tbody>
-                </table>
+                        <div>
+                            <input type="submit" name="kakunin" value="確認" class="shop-order">
+                            <br>
+                    </td>
+                    <br>
+                </form>
 
 
 
-                <br>
-                <td>
+            <?php } ?>
 
-                    <div>
-                        <input type="submit" name="kakunin" value="確認" class="shop-order">
-                        <br>
-                </td>
-                <br>
-            </form>
 
-    
-            
-            <?php } ?>  
-        
-      
-            <br>                        
+            <br>
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-                          
-            
-        
 
+
+
+
+        </div>
+        <!-- DIV block1おわり -->
     </div>
-    <!-- DIV block1おわり -->
-    </div>
-    
+
 
     <script src="js/japan_post_num.js"></script>
 

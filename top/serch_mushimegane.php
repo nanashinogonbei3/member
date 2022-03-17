@@ -15,7 +15,6 @@ require_once('../class/db/CreateRecipes.php');
         if (isset($_SESSION['member'])) {
         
             header("Location: ./confirm.php?id=");
-            // confirm.pnpへリダイレクト
             exit;
 
         // 未ログイン状態ならindex.php へリダイレクト

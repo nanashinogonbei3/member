@@ -12,7 +12,6 @@ require_once('../class/db/CreateRecipes.php');
     if (empty($_SESSION['serch1']) ) {
         
         header("Location: ./login_recipe.php?id=");
-        // confirm.pnpへリダイレクト
         exit;
    
     // これらの入力があれば、それぞれの変数に値を代入する
@@ -188,7 +187,7 @@ require_once('../class/db/CreateRecipes.php');
         }
 
                 header("Location: ./login_recipe.php?id=");
-                // DB登録処理完了後、インデックスページ（index.php）へリダイレクト
+                // DB登録処理完了後、リダイレクト
                 exit; 
 } 
  

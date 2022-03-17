@@ -84,7 +84,7 @@ require_once('../class/db/CreateRecipes.php');
                 echo '<pre>';
                 var_dump($e);
                 echo '</pre>';
-                // echo $e->getMessage();
+                echo $e->getMessage();
                 exit;
         }
 
