@@ -35,6 +35,7 @@ try {
     $stmt->execute();
 
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -75,13 +76,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
 
     <!-- 郵便局API CSS -->
-    <link rel="stylesheet" href="japan_post_num.css">
+    <link rel="stylesheet" href="css/japan_post_num.css">
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
 
     
     <!-- 全体CSS -->
-    <link rel="stylesheet" href="stylesheet6.css">
+    <link rel="stylesheet" href="css/stylesheet6.css">
 
 </head>
 

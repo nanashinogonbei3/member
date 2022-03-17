@@ -64,7 +64,6 @@ try {
     }
 
     // 別のお届け先（billing_addressテーブル)の登録があるか確認する。
-
     $sql = "SELECT * FROM billing_addresses WHERE member_id= '" . $_SESSION['member'] . "' ";
 
     $stmt = $dbh->prepare($sql);
@@ -74,6 +73,7 @@ try {
     $result = $dbh->query($sql);
 
     $address = $result->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -132,13 +132,13 @@ if (isset($_POST['kakunin'])) {
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
 
     <!-- 郵便局API CSS -->
-    <link rel="stylesheet" href="japan_post_num.css">
-    <!-- 全体CSS -->
+    <link rel="stylesheet" href="css/japan_post_num.css">
+    <!-- 郵便局API css -->
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
 
     
     <!-- 全体CSS -->
-    <link rel="stylesheet" href="stylesheet6.css">
+    <link rel="stylesheet" href="css/stylesheet6.css">
 
 </head>
 
