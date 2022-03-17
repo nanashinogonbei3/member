@@ -11,15 +11,13 @@ if (empty($_SESSION['personal'])) {
     exit();
 }
 
-// /member/resistration/new.php
-// $_SESSION['   ']に、「内容が入っていない場合」に、true で、
-// if 構文の内容の処理を実行します。つまり、入力画面を正しく実行せずに
-// いきなり/rasitration/confirm.php を呼び出そうとした時つまり、
-// 実行画面「DB登録画面」が呼び出された、という事になりますので、
+
+// if 構文の内容の処理を実行します。入力画面を正しく実行せずに
+// いきなり/rasitration/confirm.php を呼び出そうとした時、
+// 実行画面「DB登録画面」が呼び出された、という事になり、
 // その場合強制的に、入力フォーム画面に戻ります。
-// 22行目で決めた$_SESSION['personal']['///']が22～27行目の各セッションを
-// 包括して$_SESSION['personal']に内容が入っていないのに、DB登録画面に飛んだ時に
-// 強制的に「入力フォーム」が表示される
+
+// 「入力フォーム」にリダイレクト
 if (!isset($_SESSION['personal'])) {
     header('Location: new.php');
     exit;
