@@ -25,7 +25,7 @@ require_once('./class/db/CreateRecipes.php');
     
      
         // string $update_time, string $release_date, int $is_deleted, int $id_select)
-        // マイレシピ☆テーブルのレコードをアップデートするsql文
+        // マイレシピ*テーブルのレコードをアップデートするsql文
         $sql = 'update my_recipes set is_released=:is_released ';
         $sql .= 'where id=:id';
        
@@ -58,4 +58,4 @@ require_once('./class/db/CreateRecipes.php');
     }
     
 
-    ?>
+ ?>

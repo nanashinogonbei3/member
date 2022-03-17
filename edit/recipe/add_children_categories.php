@@ -1,13 +1,13 @@
 <?php
-// ここで、ユーザーが作成したカテゴリをcategoriesテーブルに登録します。
-session_start();
+      // ここで、ユーザーが作成したカテゴリをcategoriesテーブルに登録します。
+      session_start();
 
- 
-$id = $_SESSION['recipe_id'];
+      
+      $id = $_SESSION['recipe_id'];
 
 
 
-$parentCategoryId = $_SESSION['categories']['id'];
+      $parentCategoryId = $_SESSION['categories']['id'];
 
 
 
@@ -57,4 +57,4 @@ $parentCategoryId = $_SESSION['categories']['id'];
     }
    
 
-    ?>
+?>

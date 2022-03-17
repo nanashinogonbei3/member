@@ -57,12 +57,12 @@ try {
         exit;
         
 
-} catch (Exception $e) {
-    echo 'DBに接続できませんでした: ',  $e->getMessage(), "\n";
-    var_dump($e);
+    } catch (Exception $e) {
+        echo 'DBに接続できませんでした: ',  $e->getMessage(), "\n";
+        var_dump($e);
 
-    exit;
-}
+        exit;
+    }
 
 
 ?>

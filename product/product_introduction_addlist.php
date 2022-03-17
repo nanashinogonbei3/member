@@ -219,7 +219,7 @@ try {
 
 
 
-            <!-- div_precent -->
+        <!-- div_precent -->
         </div>
 
 
@@ -285,7 +285,7 @@ try {
 
 
                 </div>
-                <!-- ページネーション囲むDIVおわり -->
+            <!-- ページネーション囲むDIVおわり -->
             </div>
 
 
@@ -307,7 +307,7 @@ try {
                                 </span>
                                 <!-- FETCH()した、商品を使用したレシピ画像 -->
                                 <a href="../edit/recipe/release_recipe3.php?id=
-        <?php echo $v['id'] ?>">
+                                    <?php echo $v['id'] ?>">
                                     <dt><img id="recipe" src="../create/recipe/images/<?php echo $v['complete_img'] ?>" alt=""></dt>
                                 </a>
                                 <?php echo $v['id'] ?>

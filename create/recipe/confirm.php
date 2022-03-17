@@ -5,9 +5,8 @@ session_start();
 require_once('../../class/db/Base.php');
 require_once('../../class/db/CreateRecipes.php');
 
-// 送信データを受け取る /誰のレシピ？
+// 送信データを受け取る /誰のレシピか？
 // $_SESSION['member'];
-
 
 try {
 
@@ -346,7 +345,6 @@ try {
                             </tbody>
                         </table>
 
-                        <!-- </div> -->
                         <!-- div_w -->
                     </div>
 

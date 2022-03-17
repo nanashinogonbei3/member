@@ -24,11 +24,11 @@ try {
 
 
     // 親カテゴリーの一覧をプルダウン選択できるように表示
-    $sql = 'SELECT id, materials_parent_category_name
-            FROM material_parent_categories
-            WHERE id = 8
-            ';
     // ユーザー定義のレコード・id=8のみブラウザに表示させる。
+    $sql = 'SELECT id, materials_parent_category_name
+    FROM material_parent_categories
+    WHERE id = 8
+    ';
 
     $stmt = $dbh->prepare($sql);
 
@@ -44,20 +44,18 @@ try {
     }
 
 
-    // ログインユーザー作成した材料カテゴリーだけを取り出し
-    // 親の材料カテゴリー編集とDELETEを行う
-
+    // ログインユーザー作成した材料カテゴリー、材料一口メモ、レシピを取り出す
     $sql = "SELECT material_categories.id,
-            material_categories.material_category_name,
-            material_categories.parent_category_id, material_categories.is_deleted,
-            material_categories.users_id, material_parent_categories.materials_parent_category_name
-            FROM material_categories
-            LEFT JOIN material_parent_categories ON material_categories.parent_category_id
-            = material_parent_categories.id
-            WHERE material_categories.users_id = '" . $_SESSION['member'] . "'
-            AND material_categories.recipe_id = '" . $_SESSION['recipe_id'] . "'
-            ";
-    // ユーザーが作ったカテゴリ名、材料一口メモ、このレシピだけのを表示する
+    material_categories.material_category_name,
+    material_categories.parent_category_id, material_categories.is_deleted,
+    material_categories.users_id, material_parent_categories.materials_parent_category_name
+    FROM material_categories
+    LEFT JOIN material_parent_categories ON material_categories.parent_category_id
+    = material_parent_categories.id
+    WHERE material_categories.users_id = '" . $_SESSION['member'] . "'
+    AND material_categories.recipe_id = '" . $_SESSION['recipe_id'] . "'
+    ";
+
 
     $stmt = $dbh->prepare($sql);
 
@@ -70,7 +68,6 @@ try {
 
 
 
-    // メンバーズ・テーブルに接続する
     $sql = 'SELECT members.id FROM members WHERE id = ' . $_SESSION['member'] . ' ';
 
     $stmt = $dbh->prepare($sql);
@@ -108,11 +105,9 @@ try {
 }
 
 
-// sendボタンが押されたら
-// この場合は、form action="" にリンク先の'edit_mycategory.php'は書かないで
+// sendボタンが押下された時エラーチェックを走らせます
 if (!empty($_POST['send'])) {
 
-    //  エラーチェックを走らせます
     if ($_POST['parent_category_id'] === '') {
         $error['parent_category_id'] = 'blank';
     }
@@ -122,7 +117,7 @@ if (!empty($_POST['send'])) {
         $_SESSION['material_category'] = $_POST;
     }
 
-    // エラーが無ければ、インサートに遷移する
+    // エラーが無ければ遷移する
     header('Location: add_parent_material_category.php');
     exit();
 }
@@ -170,9 +165,9 @@ if (!empty($_POST['send'])) {
             </div>
             <!-- みんなのレシピ -->
             <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-
+                <!-- div_p おわり -->
             </div>
-            <!-- div_p おわり -->
+
         </div>
 
 

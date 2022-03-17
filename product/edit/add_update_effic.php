@@ -1,38 +1,39 @@
 <?php
-session_start(); 
+    session_start(); 
 
-unset($_SESSION['errrMsg2']);
-unset($_SESSION['efficLength']);
+    unset($_SESSION['errrMsg2']);
+    unset($_SESSION['efficLength']);
 
-$id = $_POST['id'];
+    $id = $_POST['id'];
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+    session_start();
+    // 必要なファイルを読み込む
+    require_once('../../class/db/Base.php');
+    require_once('../../class/db/CreateRecipes.php');
 
-if(empty($_POST['efficacy']) ) {
+    if(empty($_POST['efficacy']) ) {
         
         // （confirm.php）へリダイレクト
         header("Location: ./confirm.php?id=".$id); 
         exit;
     }
 
-// 制限値
-$limit = 700;
-//メッセージの変数を初期化
-$errMsg2 = '';
-// 入力された文字列の長さを取得する
-$efficacyLength = strlen($_POST['efficacy']); 
-// 商品説明が、制限値を超えたらエラーを表示する。
-if ($limit < $efficacyLength ) {
-    $errMsg2 = "効能は、700文字以内で入力してください。";
-    $_SESSION['errrMsg2'] = $errMsg2;
-    $_SESSION['efficLength'] = $efficacyLength;
-    // （confirm.php）へリダイレクト
-    header("Location: ./confirm.php?id=".$id); 
-    exit;
-}
+    // 制限値
+    $limit = 700;
+    //メッセージの変数を初期化
+    $errMsg2 = '';
+    // 入力された文字列の長さを取得する
+    $efficacyLength = strlen($_POST['efficacy']); 
+    // 商品説明が、制限値を超えたらエラーを表示する。
+
+    if ($limit < $efficacyLength ) {
+        $errMsg2 = "効能は、700文字以内で入力してください。";
+        $_SESSION['errrMsg2'] = $errMsg2;
+        $_SESSION['efficLength'] = $efficacyLength;
+        // （confirm.php）へリダイレクト
+        header("Location: ./confirm.php?id=".$id); 
+        exit;
+    }
 
 
 

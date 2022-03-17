@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+    session_start();
 
 
     try {
@@ -54,4 +54,4 @@ session_start();
     }
     
 
-    ?>
+?>

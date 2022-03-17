@@ -1,24 +1,24 @@
 <?php
-session_start();
+    session_start();
 
 
-// (処理が完了したら画面に遷移する前に add_product_material.php)
-// 材料の親カテゴリーを削除する
-$_SESSION['parent_category_id'] = '';
+    // (処理が完了したら画面に遷移する前に add_product_material.php)
+    // 材料の親カテゴリーを削除する
+    $_SESSION['parent_category_id'] = '';
 
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
-
-
-
-if (!empty($_GET['members_id'])) {
-    $_SESSION['member'] = $_GET['members_id'];
-}
+    // 必要なファイルを読み込む
+    require_once('../../class/db/Base.php');
+    require_once('../../class/db/CreateRecipes.php');
 
 
-// レシピid
-$id = $_GET['id'];
+
+    if (!empty($_GET['members_id'])) {
+        $_SESSION['member'] = $_GET['members_id'];
+    }
+
+
+    // レシピid
+    $id = $_GET['id'];
 
 
 
@@ -48,10 +48,10 @@ $id = $_GET['id'];
 try {
 
 
-    if (empty($id)) {
+        if (empty($id)) {
 
-        header("Location: ../../create/recipe/index.php");
-    } else {
+            header("Location: ../../create/recipe/index.php");
+        } else {
 
         $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
         $date = $dt->format('Y-m-d');
@@ -97,20 +97,20 @@ try {
         //  親材料カテゴリににない、子供カテゴリーだけが表示できる。
 
         $sql = 'SELECT materials.id, materials.material_name, materials.amount, materials.is_deleted,
-            materials.parent_category_id,
-            material_parent_categories.materials_parent_category_name, material_categories.material_category_name,
-            material_cat_products.material_category_id
-            FROM materials
-            left outer JOIN material_parent_categories ON materials.parent_category_id = 
-            material_parent_categories.id   
-            left outer JOIN material_categories ON materials.parent_category_id =
-            material_categories.id
-            left outer JOIN material_cat_products ON material_cat_products.material_category_id =
-            material_parent_categories.id
-            left outer JOIN product_lists ON product_lists.id =
-            material_cat_products.product_id 
-            WHERE materials.recipe_id = ' . $id . '
-            ';
+        materials.parent_category_id,
+        material_parent_categories.materials_parent_category_name, material_categories.material_category_name,
+        material_cat_products.material_category_id
+        FROM materials
+        left outer JOIN material_parent_categories ON materials.parent_category_id = 
+        material_parent_categories.id   
+        left outer JOIN material_categories ON materials.parent_category_id =
+        material_categories.id
+        left outer JOIN material_cat_products ON material_cat_products.material_category_id =
+        material_parent_categories.id
+        left outer JOIN product_lists ON product_lists.id =
+        material_cat_products.product_id 
+        WHERE materials.recipe_id = ' . $id . '
+        ';
 
         $stmt = $dbh->prepare($sql);
 
@@ -125,7 +125,7 @@ try {
 
         // 調理手順テーブルのFETCH()を行う
         $sql2 = 'SELECT id,descriptions,p_img,p_recipe_id, created_date, update_date 
-            FROM procedures WHERE p_recipe_id=' . $id . ' ';
+        FROM procedures WHERE p_recipe_id=' . $id . ' ';
         $sql2 .= 'ORDER BY created_date ASC';
 
 
@@ -142,11 +142,11 @@ try {
         // カテゴリー
         // ログインユーザーがこのレシピに登録済みのカテゴリー一覧を表示するためのFETCHをする
         $sql = "SELECT categories.id, categories.categories_name,
-            recipe_categories.category_id, recipe_categories.my_recipe_id
-            FROM recipe_categories 
-            JOIN categories ON recipe_categories.category_id = categories.id
-            JOIN my_recipes ON recipe_categories.my_recipe_id = my_recipes.id
-            WHERE recipe_categories.my_recipe_id = '.$id.' ";
+        recipe_categories.category_id, recipe_categories.my_recipe_id
+        FROM recipe_categories 
+        JOIN categories ON recipe_categories.category_id = categories.id
+        JOIN my_recipes ON recipe_categories.my_recipe_id = my_recipes.id
+        WHERE recipe_categories.my_recipe_id = '.$id.' ";
 
 
         $stmt = $dbh->prepare($sql);
@@ -164,11 +164,11 @@ try {
         // 子カテゴリー (1) [カレー・国]
         // 管理者が作ったカテゴリーIDだけを表示する
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id 
-            WHERE parent_categories.id = 1 AND categories.is_deleted = 0 
-            AND categories.users_id = 56 ";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id 
+        WHERE parent_categories.id = 1 AND categories.is_deleted = 0 
+        AND categories.users_id = 56 ";
 
 
 
@@ -183,34 +183,34 @@ try {
 
         // ログインメンバーが56以外ならsql文を実行する
         if ($_SESSION['member'] !== 56) {
-            // 親カテゴリー階層の下に ログインユーザー作成した子供カテゴリーだけをFETCHする
+        // 親カテゴリー階層の下に ログインユーザー作成した子供カテゴリーだけをFETCHする
 
-            // 「カレー・国」(1)
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 1 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "'  ";
+        // 「カレー・国」(1)
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 1 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "'  ";
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category1 = $result->fetchAll(PDO::FETCH_ASSOC);
-        }
+        $category1 = $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 
         //  管理者(ID:56)が登録した親カテゴリー階層の子カテゴリーをFETCHする
 
         // 子カテゴリー (2) 副菜・おかず
         // 管理者が作ったカテゴリーIDだけを表示する";
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
-            AND categories.users_id = 56";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
+        AND categories.users_id = 56";
 
 
 
@@ -224,24 +224,24 @@ try {
 
         // ログインメンバーが56以外ならsql文を実行する
         if ($_SESSION['member'] !== 56) {
-            // 親カテゴリーID(2)階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
+        // 親カテゴリーID(2)階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
 
-            // 「副菜・おかず」(2)
+        // 「副菜・おかず」(2)
 
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "'  ";
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 2 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "'  ";
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category22 = $result->fetchAll(PDO::FETCH_ASSOC);
+        $category22 = $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
 
@@ -249,10 +249,10 @@ try {
         // 管理者が作ったカテゴリーIDだけを表示する
         // カテゴリー (3) 具材・カレーの色
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
-            AND categories.users_id = 56 ";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
+        AND categories.users_id = 56 ";
         
 
 
@@ -266,23 +266,23 @@ try {
 
         // ログインメンバーが56以外ならsql文を実行する
         if ($_SESSION['member'] !== 56) {
-            // 親カテゴリーID(3) 階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
+        // 親カテゴリーID(3) 階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
 
-            // 「具材・カレーの色」(3) 
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "'  ";
+        // 「具材・カレーの色」(3) 
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 3 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "'  ";
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category33 = $result->fetchAll(PDO::FETCH_ASSOC);
+        $category33 = $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
         //  管理者(ID:56)が登録した親カテゴリー階層の子カテゴリーをFETCHする  
@@ -290,10 +290,10 @@ try {
         //  (4) ナン/ライス
         // 管理者が作ったカテゴリーIDだけを表示する"
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
-            AND categories.users_id = 56 ";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
+        AND categories.users_id = 56 ";
 
 
 
@@ -307,23 +307,23 @@ try {
 
         // ログインメンバーが56以外ならsql文を実行する
         if ($_SESSION['member'] !== 56) {
-            // 親カテゴリーID(4)階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
+        // 親カテゴリーID(4)階層下に ログインユーザー作成した子供カテゴリーだけをFETCHする
 
-            // 「 ナン/ライス」(4) 
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "'  ";
+        // 「 ナン/ライス」(4) 
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 4 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "'  ";
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category44 = $result->fetchAll(PDO::FETCH_ASSOC);
+        $category44 = $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
 
@@ -332,10 +332,10 @@ try {
         //  (5) スィーツ・飲み物
         // 管理者が作ったカテゴリーIDだけを表示する"
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
-            AND categories.users_id = 56 ";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
+        AND categories.users_id = 56 ";
 
 
 
@@ -350,23 +350,23 @@ try {
 
         // ログインメンバーが56以外ならsql文を実行する
         if ($_SESSION['member'] !== 56) {
-            // 親カテゴリーID(5)階層下に登録済みのログインユーザーが作成した子供カテゴリーだけをFETCHする
+        // 親カテゴリーID(5)階層下に登録済みのログインユーザーが作成した子供カテゴリーだけをFETCHする
 
-            // 「 スィーツ・飲み物」(5)
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id  WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "' ";
+        // 「 スィーツ・飲み物」(5)
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id  WHERE parent_categories.id = 5 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "' ";
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category55 = $result->fetchAll(PDO::FETCH_ASSOC);
+        $category55 = $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
         //  管理者(ID:56)が登録した親カテゴリー階層の子カテゴリーをFETCHする  
@@ -374,11 +374,11 @@ try {
         //  (6) [趣向のカレー]
         // 管理者が作ったカテゴリーIDだけを表示する"
         $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id 
-            WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
-            AND categories.users_id = 56 ";
+        categories.parent_category_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id 
+        WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
+        AND categories.users_id = 56 ";
 
 
 
@@ -395,41 +395,43 @@ try {
         // 「趣向のカレー」(6)
 
         if ($_SESSION['member'] !== 56) {
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "' ";
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "' ";
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-            $category66 = $result->fetchAll(PDO::FETCH_ASSOC);
+        $category66 = $result->fetchAll(PDO::FETCH_ASSOC);
+
+
         } else {
 
-            $sql = "SELECT  categories.id, categories.categories_name, 
-            categories.parent_category_id, categories.users_id
-            FROM parent_categories JOIN categories ON parent_categories.id = 
-            categories.parent_category_id WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
-            AND categories.users_id = '" . $_SESSION['member'] . "' ";
+        $sql = "SELECT  categories.id, categories.categories_name, 
+        categories.parent_category_id, categories.users_id
+        FROM parent_categories JOIN categories ON parent_categories.id = 
+        categories.parent_category_id WHERE parent_categories.id = 6 AND categories.is_deleted = 0 
+        AND categories.users_id = '" . $_SESSION['member'] . "' ";
 
 
 
-            $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-            $stmt->execute();
+        $stmt->execute();
         }
 
         // 親材料カテゴリーをプルダウンで選択できるようにする
         // 親材料カテゴリーを追加・●ホールスパイス階層下に、クミン、コリアンダー、ターメリックがある
         // ８は、「ユーザー定義」材料カテゴリーなので表示から省く。「id=8の”ユーザー”定義」は、ユーザー材料カテゴリー追加画面でのみ使う。
         $sql = "SELECT id, materials_parent_category_name
-            FROM material_parent_categories
-            WHERE id <= 7
-            ";
+        FROM material_parent_categories
+        WHERE id <= 7
+        ";
 
 
         $stmt = $dbh->prepare($sql);
@@ -445,10 +447,10 @@ try {
         // 「*インドのおかず」などのユーザー定義カテゴリーをmaterial_categoriesテーブルから引っ張り出す・表示させるためのFETCH
 
         $sql = "SELECT material_categories.id, material_categories.material_category_name
-            FROM material_categories
-            WHERE material_categories.users_id = '" . $_SESSION['member'] . "'
-            AND material_categories.recipe_id = '" . $id . "'
-            ";
+        FROM material_categories
+        WHERE material_categories.users_id = '" . $_SESSION['member'] . "'
+        AND material_categories.recipe_id = '" . $id . "'
+        ";
         // ようするにユーザーが作ったレシピIDに付随した子供材料カテゴリーIDだけを表示する
 
         $stmt = $dbh->prepare($sql);
@@ -465,8 +467,8 @@ try {
         // ログインメンバーのニックネームだけを取り出す
         // ユーザーが作った子供材料カテゴリーIDだけを表示する
         $sql = "SELECT nickname
-            FROM members
-            WHERE id = '" . $_SESSION['member'] . "' ";
+        FROM members
+        WHERE id = '" . $_SESSION['member'] . "' ";
 
 
 
@@ -487,63 +489,63 @@ try {
         }
     }
 
-    // 材料のアドバイス「一口メモ」を表示するためのFETCHです。
-    //material_categoriesテーブル
-    $sql = "SELECT advice
-            FROM advices JOIN my_recipes 
-            ON advices.recipe_id = my_recipes.id
-            WHERE my_recipes.id = " . $id . "
-            ";
+        // 材料のアドバイス「一口メモ」を表示するためのFETCHです。
+        //material_categoriesテーブル
+        $sql = "SELECT advice
+        FROM advices JOIN my_recipes 
+        ON advices.recipe_id = my_recipes.id
+        WHERE my_recipes.id = " . $id . "
+        ";
 
-    $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-    $stmt->execute();
+        $stmt->execute();
 
-    $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-    $advice = $result->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-    // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
-    // 1時間以上たっていた場合,という意味
-    if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-        // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
-        $_SESSION['time'] = time();
-        // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
-        // 最後の時刻から１時間を記録することができるようになる。 
-    } elseif ($_SESSION['member'] = '') {
-        header('Location: ../../login/join.php');
-        exit();
-        // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
-        // ログイン画面に遷移する
-    } else {
-        header('Location: ../../login/join.php');
-        exit();
-        // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
-    }
+        $advice = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
-    // 処理が終わったあとだから、冒頭でセッションに代入不可だったのでここでセッションにレシピIDを代入する。
-    $_SESSION['recipe_id'] = $id;
+
+        // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
+        // 1時間以上たっていた場合,という意味
+        if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+            // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
+            $_SESSION['time'] = time();
+            // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
+            // 最後の時刻から１時間を記録することができるようになる。 
+        } elseif ($_SESSION['member'] = '') {
+            header('Location: ../../login/join.php');
+            exit();
+            // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
+            // ログイン画面に遷移する
+        } else {
+            header('Location: ../../login/join.php');
+            exit();
+            // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
+        }
 
 
-    // レシピのサブタイトル・コメントを表示する
-    $sql = "SELECT id, sub_title, comment FROM recipe_subtitles WHERE recipe_id=" . $id;
+        // 処理が終わったあとだから、冒頭でセッションに代入不可だったのでここでセッションにレシピIDを代入する。
+        $_SESSION['recipe_id'] = $id;
 
-    $stmt = $dbh->prepare($sql);
 
-    $stmt->execute();
+        // レシピのサブタイトル・コメントを表示する
+        $sql = "SELECT id, sub_title, comment FROM recipe_subtitles WHERE recipe_id=" . $id;
 
-    $result = $dbh->query($sql);
+        $stmt = $dbh->prepare($sql);
 
-    $subtitle = $result->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute();
 
-    foreach ($subtitle as $v) {
-        $subtitle = $v['sub_title'];
-        $comment = $v['comment'];
-        $subtitleId = $v['id'];
-    }
+        $result = $dbh->query($sql);
+
+        $subtitle = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($subtitle as $v) {
+            $subtitle = $v['sub_title'];
+            $comment = $v['comment'];
+            $subtitleId = $v['id'];
+        }
 
 
 } catch (PDOException $e) {
@@ -1101,7 +1103,9 @@ try {
                         <!-- div widthおわり -->
 
                         <!-- ✅ボックスリスト おわり -->
-                        <!-- div_categories_comprehensive -->
+
+
+                    <!-- div_categories_comprehensive -->
                     </div>
 
 
@@ -1153,11 +1157,10 @@ try {
                             // FETCHデータが無ければメッセージを表示
                             echo '<dt>カテゴリーは未登録です</dt>';
                         } ?>
+
+
                     <!-- div_space おわり -->
                     </div>
-
-
-
 
 
 

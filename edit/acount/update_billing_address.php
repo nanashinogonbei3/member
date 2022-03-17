@@ -29,7 +29,7 @@ try {
 
 
     // string $update_time, string $release_date, int $is_deleted, int $id_select)
-    // マイレシピ☆テーブルのレコードをアップデートするsql文
+    // マイレシピ*テーブルのレコードをアップデートするsql文
     $sql = 'UPDATE billing_addresses SET last_name=:last_name, first_name=:first_name, 
             phone_number=:phone_number, post_number=:post_number, 
             address1=:address1, address2=:address2, address3=:address3,

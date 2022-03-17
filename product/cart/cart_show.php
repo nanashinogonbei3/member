@@ -202,12 +202,13 @@ try {
             <?php } else {
                 // 1個だけ、カートが空ならボタンは表示させない。
             } ?>
-            <!-- 戻る -->
+           
 
         </div>
+         <!-- 戻る -->
         <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-    </div>
-    <!-- div_1おわり -->
+</div>
+<!-- div_1おわり -->
 </body>
 
 </html>

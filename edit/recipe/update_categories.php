@@ -33,7 +33,6 @@
 
             // // 処理が完了したら（confirm.php）へリダイレクト
             header("Location: ./confirm.php?id=");
-            // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
             exit;
 
 

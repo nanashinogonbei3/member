@@ -60,9 +60,10 @@ session_start();
 
 
         // 直近でインサートしたIDを読み込んで変数に渡す。
-        $billingAddressId = $dbh->lastInsertId();
         // PHP公式マニュアルURL
         // https://www.php.net/manual/ja/pdo.lastinsertid.php
+        $billingAddressId = $dbh->lastInsertId();
+        
 
 
 

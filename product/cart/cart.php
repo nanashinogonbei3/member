@@ -20,7 +20,7 @@ try {
 
         //  冒頭の$_SESSION['id'] を代入した $id （商品id） をここで代入する
         $sql = "SELECT *
-             FROM product_lists
+            FROM product_lists
             LEFT OUTER JOIN makers ON product_lists.maker_id = makers.id
             WHERE product_lists.id= '" . $_SESSION['id'] . "' ";
 

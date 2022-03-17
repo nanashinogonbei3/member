@@ -36,8 +36,6 @@ try{
         // カテゴリーIDを取得する
          // PHP公式マニュアルURL
         // https://www.php.net/manual/ja/pdo.lastinsertid.php
-
-   
         $categoryId = $dbh->lastInsertId();
        
   

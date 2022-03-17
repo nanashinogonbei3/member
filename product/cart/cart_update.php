@@ -9,9 +9,6 @@ foreach($_SESSION['cart'] as $key => $v) {
 
 header('Location: ./cart.php');
 exit; 
-
-
-
 ?>
 
 

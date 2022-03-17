@@ -73,10 +73,10 @@ if (!isset($_SESSION['id'])) {
 
 
                         <p class="wf-sawarabimincho"></p>
-                        <!-- 書き直すボタン -->
 
+                        <!-- 書き直すボタン -->
                         <input type="button" value='&laquo;&nbsp;書き直す' style="width: 115px; height: 25px" onclick="location.href='./modify.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
-                        <!-- 送信ボタン -->
+                        <!-- 登録ボタン -->
                         <input type="submit" id="submit" value="登録する" />
 
 

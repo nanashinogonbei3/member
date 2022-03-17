@@ -58,7 +58,7 @@ if (!empty($_GET['id']) || !empty($_SESSION['id']) || !empty($_SESSION['member']
 
 // フォームが送信した時だけエラーチェックを走らせる
 if (!empty($_POST)) {
-    // エラーチェック項目：
+
 
     // mail 1 (入力フォーム1)
     if (empty($_POST['members_id'])) {

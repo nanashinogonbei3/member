@@ -1,19 +1,8 @@
 <?php
 // PHP練習問題12参照
 
-echo('<pre>');
-var_dump($_SESSION['recipe']);
-echo('<pre>');
-// exit;
-// 実行結果
-// ["how_many_servings"]=>
-// string(3) "２"
-// ２がstring(1)
-// ["cooking_time"]=>
-// string(2) "60"
-// 半角で、再入力
-// ["how_many_servings"]=>
-// string(1) "2" stringがようやく1になった
+
+
 
 // *********｛「マイ・レシピ」テーブル ｝***********************************************************
 
@@ -74,8 +63,8 @@ class MyRecipes extends Base
         // レコードをアップデートするSQL文
         $sql = 'UPDATE my_recipes set id=:id, recipe_name=:recipe_name, members_id=:members_id, complete_img=:complete_img, cooking_time=:cooking_time, cost=:cost, 
         how_many_servings=:how_many_servings, video=:video, created_date=:created_date, update_time=:update_time, 
-        release_date=:release_date
-        -- is_deleted=:is_deleted ';
+        release_date=:release_date,
+        is_deleted=:is_deleted ';
         $sql .= 'where id=:id';
 
         // SQL文を実行する準備
@@ -90,8 +79,8 @@ class MyRecipes extends Base
         $stmt->bindValue(':cost',$cost, PDO::PARAM_INT);
         $stmt->bindValue(':how_many_servings',$how_many_servings, PDO::PARAM_INT);
         $stmt->bindValue(':video',$video, PDO::PARAM_STR);
-        $stmt->bindValue(':created_date',$created_date, PDO::PARAM_STR);
-        // $stmt->bindValue(':is_deleted',$is_deleted, PDO::PARAM_INT);
+        $stmt->bindValue(':created_date',$create_date, PDO::PARAM_STR);
+ 
 
         // SQLを実行する
         $stmt->execute();
@@ -116,7 +105,6 @@ class MyRecipes extends Base
         $stmt = $this->dbh->prepare($sql);
 
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        // $stmt->bindValue(':isDeleted', (int) $isDeleted, PDO::PARAM_INT);
 
         // SQLを実行する
         $stmt->execute();
@@ -169,9 +157,6 @@ class MyRecipes extends Base
         $sql .= 'how_many_servings,';
         $sql .= 'video,';
         $sql .= 'created_date';
-        // $sql .= 'update_time,';
-        // $sql .= 'release_date';
-        // $sql .= 'is_deleted';
         $sql .= ') values (';
         $sql .= ':recipe_name,';
         $sql .= ':members_id,';
@@ -181,9 +166,6 @@ class MyRecipes extends Base
         $sql .= ':how_many_servings,';
         $sql .= ':video,';
         $sql .= ':created_date';
-        // $sql .= ':update_time,';
-        // $sql .= ':release_date';
-        // $sql .= ':is_deleted';
         $sql .= ')';
 
         // SQL文を実行する準備
@@ -191,7 +173,6 @@ class MyRecipes extends Base
 
         // SQL文の該当箇所に、変数の値を割り当て（バインド）する
     
-        // $stmt->bindValue(':id', $_SESSION['recipe']['id'], PDO::PARAM_INT);
         $stmt->bindValue(':recipe_name', $_SESSION['recipe']['recipe_name'], PDO::PARAM_STR);
         $stmt->bindValue(':members_id', $_SESSION['recipe']['members_id'], PDO::PARAM_INT);
         $stmt->bindValue(':complete_img',$_SESSION['recipe']['complete_img'],PDO::PARAM_STR);
@@ -208,7 +189,7 @@ class MyRecipes extends Base
     }
 }
 
-// *********｛「材料」テーブル ｝***********************************************************
+// *********「材料」テーブル ***********************************************************
 
 /**
  * materialテーブルクラス
@@ -271,7 +252,7 @@ class Materials extends Base
         $stmt->bindValue(':material_name', $materialName, PDO::PARAM_STR);
         $stmt->bindValue(':amount', $amount, PDO::PARAM_STR);
         $stmt->bindValue(':created_date', $createdDate, PDO::PARAM_STR);
-        $stmt->bindValue(':update_time', $updateTime, PDO::PARAM_STR);
+        $stmt->bindValue(':update_date', $updateDate, PDO::PARAM_STR);
         $stmt->bindValue(':is_deleted', $isDeleted, PDO::PARAM_INT);
 
         // SQLを実行する
@@ -336,16 +317,10 @@ class Materials extends Base
         $sql .= 'recipe_id,';
         $sql .= 'material_name,';
         $sql .= 'amount';
-        // $sql .= 'created_date';
-        // $sql .= 'update_time,';
-        // $sql .= 'is_deleted';
         $sql .= ') values (';
         $sql .= ':recipe_id,';
         $sql .= ':material_name,';
         $sql .= ':amount';
-        // $sql .= ':created_date';
-        // $sql .= ':update_time,';
-        // $sql .= ':is_deleted';
         $sql .= ')';
 
         // SQL文を実行する準備
@@ -355,16 +330,14 @@ class Materials extends Base
         $stmt->bindValue(':recipe_id', $recipe_id, PDO::PARAM_INT);
         $stmt->bindValue(':material_name', $material_name, PDO::PARAM_STR);
         $stmt->bindValue(':amount', $amount, PDO::PARAM_STR);
-        // $stmt->bindValue(':created_date', $created_date, PDO::PARAM_STR);
-        // $stmt->bindValue(':update_time', $update_time, PDO::PARAM_STR);
-        // $stmt->bindValue(':is_deleted', $is_deleted, PDO::PARAM_INT);
+
 
         // SQLを実行する
         $stmt->execute();
     }
 }
 
-// *********｛「調理手順」テーブル ｝***********************************************************
+// *********「調理手順」テーブル ***********************************************************
 
 /**
  * proceduresテーブルクラス
@@ -488,16 +461,10 @@ class Procedures extends Base
         $sql .= 'p_recipe_id,';
         $sql .= 'descriptions,';
         $sql .= 'p_img';
-        // $sql .= 'created_date,';
-        // $sql .= 'update_time,';
-        // $sql .= 'is_deleted';
         $sql .= ') values (';
         $sql .= ':p_recipe_id,';
         $sql .= ':descriptions,';
         $sql .= ':p_img';
-        // $sql .= ':created_date,';
-        // $sql .= ':update_time,';
-        // $sql .= ':is_deleted';
         $sql .= ')';
 
         // SQL文を実行する準備
@@ -508,12 +475,10 @@ class Procedures extends Base
         $stmt->bindValue(':p_recipe_id', $p_recipe_id, PDO::PARAM_INT);
         $stmt->bindValue(':descriptions', $descriptions, PDO::PARAM_STR);
         $stmt->bindValue(':p_img', $p_img, PDO::PARAM_STR);
-        // $stmt->bindValue(':created_date', $_SESSION['recipe']['createdDate'], PDO::PARAM_STR);
-        // $stmt->bindValue(':update_time', $updateTime, PDO::PARAM_STR);
-        // $stmt->bindValue(':is_deleted', $isDeleted, PDO::PARAM_INT);
 
         // SQLを実行する
         $stmt->execute();
     }
 }
 
+?>

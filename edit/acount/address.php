@@ -95,13 +95,17 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ご住所の登録</title>
-    <link rel="stylesheet" href="japan_post_num.css">
-    <!-- 全体CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
 
-    <!-- 郵便局JSONP URL -->
+<!-- 郵便局JSONP URL -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
+
+    <!-- 郵便局API CSS -->
+    <link rel="stylesheet" href="japan_post_num.css">
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
+
+    
 
     <!-- 全体CSS -->
     <link rel="stylesheet" href="stylesheet6.css">
@@ -266,7 +270,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- DIV block1おわり -->
     </div>
 
-
+    <!-- 郵便局API JavaScript -->
     <script src="japan_post_num.js"></script>
 
 

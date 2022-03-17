@@ -137,18 +137,19 @@ if (!empty($_POST['send'])) {
 
             <!-- ログアウト -->
             <div class="div_logout"><input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../../logout/process.php'">
-                <!-- /member/logout/process.php -->
+
             </div>
             <!-- マイページ -->
             <div class="div_logout"><input type="button" value='マイページ' class="logout_btn" onclick="location.href='../../login/process.php'">
-                <!-- /member/logout/process.php -->
+
             </div>
             <!-- みんなのレシピ -->
             <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-                <!-- /member/top/confirm.php -->
+
             </div>
+            <!-- div_p おわり -->
         </div>
-        <!-- div_p おわり -->
+
 
 
         <div class="comprehensive">
@@ -170,10 +171,12 @@ if (!empty($_POST['send'])) {
                             <!-- フォーム -->
                             <form action="" method="POST">
 
+                                <!-- ログイン・ユーザーID -->
                                 <input type="hidden" name="users_id" value="<?php echo $_SESSION['member'] ?>">
-                                <!-- ↑ログイン・ユーザーID -->
+
+                                <!--  add_children_category.phpでINSERTしてからconfirm.phpのページにリダイレクトするために送る -->
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
-                                <!-- ↑ add_children_category.phpでINSERTしてからconfirm.phpのページにリダイレクトするために送る -->
+
 
 
                                 <dt class="wf-sawarabimincho">
@@ -211,7 +214,6 @@ if (!empty($_POST['send'])) {
 
 
                     <!-- フォーム2 親カテゴリー＊選択＊-->
-
                     <div class="div_right3">
                         <!-- フォーム3 親カテゴリーを選択する ＊-->
 
@@ -220,11 +222,10 @@ if (!empty($_POST['send'])) {
                                 <h1>②</h1>親カテゴリーを選択する
                             </span>
                         </dt>
-                        <!-- カテゴリー登録フォーム -->
+
 
 
                         <!-- アコーディオンバーはじまり -->
-                        <!-- 親カテゴリを選ぶ✅ボックス -->
 
                         <!-- 左側 はじまり -->
                         <div class="div_width">
@@ -370,9 +371,7 @@ if (!empty($_POST['send'])) {
 
 
 
-
                     <div class="div_font_inline">
-
 
 
                         <!-- 戻る -->

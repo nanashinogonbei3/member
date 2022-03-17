@@ -212,13 +212,13 @@ try {
 
 
                 </div>
-                <!-- edit_6おわり -->
+            <!-- edit_6おわり -->
             </div>
 
 
 
 
-            <!-- div class="comprehensive" おわり-->
+        <!-- div class="comprehensive" おわり-->
         </div>
         <!-- div_precent -->
 
@@ -284,12 +284,12 @@ try {
 
 
                 </div>
-
+            <!-- ページネーション囲むDIVおわり -->        
             </div>
 
 
 
-            <!-- ページネーション囲むDIVおわり -->
+            
 
             <!-- 商品を使ったレシピ一覧表示欄 -->
             <div class="inline_block_7">
@@ -306,7 +306,7 @@ try {
                                 </span>
                                 <!-- FETCH()した、商品を使用したレシピ画像 -->
                                 <a href="../edit/recipe/release_recipe3.php?id=
-        <?php echo $v['id'] ?>">
+                                    <?php echo $v['id'] ?>">
                                     <dt><img id="recipe" src="../create/recipe/images/<?php echo $v['complete_img'] ?>" alt=""></dt>
                                 </a>
                                 <?php echo $v['id'] ?>

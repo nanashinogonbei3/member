@@ -14,7 +14,7 @@ if (empty($_SESSION['cart'])) {
 
         // PHP rand() ランダムな数字を生成して、決済no.= 注文ナンバーを、カラムに挿入する。
         $settlement_no = rand();
-        // ***
+   
 
         $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
 

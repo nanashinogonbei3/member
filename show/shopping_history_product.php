@@ -29,7 +29,6 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-
     //現在いるページのページ番号を取得
     if (!isset($_GET['page_id'])) {
         $now = 1;
@@ -308,5 +307,4 @@ try {
 
 
 </body>
-
 </html>

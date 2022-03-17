@@ -62,7 +62,7 @@ try {
 } catch (PDOException $e) {
         echo 'My_recipesのDBに接続できません: ',  $e->getMessage(), "\n";
         var_dump($e);
-        // echo $e->getMessage();
+        echo $e->getMessage();
         exit;
 }
 

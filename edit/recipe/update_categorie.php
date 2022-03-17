@@ -40,7 +40,6 @@ try {
 
    
 
-
     // 処理が完了したら（confirm.php）へリダイレクト
     header("Location: ./confirm.php?id=" . $id);
     exit;
@@ -48,8 +47,8 @@ try {
 
 } catch (PDOException $e) {
     echo 'categoriesのDBに接続できません: ',  $e->getMessage(), "\n";
-    // var_dump($e);
-    // echo $e->getMessage();
+    var_dump($e);
+    echo $e->getMessage();
     exit;
 }
 

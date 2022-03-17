@@ -48,7 +48,7 @@ try {
     $stmt->execute();
 
 
-    // 処理が完了したら、マイページへリダイレクト
+    // 処理が完了したら、リダイレクト
     header("Location: ../../login/process.php?id=" . $_SESSION['id']);
     exit;
 

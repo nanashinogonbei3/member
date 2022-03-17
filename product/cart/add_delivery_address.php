@@ -90,7 +90,6 @@ if (empty($_SESSION['cart'])) {
         // SQL文を実行する準備
         $stmt = $dbh->prepare ( $sql );
 
-     
         
 
         $stmt->bindValue(':member_id', $_SESSION['member'], PDO::PARAM_INT);

@@ -1,14 +1,15 @@
 <?php
 
-session_start();
+        session_start();
 
 
-// $_GET['id']は、配列に入っているので、foreachでグルグル回して取り出さなければならない。
-$parent_categoryId  = $_GET['id'];
+        // $_GET['id']は、連想配列に入っているので、foreachでグルグル回して取り出さなければならない。
+        $parent_categoryId  = $_GET['id'];
 
-if(empty($_GET["recipe_id"])) {
-    header("Location: ./edit_material_confirm.php?id=" .$_GET['recipe_id']);
-    exit();
+        if(empty($_GET["recipe_id"])) {
+                header("Location: ./edit_material_confirm.php?id=" .$_GET['recipe_id']);
+                exit();
+
 }
 
         try {
@@ -82,4 +83,4 @@ if(empty($_GET["recipe_id"])) {
 }
 
 
-    ?>
+?>

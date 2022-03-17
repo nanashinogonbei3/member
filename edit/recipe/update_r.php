@@ -40,7 +40,6 @@ if(empty($fileName) AND empty($_POST['recipe_name']) AND empty($_POST['update_ti
     AND empty($_POST['members_id'])) {
           //空送信したら./confirm.phpへリダイレクト
           header("Location: ./confirm.php?id=" . $_POST['id']);
-          // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
           exit;
     }    
 
@@ -78,7 +77,6 @@ if (!empty($fileName)) {
 
             // 処理が完了したら./confirm.phpへリダイレクト
             header("Location: ./confirm.php?id=" . $_POST['id']);
-            // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
             exit;
 
         } catch (PDOException $e) {
@@ -174,4 +172,4 @@ if (!empty($fileName)) {
 
 }    
 
-    ?>
+ ?>

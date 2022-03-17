@@ -4,14 +4,11 @@ session_start();
 
 
 
-// ----------------------------------------
-
 
 if (empty($_SESSION['cart'])) {
     header('Location: ./cart_show.php');
     exit;
 }
-// -------------------------------------------
 
 try {
 
@@ -49,7 +46,6 @@ try {
 
 
 
-    // ************************************
     // billing_addressesテーブルから会員情報をFETCH()する
     // 68行目 != membersテーブルの'電話番号' と同じ番号は除き
     // membersテーブルの人とbilling_addressesテーブル
@@ -406,7 +402,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
         </div>
-        <!-- DIV block1おわり -->
+    <!-- DIV block1おわり -->
     </div>
 
 

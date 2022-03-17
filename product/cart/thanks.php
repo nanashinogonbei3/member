@@ -149,7 +149,7 @@ try {
             <!-- to top -->
             <input type="button" value='トップ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
         </div>
-        <!-- DIV inlineBlockおわり -->
+    <!-- DIV inlineBlockおわり -->
     </div>
 
 

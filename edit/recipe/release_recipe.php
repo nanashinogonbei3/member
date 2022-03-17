@@ -39,9 +39,8 @@ try {
 
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT * FROM my_recipes
-          
-            WHERE id=" . $id;
+        $sql = "SELECT * FROM my_recipes 
+        WHERE id=" . $id;
 
 
         $stmt = $dbh->prepare($sql);
@@ -71,9 +70,9 @@ try {
 
         // メンバーのニックネームを取り出す
         $sql = "SELECT nickname FROM members
-            JOIN my_recipes ON members.id = 
-            my_recipes.members_id
-            WHERE my_recipes.id =" . $id;
+        JOIN my_recipes ON members.id = 
+        my_recipes.members_id
+        WHERE my_recipes.id =" . $id;
 
 
         $stmt = $dbh->prepare($sql);
@@ -90,14 +89,14 @@ try {
         // left JOIN material_parent_categoriesだと、親材料カテゴリに未登録でも表示できる
         // 親材料カテゴリーから登録済みの親カテゴリーテーブルに紐づいた、材料・分量を表示します
         $sql = 'SELECT materials.id, materials.material_name, materials.amount, 
-            material_parent_categories.materials_parent_category_name
-            FROM materials
-            left JOIN material_parent_categories ON materials.parent_category_id = 
-            material_parent_categories.id   
-            left outer JOIN material_categories ON material_parent_categories.id =
-            material_categories.parent_category_id
-            WHERE materials.recipe_id = ' . $id . '
-            ';
+        material_parent_categories.materials_parent_category_name
+        FROM materials
+        left JOIN material_parent_categories ON materials.parent_category_id = 
+        material_parent_categories.id   
+        left outer JOIN material_categories ON material_parent_categories.id =
+        material_categories.parent_category_id
+        WHERE materials.recipe_id = ' . $id . '
+        ';
 
         $stmt = $dbh->prepare($sql);
 
@@ -112,15 +111,15 @@ try {
         // SELECT {カラム名} AS {変更するカラム名} FROM {テーブル名};
         // カルーセルで表示するレシピで使った商品をFETCHする。
         $sql = 'SELECT product_lists.id, product_lists.img, product_lists.price,
-            product_lists.amount as product_amount, materials.amount, 
-            product_lists.product_name,
-            makers.names
-            FROM product_lists
-            JOIN materials ON product_lists.id = materials.product_id
-            INNER JOIN makers ON product_lists.maker_id = makers.id 
-            WHERE materials.recipe_id = ' . $id . '
-            AND product_lists.is_released = 1
-            ';
+        product_lists.amount as product_amount, materials.amount, 
+        product_lists.product_name,
+        makers.names
+        FROM product_lists
+        JOIN materials ON product_lists.id = materials.product_id
+        INNER JOIN makers ON product_lists.maker_id = makers.id 
+        WHERE materials.recipe_id = ' . $id . '
+        AND product_lists.is_released = 1
+        ';
 
         $stmt = $dbh->prepare($sql);
 
@@ -149,11 +148,11 @@ try {
         // カテゴリー
         // ログインユーザーがこのレシピに登録済みのカテゴリー一覧を表示するためのFETCHをする
         $sql = "SELECT categories.id, categories.categories_name,
-            recipe_categories.category_id, recipe_categories.my_recipe_id
-            FROM recipe_categories 
-            JOIN categories ON recipe_categories.category_id = categories.id
-            JOIN my_recipes ON recipe_categories.my_recipe_id = my_recipes.id
-            WHERE recipe_categories.my_recipe_id = '.$id.' ";
+        recipe_categories.category_id, recipe_categories.my_recipe_id
+        FROM recipe_categories 
+        JOIN categories ON recipe_categories.category_id = categories.id
+        JOIN my_recipes ON recipe_categories.my_recipe_id = my_recipes.id
+        WHERE recipe_categories.my_recipe_id = '.$id.' ";
 
 
         $stmt = $dbh->prepare($sql);
@@ -169,10 +168,10 @@ try {
         // 材料のアドバイス「一口メモ」を表示するためのFETCHです。
         //material_categoriesテーブル
         $sql = "SELECT advice
-            FROM advices JOIN my_recipes 
-            ON advices.recipe_id = my_recipes.id
-            WHERE my_recipes.id = " . $id . "
-            ";
+        FROM advices JOIN my_recipes 
+        ON advices.recipe_id = my_recipes.id
+        WHERE my_recipes.id = " . $id . "
+        ";
 
         $stmt = $dbh->prepare($sql);
 
@@ -212,11 +211,11 @@ try {
         // 2回目以降は、UPDATE（update_favorite_recipe.php）で。
         // ※2回目以降は、completed==1なら、value=0,completed==0なら、value=1を代入するだけ。
         $sql = "SELECT favorite_recipe_id, is_completed
-             FROM favorite_recipes
-            INNER JOIN my_recipes ON favorite_recipes.favorite_recipe_id = my_recipes.id
-            WHERE favorite_recipes.favorite_recipe_id = '" . $id . "' 
-            AND favorite_recipes.members_id = '" . $_SESSION['member'] . "'
-            ";
+        FROM favorite_recipes
+        INNER JOIN my_recipes ON favorite_recipes.favorite_recipe_id = my_recipes.id
+        WHERE favorite_recipes.favorite_recipe_id = '" . $id . "' 
+        AND favorite_recipes.members_id = '" . $_SESSION['member'] . "'
+        ";
 
         $stmt = $dbh->prepare($sql);
 
@@ -226,6 +225,8 @@ try {
 
         $favorite = $result->fetch(PDO::FETCH_ASSOC);
     }
+
+
 } catch (PDOException $e) {
     echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
     echo '<pre>';
@@ -432,8 +433,9 @@ try {
                     </span>
                     <span style="color:green"><?php echo $created_date ?></span>
                 </dt>
+            <!-- END left_container -->    
             </div>
-            <!-- END left_container -->
+            
             <!-- --------------------------------------------------------- -->
             <!-- カルーセル -->
 
@@ -473,30 +475,33 @@ try {
                                         <!-- ボタン（カルーセル内’商品詳細’） -->
                                         <div class="btn_carousel">
                                             <button id="carousel_btn" type=“button” class="order" onclick="
-                            location.href='../../product/product_introduction.php?id=<?php echo $v['id'] ?>'">商品の詳細</button>
+                                            location.href='../../product/product_introduction.php?id=<?php echo $v['id'] ?>'">商品の詳細</button>
                                         </div>
                                     </li>
                                 </ul>
 
                             <?php endforeach ?>
 
-
+                        <!-- DIV carouselInnerおわり -->            
                         </div>
-                        <!-- DIV carouselInnerおわり -->
-
+                        
+                    <!-- DIV carouselおわり -->            
                     </div>
-                    <!-- DIV carouselおわり -->
-                </div>
+                 
                 <!-- DIV containerおわり -->
                 <!-- カルーセルおわり -->
+                </div>
+                
             <?php } else {
-                //    なんにも<表示>しないデス。
-            } ?>
 
-        </div>
+                //なにも<表示>しない
+                 } ?>
+
         <!-- End hidari -->
+        </div>
+        
 
-        <!-- ---右----------------------------------------------- -->
+        <!-- ---右側はじまり----------------------------------------------- -->
         <div class="migi">
             <div class="right_container">
                 <!-- 登録したカテゴリをFETCHする$dataが在れば,FETCHデータを表示 -->
@@ -516,8 +521,11 @@ try {
                     // FETCHデータが無ければメッセージを表示
                     echo '<dt>カテゴリーは未登録です</dt>';
                 } ?>
+
+
+            <!-- END left_container -->    
             </div>
-            <!-- END left_container -->
+            
 
             <!-- -------------------------------------------------------------- -->
             <div class="div_w">
@@ -553,8 +561,8 @@ try {
                     </tbody>
                 </table>
 
-                <!-- 材料の表示欄 -->
-                <!-- div_w -->
+            <!-- 材料の表示欄 -->
+            <!-- div_w -->
             </div>
 
             <div class="div_w_under">
@@ -642,10 +650,13 @@ try {
             </dl>
 
         <?php endif ?>
+
+        <!-- End migi -->            
         </div>
-        <!-- End migi -->
+        
+        <!-- End comprehensive -->            
         </div>
-        <!-- End comprehensive -->
+        
         <!-- --------------------------------------------------------------- -->
         <div class="bottom">
             <dt class="wf-sawarabimincho"><span style="color:green;font-size:24px">🔲作り方</p>
@@ -681,14 +692,19 @@ try {
                         </div>
                     </div>
                 <?php endforeach ?>
-                <!-- End parent -->
-            </div>
+
+
             <!-- End parent -->
+            </div>
+            
+        <!-- End bottom -->            
         </div>
-        <!-- End bottom -->
+        
         <div class="footer">footer</div>
-        <script src="js/main.js"></script>
+
         <!-- 一口レシピを表示/非表示をコントロールするjavaScript -->
+        <script src="js/main.js"></script>
+        
 
 </body>
 

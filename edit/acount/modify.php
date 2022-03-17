@@ -323,11 +323,11 @@ if (!empty($_REQUEST['action']) && !empty($_SESSION['members'])) {
                             </div>
                             <!-- ----------------------------------------------------------------------- -->
                             <div class="div_img3">
-                                <!-- 戻る ボタン -->
+                                <!-- キャンセル ボタン -->
                                 <dt class="wf-sawarabimincho">
                                     <input type="button" value='キャンセル' style="width: 115px; height: 25px" onclick="location.href='../../login/process.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
 
-                                    <!-- 送信ボタン -->
+                                    <!-- 確認ボタン -->
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="submit" value="入力内容を確認する" />
                                 </dt>

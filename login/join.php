@@ -9,7 +9,6 @@ if (isset($_COOKIE['members_id']) && $_COOKIE['members_id'] !== '') {
 
 
 
-
 try {
 
     $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
@@ -217,6 +216,7 @@ if (!empty($_POST)) {
                     </div>
 
 
+                    
 
                     <!-- 送信ボタン -->
                     <p class="wf-sawarabimincho"></p>

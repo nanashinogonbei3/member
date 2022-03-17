@@ -13,8 +13,9 @@ if ($_SESSION['member'] !== 104) {
 require_once('../class/db/Base.php');
 require_once('../class/db/CreateRecipes.php');
 
-define('max_view', 6);
 // 1ページの$list でFETCH ALL の表示数
+define('max_view', 6);
+
 
 try {
 
@@ -212,7 +213,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 <body>
     <!-- 画像アップロードボタン の、「ファイル名を表示させる」ためにjs を使用します -->
 
-    <!-- <script type="text/javascript" src="./js/btn.js"></script> -->
+
     <!-- Javascript ファイルを読み込む -->
     <script src="./js/delete/delete.js"></script>
     <script src="./js/delete/delete.js"></script>
@@ -233,14 +234,14 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
         <!-- みんなのレシピ -->
         <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../top/confirm.php'">
-            <!-- /member/logout/process.php -->
+   
         </div>
 
 
 
         <!-- 商品一覧 -->
         <div class="div_logout"><input type="button" value='商品一覧' class="logout_btn" onclick="location.href='./product_lists.php'">
-            <!-- /member/logout/process.php -->
+       
         </div>
 
 
@@ -255,7 +256,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
             <!-- 虫眼鏡検索で『商品名』が入力がされたら、 -->
             <input type="text" class="form-input" name="product" value="
-" placeholder='serch' maxlength="24" />
+            " placeholder='serch' maxlength="24" />
 
             <!-- 虫眼鏡のボタン -->
 
@@ -264,7 +265,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                 <div>検索</div>
             </button>
 
-            <!-- ↓ div_mushimegane おわり -->
+        <!--  div_mushimegane おわり -->
         </div>
         </form>
 
@@ -531,7 +532,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- endforeach -->
 
 
-    <!-- --------------------------------------- -->
+ 
     <!-- ページング -->
     <div class="div_w2">
 
@@ -564,9 +565,9 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                             echo "<span style='padding: 5px;'>$now</span>";
                         } else {
                             echo "<a href='./index.php?page_id=$n' 
-                style='padding:5px;
-                '
-                '>$n</a>";
+                        style='padding:5px;
+                        '
+                        '>$n</a>";
                             // hrefのリンクは、表示現在表示するリンクに修正して使うこと。
                         }
                     }
@@ -589,7 +590,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     </div>
     <!-- ページネーション囲むDIVおわり -->
 
-    <!-- ------------------------------------------------------ -->
+ 
 
         </div>
         </div>

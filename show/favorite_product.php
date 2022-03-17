@@ -1,15 +1,16 @@
 <?php
 session_start();
+
 // ログイン情報が無ければ、ログイン画面にリダイレクト
 if (empty($_SESSION['member'])) {
     header('Location: ../login/join.php');
     exit();
 }
 
-require_once('../class/db/Base.php');
-require_once('../class/db/CreateRecipes.php');
-// 1ページの$list でFETCH ALL の表示数
-define('max_view', 6);
+    require_once('../class/db/Base.php');
+    require_once('../class/db/CreateRecipes.php');
+    // 1ページの$list でFETCH ALL の表示数
+    define('max_view', 6);
 
 
 try {
@@ -29,10 +30,10 @@ try {
 
 
     $sql = "SELECT *
-             FROM favorite_products
-            JOIN product_lists ON favorite_products.favorite_product_id = 
-            product_lists.id
-            WHERE favorite_products.members_id = '" . $_SESSION['member'] . "' ";
+    FROM favorite_products
+    JOIN product_lists ON favorite_products.favorite_product_id = 
+    product_lists.id
+    WHERE favorite_products.members_id = '" . $_SESSION['member'] . "' ";
 
     $stmt = $dbh->prepare($sql);
 
@@ -45,7 +46,6 @@ try {
 
     // お気に入りレシピの数
     $total_count = count($list);
-    // echo $total_count;
 
     // ページ数= 全商品数/1ページの表示数
     // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
@@ -63,11 +63,11 @@ try {
     // ページネーションの1ページ目のsqlの処理・1ページ以外のsqlの処理
     //表示するページを取得するSQLを準備
     $select = $dbh->prepare("SELECT distinct *
-            FROM favorite_products
-            JOIN product_lists ON favorite_products.favorite_product_id = 
-            product_lists.id
-            WHERE favorite_products.members_id = '" . $_SESSION['member'] .
-        "' ORDER BY favorite_products.favorite_product_id DESC LIMIT :start,:max ");
+    FROM favorite_products
+    JOIN product_lists ON favorite_products.favorite_product_id = 
+    product_lists.id
+    WHERE favorite_products.members_id = '" . $_SESSION['member'] .
+    "' ORDER BY favorite_products.favorite_product_id DESC LIMIT :start,:max ");
 
     if ($now == 1) {
         //1ページ目の処理
@@ -148,7 +148,7 @@ try {
         </div>
 
 
-        <!-- div_pおわり -->
+    <!-- div_pおわり -->
     </div>
 
     </form>
@@ -184,9 +184,9 @@ try {
                             if ($now > 1) {
                                 // 1ページより大きいなら、「前へ」表示
                                 echo '<a href="?page_id=', ($now - 1), '">  
-                 <img src="../icon_img/pre.png"
-                 alt="前へ" width="25" height="25" border="0">
-                </a>';
+                                <img src="../icon_img/pre.png"
+                                alt="前へ" width="25" height="25" border="0">
+                                </a>';
                             } else {
                                 //  1ページよりも小さい＝ページが無い、場合は矢印は表示させない。
                             }
@@ -210,9 +210,9 @@ try {
                             if ($now < $pages) {
                                 // 表示ページが最終ページより小さいなら、「次へ」表示
                                 echo '<a href="?page_id=', ($now + 1), '">  
-                    <img src="../icon_img/next.png"
-                        alt="次へ" width="25" height="25" border="0" margin-top:1px>
-                    </a>';
+                                <img src="../icon_img/next.png"
+                                    alt="次へ" width="25" height="25" border="0" margin-top:1px>
+                                </a>';
                             }
                             ?>
                         <?php } elseif ($pages == 1) {
@@ -244,7 +244,7 @@ try {
                             </span>
                             <!-- FETCH()した、商品を使用したレシピ画像 -->
                             <a href="../product/product_introduction.php?id=
-        <?php echo $v['id'] ?>">
+                                <?php echo $v['id'] ?>">
                                 <dt><img id="recipe" src="../product/images/<?php echo $v['img'] ?>" alt=""></dt>
                             </a>
                             <span style="color:#BD0711;font-size:21px;font-weight:bold"><?php echo $v['price'] . "円" ?></span>
@@ -252,6 +252,7 @@ try {
                         </div>
                     <?php endforeach ?>
                 <?php } else {
+                    // ページ数が1なら、ページングは非表示。
                 } ?>
 
             </div>

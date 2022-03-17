@@ -1,13 +1,12 @@
 <?php
 
-session_start();
+        session_start();
 
 
 
-$parent_category_id = $_SESSION['material_category']['parent_category_id'];
+        $parent_category_id = $_SESSION['material_category']['parent_category_id'];
 
-$material_category_name = $_SESSION['material_category']['material_category_name'];
-
+        $material_category_name = $_SESSION['material_category']['material_category_name'];
 
 
 

@@ -129,7 +129,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
                                 <!-- delivery_registration_single_item.php からPOSTされたidのname属性が’memberid'を受け取ると、
-                membersテーブルの住所が表示される 。念のためmembersテーブルの住所に郵便番号があることを条件に付加した。-->
+                                membersテーブルの住所が表示される 。念のためmembersテーブルの住所に郵便番号があることを条件に付加した。-->
                                 <!-- members テーブル -->
                                 <?php if (empty($_POST['billingid']) && !empty($memberPostNo)) : ?>
 

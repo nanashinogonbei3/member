@@ -48,6 +48,7 @@ try {
     header("Location: ../../login/join.php?id=" . $_SESSION['id']);
     exit;
     
+    
 } catch (PDOException $e) {
     echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
     var_dump($e);

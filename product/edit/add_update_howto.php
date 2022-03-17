@@ -1,38 +1,39 @@
 <?php
-session_start(); 
+        session_start(); 
 
-unset($_SESSION['errrMsg3']);
-unset($_SESSION['howtoLength']);
+        unset($_SESSION['errrMsg3']);
+        unset($_SESSION['howtoLength']);
 
-$id = $_POST['id'];
+        $id = $_POST['id'];
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+        session_start();
+        // 必要なファイルを読み込む
+        require_once('../../class/db/Base.php');
+        require_once('../../class/db/CreateRecipes.php');
 
-if(empty($_POST['howto_use'])) {
+        if(empty($_POST['howto_use'])) {
         
-        // （confirm.php）へリダイレクト
+        // confirm.phpへリダイレクト
         header("Location: ./confirm.php?id=".$id); 
         exit;
     }
 
-// 制限値
-$limit = 700;
-//メッセージの変数を初期化
-$errMsg3 = '';
-// 入力された文字列の長さを取得する
-$howto_useLength = strlen($_POST['howto_use']); 
-// 商品説明が、制限値を超えたらエラーを表示する。
-if ($limit < $howto_useLength) {
-    $errMsg3 = "使用方法は、700文字以内で入力してください。";
-    $_SESSION['errrMsg3'] = $errMsg3;
-    $_SESSION['howtoLength'] = $howto_useLength;
-    // （confirm.php）へリダイレクト
-    header("Location: ./confirm.php?id=".$id); 
-    exit;
-}
+        // 制限値
+        $limit = 700;
+        //メッセージの変数を初期化
+        $errMsg3 = '';
+        // 入力された文字列の長さを取得する
+        $howto_useLength = strlen($_POST['howto_use']); 
+        // 商品説明が、制限値を超えたらエラーを表示する。
+
+    if ($limit < $howto_useLength) {
+        $errMsg3 = "使用方法は、700文字以内で入力してください。";
+        $_SESSION['errrMsg3'] = $errMsg3;
+        $_SESSION['howtoLength'] = $howto_useLength;
+        // （confirm.php）へリダイレクト
+        header("Location: ./confirm.php?id=".$id); 
+        exit;
+    }
 
 
     try {
@@ -71,7 +72,6 @@ if ($limit < $howto_useLength) {
         echo $e->getMessage();
         exit;
     }
-
 
 
 ?>

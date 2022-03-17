@@ -37,3 +37,5 @@ class Base
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
+
+?>

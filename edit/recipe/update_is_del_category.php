@@ -1,15 +1,15 @@
 <?php
 
-// このファイルは、”一時的に” ユーザー登録のカテゴリーを非表示にするファイルです
+        // このファイルは、”一時的に” ユーザー登録のカテゴリーを非表示にするファイルです
 
-// is_deleted = 1 のPOSTを受け取ることで、if(empty($v['is_deleted']) で、id_deleted = 0 だけレシピを表示させます
-$id = $_POST['recipe_id'];
+        // is_deleted = 1 のPOSTを受け取ることで、if(empty($v['is_deleted']) で、id_deleted = 0 だけレシピを表示させます
+        $id = $_POST['recipe_id'];
 
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+        session_start();
+        // 必要なファイルを読み込む
+        require_once('../../class/db/Base.php');
+        require_once('../../class/db/CreateRecipes.php');
 
 
 
@@ -64,4 +64,4 @@ require_once('../../class/db/CreateRecipes.php');
     }
     
 
-    ?>
+?>

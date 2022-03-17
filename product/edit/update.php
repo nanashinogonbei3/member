@@ -1,13 +1,13 @@
 <?php
-// 必要なファイルを読み込む
-$id = $_POST['id'];
+    // 必要なファイルを読み込む
+    $id = $_POST['id'];
 
 
 
-session_start();
+    session_start();
 
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+    require_once('../../class/db/Base.php');
+    require_once('../../class/db/CreateRecipes.php');
 
 
 
@@ -19,9 +19,9 @@ if (!empty($fileName)) {
     $ext = substr($fileName, -3);
         if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
             $error['image'] = 'type';
-                echo '<p class= "error">* 写真などは「.gif」または「.jpg」
-                「.png」の画像を指定してください</p>' ;
-                exit;
+            echo '<p class= "error">* 写真などは「.gif」または「.jpg」
+            「.png」の画像を指定してください</p>' ;
+            exit;
     }   
 
     } if (empty($error['image'])) {  
@@ -40,9 +40,8 @@ if (!empty($fileName)) {
 // 空送信のリダイレクト処理
 if(empty($fileName) AND empty($_POST['product_name']) AND empty($_POST['categorie_name'])
     AND empty($_POST['handling_start_date']) ) {
-          //./confirm.phpへリダイレクト
+          //confirm.phpへリダイレクト
           header("Location: ./confirm.php?id=" . $_POST['id']);
-          // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
           exit;
     }  
 
@@ -77,7 +76,6 @@ if (!empty($fileName)) {
 
             // 処理が完了したら./confirm.phpへリダイレクト
             header("Location: ./confirm.php?id=" . $_POST['id']);
-            // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
             exit;
 
         } catch (PDOException $e) {
@@ -172,10 +170,8 @@ if (!empty($fileName)) {
             echo '</pre>';
             exit;
         }
-  
-
 
 }    
     
 
-    ?>
+?>

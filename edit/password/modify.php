@@ -91,15 +91,16 @@ if (isset($_POST['send'])) {
 
     foreach ($list as $v) {
 
-        // 実行結果 / 91b92669ecf0fa9c6e550fd5fd76c31b5c969f57
-        if ($v['password'] === sha1($_POST['password'])) {
-            $error['password_duplicate'];
-            // $v['password']=’現在DB登録のパスワード 右が今フォームに入力されたパスワードが完全一致したら、エラー
-            // パスワードが変わっていない（現在登録のDBのパスワードと全く同じパスワードの為エラー）
-        }
-        //  sha1($_POST['password'])
+        // $v['password']=’現在DB登録のパスワード 右が今フォームに入力されたパスワードが完全一致したら、エラー
+        // パスワードが変わっていない（現在登録のDBのパスワードと全く同じパスワードの為エラー）
+        // sha1($_POST['password'])
         // 今入力される生のパスワードと、DBの暗号化されたパスワード(sha1 不可逆型パスワード元に戻せない強力な暗号化
         // 必ず暗号化された文字列になるという特性を持ちます。だから今入力される生のPWの文字もsh1で暗号化してDBの文字列と照合します
+        if ($v['password'] === sha1($_POST['password'])) {
+            $error['password_duplicate'];
+            
+        }
+        
     }
 
     // 入力にエラーが無ければ、次のPW変更確認画面に遷移する

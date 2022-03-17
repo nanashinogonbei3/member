@@ -377,7 +377,7 @@ try {
                             </table>
 
 
-                            <!-- div_w -->
+                    <!-- div_w -->
                     </div>
 
                     <div class="div_w_under">
@@ -425,12 +425,13 @@ try {
                 </table>
                 </form>
                 </div>
-            </div>
             <!-- div_w -->
+            </div>
+            
 
-            <!-- DIV 右側おわり -->
+        <!-- DIV 右側おわり -->
         </div>
-        <!-- div class="comprehensive" おわり-->
+    <!-- div class="comprehensive" おわり-->
     </div>
 
 

@@ -1,14 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-$id = $_POST['favorite_recipe_id'];
+    $id = $_POST['favorite_recipe_id'];
 
 
-if(empty($_POST['favorite_recipe_id']) ) {
+    if(empty($_POST['favorite_recipe_id']) ) {
 
-    header("Location: ../release_recipe.php?id=".$id); 
-    exit;
-}
+        header("Location: ../release_recipe.php?id=".$id); 
+        exit;
+    }
 
        
 try {

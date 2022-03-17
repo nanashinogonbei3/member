@@ -2,12 +2,12 @@
 
 
 
-$id = $_POST['id'];
+        $id = $_POST['id'];
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+        session_start();
+        // 必要なファイルを読み込む
+        require_once('../../class/db/Base.php');
+        require_once('../../class/db/CreateRecipes.php');
 
 
     try {
@@ -52,4 +52,4 @@ require_once('../../class/db/CreateRecipes.php');
     }
     
 
-    ?>
+?>

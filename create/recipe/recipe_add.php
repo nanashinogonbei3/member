@@ -33,8 +33,6 @@ if (empty($_SESSION['recipe'])) {
 
 
 
-    <!-- 入力された文字の表示フォーム  -->
-
     <body>
 
 
@@ -130,10 +128,10 @@ if (empty($_SESSION['recipe'])) {
                             <dt>データベースに登録してよろしいですか？<input type="submit" name="upload" value="登録" class="btn-border" /></dt>
                         </div>
                     </div>
-                    <!-- div inlineblock 2 -->
+                <!-- div inlineblock 2 -->
                 </div>
 
-                <!-- div comprehensive -->
+            <!-- div comprehensive -->
             </div>
 
         </form>

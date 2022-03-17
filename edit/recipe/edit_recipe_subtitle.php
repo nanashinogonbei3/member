@@ -1,7 +1,7 @@
 <?php
-session_start();
-// レシピID
-$id = $_GET['id'];
+    session_start();
+    // レシピID
+    $id = $_GET['id'];
 
 
 
@@ -61,6 +61,8 @@ try {
         exit();
         // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
     }
+
+
 } catch (PDOException $e) {
     echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
     echo '<pre>';
@@ -71,47 +73,47 @@ try {
 }
 
 
-// sendボタンが押されたら
-if (isset($_POST['send'])) {
+    // sendボタンを押下した時エラーチェックを走らせる
+    if (isset($_POST['send'])) {
 
-    if ($_POST['id'] == '') {
-        $error['cheked'] = 'blank';
+        if ($_POST['id'] == '') {
+            $error['cheked'] = 'blank';
+        }
+
+
+
+        if (empty($error)) {
+
+            $_SESSION['recipe'] = $_POST;
+
+
+
+            // エラーが無ければ、インサートに遷移する
+            header('Location: add_subtitle.php');
+            exit();
+        }
     }
 
 
+        // ログイン時間から１時間たってたらログイン画面に戻る。
 
-    if (empty($error)) {
-
-        $_SESSION['recipe'] = $_POST;
-
-
-
-        // エラーが無ければ、インサートに遷移する
-        header('Location: add_subtitle.php');
-        exit();
-    }
-}
-
-
-// ログイン時間から１時間たってたらログイン画面に戻る。
-
-// セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
-// 1時間以上たっていた場合,という意味
-if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-    // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
-    $_SESSION['time'] = time();
-    // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
-    // 最後の時刻から１時間を記録することができるようになる。 
-} elseif ($_SESSION['member'] = []) {
-    header('Location: ../../login/join.php');
-    exit();
-    // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
-    // ログイン画面に遷移する
-} else {
-    header('Location: ../../login/join.php');
-    exit();
-    // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
-}
+        // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
+        // 1時間以上たっていた場合,という意味
+        if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+            // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
+            $_SESSION['time'] = time();
+            // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
+            // 最後の時刻から１時間を記録することができるようになる。 
+        } elseif ($_SESSION['member'] = []) {
+            header('Location: ../../login/join.php');
+            exit();
+            // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
+            // ログイン画面に遷移する
+        } else {
+            header('Location: ../../login/join.php');
+            exit();
+            // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
+        }
 
 ?>
 
@@ -191,13 +193,8 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         </div>
 
 
-                        <!-- div_hidari おわり -->
+                    <!-- div_hidari おわり -->
                     </div>
-
-
-
-
-
 
 
 
@@ -214,7 +211,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
                                 <!--1. レシピのサブタイトル入力フォーム -->
                                 <?php if (!empty($_POST['sub_title'])) { ?>
-                                    <input id='child_category' type="text" name="sub_title" size="35" placeholder='サブタイトルを入力する' maxlength="255" value="<?php print(htmlspecialchars(
+                                <input id='child_category' type="text" name="sub_title" size="35" placeholder='サブタイトルを入力する' maxlength="255" value="<?php print(htmlspecialchars(
                                                                                                                                                             $_POST['sub_title'],
                                                                                                                                                             ENT_QUOTES
                                                                                                                                                         )); ?>">
@@ -265,11 +262,10 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     </div>
                     <br>
 
-                    <!-- ボタン -->
 
 
 
-                    <!-- ボタン -->
+            
                     <div class="bottun5">
                         <!-- 送信ボタン -->
                         <dt><input type="submit" class="update" value="登録" name="send" style="width: 60px;
@@ -398,8 +394,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
 
-                    <!-- 入力フォーム緑枠終わり -->
-                    <!-- ボタンおわり -->
+             <!-- 入力フォーム緑枠終わり -->
             </div>
 
 

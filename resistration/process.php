@@ -111,7 +111,6 @@ try {
 
 
                     <!-- ログイン　ボタン -->
-
                     <div class="div_font_inline">
                         <input type="button" value='ログイン画面' style="width:20%;padding:10px;font-size:15px;" onclick="location.href='../login/join.php'" class="btn-border">
                     </div>

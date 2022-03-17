@@ -482,11 +482,11 @@ if (!empty($_POST['id']) || $_SESSION['member'] || !empty($_GET['name']) || !emp
                     </tr>
                     </form>
 
-                    <!-- div_wrap -->
+        <!-- div_wrap -->
         </div>
 
 
-        <!-- endforeach -->
+    <!-- endforeach -->
     <?php } ?>
 
 

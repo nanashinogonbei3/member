@@ -56,12 +56,12 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お支払方法</title>
 
-    <!-- 郵便局のAPI〒番号から住所検索機能 -->
-
-    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
+<!-- 郵便局のAPI 〒番号から住所検索 -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
 
+    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
+    
     <!-- 郵便局APIのcss -->
     <link rel="stylesheet" href="css/japan_post_num.css">
 

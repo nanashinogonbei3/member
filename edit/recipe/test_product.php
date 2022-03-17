@@ -95,7 +95,7 @@ try {
 
     ?>
     <!-- もし配列が3セット以上あれば、カルーセルを表示する。
-つまり、材料のなかに商品の登録が3つ以上あれば、カルーセル表示させる。 -->
+    材料のなかに商品の登録が3つ以上あれば、カルーセル表示させる。 -->
     <?php if (!empty($product) && $cnt > 3) { ?>
 
         <div class="div_carousel">
@@ -121,7 +121,7 @@ try {
                                 <!-- ボタン（カルーセル内’商品詳細’） -->
                                 <div class="btn_carousel">
                                     <button id="carousel_btn" type=“button” class="order" onclick="
-                    location.href='../../product/product_introduction.php?id=<?php echo $v['id'] ?>'">商品の詳細</button>
+                                    location.href='../../product/product_introduction.php?id=<?php echo $v['id'] ?>'">商品の詳細</button>
                                 </div>
                             </li>
                         </ul>
@@ -148,5 +148,4 @@ try {
     <script src="main.js"></script>
 
 </body>
-
 </html>

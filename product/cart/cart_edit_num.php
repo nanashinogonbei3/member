@@ -1,8 +1,6 @@
 <?php session_start();
 
 
-
-
 // SESSION['cart']があれば
 if (!empty($_SESSION['cart'])) {
         // name=add_cartボタンが押されたらエラーチェックを走らせる。

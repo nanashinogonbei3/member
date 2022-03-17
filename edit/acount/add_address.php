@@ -4,7 +4,6 @@ session_start();
 
 
 
-
 try {
 
 $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';

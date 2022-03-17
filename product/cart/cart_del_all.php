@@ -11,7 +11,6 @@ unset($_SESSION['cart']);
 // cart_show.phpへリダイレクトする。
 header('location: ./cart_show.php');
 exit;
-
 ?>
 
 

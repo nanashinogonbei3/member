@@ -46,11 +46,9 @@ try {
 
 
 
-        //   今、画面で選択している商品を表示する
+        // 今画面で選択している商品を表示する
         $product_id = $record['id'];
 
-        // echo '今表示している商品のメーカーidは'. $record['maker_id'] . 'です';
-        // $makerid = $record['maker_id'];
 
         // ここからメーカーテーブル
         // SELECT文で、全メーカーを選択できるように表示させるためのFETCH()ALLする。
@@ -234,14 +232,14 @@ try {
                                 <!-- "商品情報   更新する"ボタン -->
                                 <div class="f_left">
                                     <dt><input type="submit" class="update" value="更新する" style="width: 120px;
-                            color: #4F5902;
-                            height: 33px;
-                            font-size: 16px;
-                            border-radius: 10px;
-                            border: none;
-                            background-color: #E9C8A7;
-                            background-color: #D9CC1E
-                            ">
+                                color: #4F5902;
+                                height: 33px;
+                                font-size: 16px;
+                                border-radius: 10px;
+                                border: none;
+                                background-color: #E9C8A7;
+                                background-color: #D9CC1E
+                                ">
                                     </dt>
                                 </div>
                                 <div class="test">
@@ -251,15 +249,14 @@ try {
                                 </div>
                             </div>
 
+                            <!-- div_editおわり -->
                     </div>
-                    <!-- div_editおわり -->
 
 
+                    <!-- div_hidariおわり -->
                 </div>
-                <!-- div_hidariおわり -->
+
                 </form>
-
-
 
 
                 <!-- DIV 右側はじまり -->
@@ -626,9 +623,9 @@ try {
 
                 <!-- フォーム3 使用方法を入力する -->
                 <textarea name="howto_use" value="
-    <?php if (!empty($_POST['howto_use'])) {
-        echo $_POST['howto_use'];
-    } ?>" cols="35" rows="15" placeholder='テンパリングの際に弱火で炒めます'></textarea>
+                    <?php if (!empty($_POST['howto_use'])) {
+                        echo $_POST['howto_use'];
+                    } ?>" cols="35" rows="15" placeholder='テンパリングの際に弱火で炒めます'></textarea>
                 <?php if (!empty($_SESSION['errrMsg3'])) { ?>
                     <dt class="errorMsg">
                         <?php echo $_SESSION['errrMsg3']; ?>
@@ -639,7 +636,7 @@ try {
                 <?php } ?>
                 </dt>
 
-                <!-- 更新ボタン -->
+
                 <!-- "商品情報   更新する"ボタン -->
                 <div class="f_left">
                     <dt><input type="submit" class="update" value="更新する" style="width: 120px;">

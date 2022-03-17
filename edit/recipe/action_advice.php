@@ -1,10 +1,10 @@
 <?php 
-session_start();
+    session_start();
 
-$id = $_POST['recipe_id'];
+    $id = $_POST['recipe_id'];
 
 
-$id= $_SESSION['advice']['recipe_id'];
+    $id= $_SESSION['advice']['recipe_id'];
 
 try {
  

@@ -62,7 +62,7 @@ try {
 
     <?php if (isset($_SESSION["cart"]) && count($_SESSION["cart"]) > 0) :  ?>
 
-        <!-- <div class="div_1"> -->
+
         <table>
             <thead>
                 <tr>
@@ -154,10 +154,10 @@ try {
 
     <p><a href="cart_del_all.php" action="cart_del.php" target="_self" style="text-decoration:none;">カートを空にする</a></p>
 
-    <!-- １個前へ戻る -->
+    <!-- 戻る -->
     <div class="inlineBlock">
         <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-        <!-- １個前へ戻るおわり -->
+     
 
         <input type="button" value="商品一覧" class="re-order" onclick="
         location.href='../product_lists.php'">

@@ -1,14 +1,14 @@
 <?php
 
 
-$id = $_POST['id'];
+    $id = $_POST['id'];
 
 
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+    session_start();
+    // 必要なファイルを読み込む
+    require_once('../../class/db/Base.php');
+    require_once('../../class/db/CreateRecipes.php');
 
   
 if (empty($_POST['amount']) || empty($_POST['coo']) || empty($_POST['price'])

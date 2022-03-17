@@ -49,7 +49,7 @@ try {
 
     // ここから、マイレシピのページングの処理
     $total_count = count($list);
-    // echo($total_count);
+ 
 
     // ページ数= 全商品数/1ページの表示数
     // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
@@ -127,7 +127,7 @@ if (!empty($_REQUEST['action'])) {
 <body>
     <!-- 画像アップロードボタン の、「ファイル名を表示させる」ためにjs を使用します -->
 
-    <!-- <script type="text/javascript" src="./js/btn.js"></script> -->
+ 
     <!-- Javascript ファイルを読み込む -->
     <script src="./js/delete/delete.js"></script>
     <script src="./js/delete/delete.js"></script>
@@ -211,7 +211,6 @@ if (!empty($_REQUEST['action'])) {
                 <i class="fas fa-search"></i> 検索
             </button>
 
-            <!-- ↓ div_mushimegane おわり -->
 
             <!-- ページングCSS -->
             <div class="div_w5">
@@ -264,12 +263,8 @@ if (!empty($_REQUEST['action'])) {
 
 
                 </div>
-
+            <!-- ページネーション囲むDIVおわり -->                
             </div>
-
-
-
-            <!-- ページネーション囲むDIVおわり -->
 
 
 
@@ -296,8 +291,6 @@ if (!empty($_REQUEST['action'])) {
                 </div>
                 <!-- div_Comprehensive -->
             </div>
-
-
 
 
 

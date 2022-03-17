@@ -40,9 +40,9 @@ try {
 }
 
 
-
+// エラーチェック項目：
 if (!empty($_POST['kakunin'])) {
-    // エラーチェック項目：
+    
 
     if ($_POST['first_name'] === '') {
         $error['first_name'] = 'blank';
@@ -71,23 +71,23 @@ if (!empty($_POST['kakunin'])) {
     }
 }
 
-// セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
-// 1時間以上たっていた場合,という意味
-if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-    // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
-    $_SESSION['time'] = time();
-    // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
-    // 最後の時刻から１時間を記録することができるようになる。 
-} elseif ($_SESSION['member'] = []) {
-    header('Location: ../../login/join.php');
-    exit();
-    // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
-    // ログイン画面に遷移する
-} else {
-    // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
-    header('Location: ../../login/join.php');
-    exit();
-}
+    // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
+    // 1時間以上たっていた場合,という意味
+    if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+        // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
+        $_SESSION['time'] = time();
+        // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
+        // 最後の時刻から１時間を記録することができるようになる。 
+    } elseif ($_SESSION['member'] = []) {
+        header('Location: ../../login/join.php');
+        exit();
+        // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
+        // ログイン画面に遷移する
+    } else {
+        // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
+        header('Location: ../../login/join.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -98,13 +98,17 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ご住所の登録</title>
-    <link rel="stylesheet" href="japan_post_num.css">
-    <!-- 全体CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
 
-    <!-- 郵便局JSONP URL -->
+<!-- 郵便局JSONP URL -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
+
+    <!-- 郵便局API CSS -->
+    <link rel="stylesheet" href="japan_post_num.css">
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
+
+    
 
     <!-- 全体CSS -->
     <link rel="stylesheet" href="stylesheet6.css">
@@ -307,7 +311,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- DIV block1おわり -->
     </div>
 
-
+    <!-- 郵便局API JavaScript -->
     <script src="japan_post_num.js"></script>
 
 

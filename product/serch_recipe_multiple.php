@@ -15,7 +15,6 @@ unset($_SESSION['product_used_recipeName']);
     if (empty($_GET['id']) ) {
         
         header("Location: ./product_introduction.php?id=");
-        // confirm.pnpへリダイレクト
         exit;
     }
      
@@ -39,9 +38,8 @@ unset($_SESSION['product_used_recipeName']);
                 // SELECT distinct で重複した行（レコード）をひとつにまとめる
                 // ↑複数テーブル結合した場合は、WHERE句に対し、条件が完全一致するよう、
                 // $_GET['id']の値を、全てのテーブルのカラムと連携させる必要がある。
-                $stmt = $dbh->prepare("SELECT *
-               
-                 FROM product_lists
+                $stmt = $dbh->prepare("SELECT * 
+                FROM product_lists
                 INNER JOIN materials ON product_lists.id = materials.product_id
                 INNER JOIN my_recipes ON materials.recipe_id = my_recipes.id
                 WHERE product_lists.id LIKE $id 
@@ -96,5 +94,4 @@ unset($_SESSION['product_used_recipeName']);
     }
 
 
-
-    ?>
+?>

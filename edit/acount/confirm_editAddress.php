@@ -133,9 +133,8 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
 
-                </div>
-                </form>
-
+                    </div>
+                    </form>
 
             </div>
         </div>

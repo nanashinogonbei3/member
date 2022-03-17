@@ -49,10 +49,10 @@ require_once('./class/db/CreateRecipes.php');
         $stmt->execute ();
            
 
-            // 処理が完了したら（index.php）へリダイレクト
-            header("Location: ./index.php?id=" . $_POST['id']);
-            // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
-            exit;
+        // 処理が完了したら（index.php）へリダイレクト
+        header("Location: ./index.php?id=" . $_POST['id']);
+        // confirm.php からmy_recipe のid で飛ばされた、$_POST['recipe_id']
+        exit;
 
 
     } catch (PDOException $e) {
@@ -63,4 +63,4 @@ require_once('./class/db/CreateRecipes.php');
     }
     
 
-    ?>
+?>

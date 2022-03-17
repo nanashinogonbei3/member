@@ -56,7 +56,7 @@ try {
     $stmt->execute();
 
 
-    // 処理が完了したら、あたらしいログインID（メールアドレス）で再ログインするために、（./login/join.php）へリダイレクト
+    // 処理が完了したら、あたらしいログインID（メールアドレス）で再ログインするために、リダイレクト
     header("Location: ../../login/process.php?id=" . $_SESSION['id']);
     exit;
     

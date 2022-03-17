@@ -8,11 +8,11 @@
 // （＝データは記憶媒体に残ったまま） 、一方で物理削除は完全に削除してしまう事です～♪
 
 
-
-$id = $_POST['id'];
 // 商品idをUPDATE文に代入するために、変数idを作成して代入する
 // 受け取った、商品id 何の商品か？のidを、商品テーブルカラムと同じ$id = （idカラム）
 // にいれる
+$id = $_POST['id'];
+
 
 $is_deleted = $_POST['is_deleted'];
 
@@ -40,8 +40,6 @@ session_start();
         $sql = "UPDATE product_lists SET id=:id, is_deleted=:is_deleted WHERE id= '" . $id . "' ";
         echo $sql;
        
-        // UPDATE product_lists SET id=:id, maker_id=:maker_id WHERE id= '18'
-        // 商品id 18番 成功 この商品の、メーカーid をアップロードする
 
         // SQL文を実行する準備
         $stmt = $dbh->prepare ( $sql );
@@ -54,9 +52,9 @@ session_start();
         $stmt->execute ();
 
 
-            // 処理が完了したら（confirm.php）へリダイレクト
-            header("Location: ./index.php?pid=".$id); 
-            exit;
+        // 処理が完了したら（confirm.php）へリダイレクト
+        header("Location: ./index.php?pid=".$id); 
+        exit;
 
 
     } catch (PDOException $e) {
@@ -67,4 +65,4 @@ session_start();
     }
     
 
-    ?>
+?>

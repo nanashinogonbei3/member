@@ -81,8 +81,8 @@ if (!isset($_SESSION['members'])) {
                         <!-- 送信ボタン -->
                         <input type="submit" id="submit" value="登録する" />
 
-                </div>
-                </form>
+                    </div>
+                    </form>
             </div>
         </div>
     </div>

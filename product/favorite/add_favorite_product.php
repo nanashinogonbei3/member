@@ -1,14 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-$id = $_POST['favorite_product_id'];
+    $id = $_POST['favorite_product_id'];
 
 
-if(empty($_POST['favorite_product_id']) ) {
+    if(empty($_POST['favorite_product_id']) ) {
 
-    header("Location: ../product_introduction.php?id=".$id); 
-    exit;
-}
+        header("Location: ../product_introduction.php?id=".$id); 
+        exit;
+    }
 
        
 try {
@@ -41,14 +41,14 @@ try {
         exit;
 
 
-} catch (PDOException $e) {
-    echo 'categoriesのDBに接続できません: ',  $e->getMessage(), "\n";
-    echo '<pre>';
-    var_dump($e);
-    echo '</pre>';
-    echo $e->getMessage();
-    exit;
-}
- 
+    } catch (PDOException $e) {
+        echo 'categoriesのDBに接続できません: ',  $e->getMessage(), "\n";
+        echo '<pre>';
+        var_dump($e);
+        echo '</pre>';
+        echo $e->getMessage();
+        exit;
+    }
+    
 
 ?>

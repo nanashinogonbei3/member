@@ -9,11 +9,8 @@
 unset($_SESSION['cart'][$_POST['key']]);
 
 
-
 header('Location: ./cart_show.php');
 exit; 
-
-
 ?>
 
 

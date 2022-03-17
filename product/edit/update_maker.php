@@ -1,24 +1,24 @@
 <?php
 
-// このファイルでは、商品のメーカー製造会社の変更を目的としています
+    // このファイルでは、商品のメーカー製造会社の変更を目的としています
 
 
 
 
-// 送信データを受け取る
+    // 送信データを受け取る
 
-$id = $_GET['pid'];
-// 商品idをUPDATE文に代入するために、変数idを作成して代入する
-// 受け取った、商品id 何の商品か？のidを、商品テーブルカラムと同じ$id = （idカラム）
-// にいれる
+    $id = $_GET['pid'];
+    // 商品idをUPDATE文に代入するために、変数idを作成して代入する
+    // 受け取った、商品id 何の商品か？のidを、商品テーブルカラムと同じ$id = （idカラム）
+    // にいれる
 
-$maker_id = $_GET['maker_id'];
-// baindValue で使う
+    $maker_id = $_GET['maker_id'];
+    // baindValue で使う
 
-session_start();
-// 必要なファイルを読み込む
-require_once('../../class/db/Base.php');
-require_once('../../class/db/CreateRecipes.php');
+    session_start();
+    // 必要なファイルを読み込む
+    require_once('../../class/db/Base.php');
+    require_once('../../class/db/CreateRecipes.php');
 
 
     try {
@@ -62,4 +62,4 @@ require_once('../../class/db/CreateRecipes.php');
     }
     
 
-    ?>
+?>

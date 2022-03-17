@@ -71,13 +71,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     <?= (htmlspecialchars($_SESSION['payment']['method'], ENT_QUOTES)); ?>
 
                     <dt class="wf-sawarabimincho">
+                        
                         <!-- 支払方法を変更するボタン -->
-
                         <input type="button" value='&laquo;&nbsp;支払方法を変更する' style="width: 180px; height: 25px" onclick="location.href='./payment_method.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
                     </dt>
                     <br>
 
-                    <!-- -------------------------------------------------- -->
+               
 
                     <?php if (!empty($_SESSION['cart'])) : ?>
 

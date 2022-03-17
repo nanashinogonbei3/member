@@ -132,9 +132,8 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         <input type="submit" id="submit" value="登録する" />
 
 
-
-                </div>
-                </form>
+                    </div>
+                    </form>
 
 
             </div>

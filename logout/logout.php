@@ -19,9 +19,10 @@ $_SESSION = array();
 // セッションのクッキーが使っているそれぞれのオプション指定していっています。
 // これによって、セッションで使ったクッキーを削除する、という事です。
 // }
-session_destroy();
+
 // セッションの情報も削除します
-setcookie('members_id', '', time() - 3600);
+session_destroy();
+
 // またクッキーに保存しているメールアドレスの情報も削除します。
 // ''という空の値を設定して、有効期限を切ります。
 // これによってクッキーの値も消えます。
@@ -29,6 +30,8 @@ setcookie('members_id', '', time() - 3600);
 
 // login/join.php でログインしたときの、userIDが（["PHPSESSID"]）残っているが、メールアドレスは消えている。
 // cookie 情報をCROME で確認する方法 /クロムの右上、縦に・・・を押す/その他のツール/デベロッパーツール/Aplication/cookie
+setcookie('members_id', '', time() - 3600);
+
 
 ?>
 

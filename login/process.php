@@ -43,7 +43,7 @@ try {
     }
 
 
-    // **********
+   
 
     // 住所登録済みか判定するためのDB接続。post_numberだけ出す((住所登録時は必ず郵便番号を登録している。))
     $sql = 'SELECT * FROM members where id =' . $_SESSION['member'] . '
@@ -87,8 +87,6 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // 現在ログイン中の○○さんの名前を表示します
     $member = $members->fetchAll();
 }
-
-
 
 
 ?>
@@ -250,10 +248,10 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
 
-                        <!-- div_comprehensive  -->
+                    <!-- div_comprehensive  -->
                     </div>
 
-                    <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!--//////////////////////////////////////////////////////////////////////////////////////////-->
 
 
 
@@ -262,7 +260,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
                     <div class="line"></div>
 
-                    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!-- *****************************************　-->
                     <!-- 購入履歴 -->
 
                     <div class="comprehensive3">
@@ -277,7 +275,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
                         </form>
 
-                        <!-- ****************************************************************************************** -->
+                        <!-- ************************************** -->
 
                         <!-- お気に入り商品 -->
                         <form action="../show/favorite_product.php?id=<?php echo $_SESSION['member'] ?>" method="post">
@@ -291,7 +289,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
                         </form>
 
-                        <!-- ****************************************************************************************** -->
+                        <!-- ************************************** -->
                         <!-- 配送先住所が未登録の場合「配送先住所登録」ボタンを表示する -->
 
 
@@ -332,7 +330,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
 
-                        <!-- div_comprehensive  -->
+                    <!-- div_comprehensive  -->
                     </div>
 
 
@@ -340,7 +338,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     <div class="line"></div>
 
 
-                    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!-- ////////////////////-->
 
 
 
@@ -373,8 +371,8 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
                         <!-- 管理者用 ページ表示 -->
-                        <!-- もしも、ログインメンバーID＝104(なかじん）がログインしていた場合は以下の「商品アイテム」への
-    DIV（ボタン）を表示する。 -->
+                        <!-- もしも、ログインメンバーID＝104がログインしていた場合は以下の「商品アイテム」への
+                        DIV（ボタン）を表示する。 -->
                         <?php if (!empty($_SESSION['member'] == 104)) { ?>
 
                             <!-- フォーム / POST送信で、管理者用[商品アイテム]の編集画面に送る。 -->
@@ -391,23 +389,24 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                             <!-- 何も表示しない -->
                         <?php } ?>
 
+                    <!-- div_comprehensive  --> 
                     </div>
-                    <!-- div_comprehensive  -->
+                    
 
 
-                    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////-->
+                   
                     <!-- フォーム / POST送信で、ログイン中の会員の変更する会員情報を、変更画面に送る。 -->
                     <form action="../deactivate/unsubscribe.php?id=<?php echo $_SESSION['member'] ?>" method="post">
 
                         <div class="div_deactivate">
                             <input type="submit" value='退会する' class="unsubscribe_btn" style="
-                    font-size: 13px;
-                    width: 100px;
-                    height: 35px; 
-                    border-radius: 5px;
-                    
-                    color: #ffffff;
-                    background: #000000;">
+                        font-size: 13px;
+                        width: 100px;
+                        height: 35px; 
+                        border-radius: 5px;
+                        
+                        color: #ffffff;
+                        background: #000000;">
                         </div>
                     </form>
 
