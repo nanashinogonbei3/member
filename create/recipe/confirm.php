@@ -254,9 +254,12 @@ try {
                             <p class="wf-sawarabimincho">調理動画</P>
                             <img class="img" src="./images/<?php echo $video ?>" width="250px" height="auto">
                     </div>
-                <!-- DIV 左側おわり -->
+                    <!-- DIV 左側おわり -->
                 </div>
                 
+
+
+
 
 
                 <!-- DIV 右側はじまり -->
@@ -388,13 +391,15 @@ try {
                 </table>
                 </form>
                 </div>
+
+            <!-- div_w -->                            
             </div>
-            <!-- div_w -->
+            
 
             <!-- DIV 右側おわり -->
         
         </div>
-        <!-- div class="comprehensive" おわり-->
+    <!-- div class="comprehensive" おわり-->
     </div>
     
 
