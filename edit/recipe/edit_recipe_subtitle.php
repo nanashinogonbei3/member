@@ -134,7 +134,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <link rel="stylesheet" href="css/stylesheet2.css">
     <!-- アコーディオン チェックボックス・リスト -->
     <link rel="stylesheet" href="css/stylesheet_a.css">
-    
+
 </head>
 
 <bod>
@@ -149,19 +149,19 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
             <!-- ログアウト -->
             <div class="div_logout"><input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../../logout/process.php'">
-              
+
             </div>
             <!-- マイページ -->
             <div class="div_logout"><input type="button" value='マイページ' class="logout_btn" onclick="location.href='../../login/process.php'">
-            
+
             </div>
             <!-- みんなのレシピ -->
             <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-               
+
             </div>
-        <!-- div_p おわり -->
+            <!-- div_p おわり -->
         </div>
-       
+
 
 
         <div class="comprehensive">
@@ -175,13 +175,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         <dt class="p_font_rarge"><span style="font-size:18px">サブタイトルの作成</span></dt>
                         <!-- 区切り線 -->
                         <div class="line"></div>
-                        
+
                     </div>
                     <br><br>
 
 
                     <div class="categories_comprehensive">
-                       
+
 
                         <!-- 左側 はじまり -->
                         <div class="div_width">
@@ -191,20 +191,20 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         </div>
 
 
-                    <!-- div_hidari おわり -->
+                        <!-- div_hidari おわり -->
                     </div>
-                    
 
 
 
 
 
 
-                    
+
+
                     <form action="add_subtitle.php" method="GET">
                         <!-- レシピIDの隠し送信 -->
                         <input type="hidden" name="recipe_id" value="<?php echo $id ?>">
-                        
+
 
 
                         <!-- サブ・タイトル -->
@@ -349,7 +349,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                                                 </td>
                                                 <!-- レシピのサブタイトル 編集 おわり -->
 
-                                               
+
 
                                                 <!-- 編集フォーム レシピのコメントの編集 はじまり -->
                                                 <td width="550px">
@@ -378,7 +378,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                                 <?php echo 'サブタイトル、コメントのご登録はありません'; ?>
                                 <!-- 区切り線 -->
                                 <div class="line3"></div>
-                                
+
                             <?php } ?>
 
                             </tbody>

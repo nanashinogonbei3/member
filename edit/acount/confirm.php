@@ -38,7 +38,7 @@ if (!isset($_SESSION['members'])) {
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
     <link rel="stylesheet" href="stylesheet2.css">
-  
+
 </head>
 
 
@@ -75,13 +75,13 @@ if (!isset($_SESSION['members'])) {
                         <p class="p_font_rarge">
                             <!-- htmlspecialchars は、安全に出力するための記述です -->
                             <?= (htmlspecialchars($_SESSION['members']['last_name'], ENT_QUOTES)); ?>
-                            
+
 
                             <!-- フォーム1 氏名（名前） -->
                         <p class="p_font_rarge">●名前</p>
                         <p class="p_font_rarge">
                             <?= (htmlspecialchars($_SESSION['members']['first_name'], ENT_QUOTES)); ?>
-                            
+
 
 
                             <!-- フォーム3ニックネーム -->

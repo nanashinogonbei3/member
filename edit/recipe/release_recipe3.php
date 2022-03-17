@@ -476,7 +476,7 @@ try {
                         <tr>
                             <!-- データの数だけ繰り返し -->
                             <?php foreach ($list as $v) : ?>
-                                <tbody>
+                    <tbody>
                         <tr>
                             <?php if ($v['materials_parent_category_name'] == '■ホールスパイス') { ?>
                                 <td width="160px" align="right" id="material_name"><span style="color:green;font-size:13px">
@@ -510,8 +510,8 @@ try {
                             <!-- 材料テーブルのデータベースからFETCH()した  分量 -->
                             <td width="132px"><span style="color:green;font-size:13px"><?php echo $v['amount'] ?></span></td>
                             <!-- 材料検索 -->
-                    </div>
-                    </tbody>
+            </div>
+            </tbody>
         <?php endforeach ?>
 
         <!-- 区切り 既存の親材料カテゴリーおわり -->
@@ -591,7 +591,7 @@ try {
         <div class="footer">footer</div>
         <script src="js/main.js"></script>
         <!-- 一口レシピを表示/非表示をコントロールするjavaScript -->
-        
+
 </body>
 
 </html>

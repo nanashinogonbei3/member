@@ -4,9 +4,9 @@ session_start();
 
 
 
-// array(4) {
-//     ["recipe_id"]=>
-//     string(2) "27"
+    // array(4) {
+    //     ["recipe_id"]=>
+    //     string(2) "27"
 
     // ["id"]=>
     // array(1) {
@@ -15,19 +15,19 @@ session_start();
     //   idです。./confirm.php $count参照.親・材料カテゴリーのidです。
     //   idが８であれば、./confirm.php の子供カテゴリ（ユーザ定義の
     //   子供・材料カテゴリーのidです。$children参照.）
-//     }
+    //     }
 
-//     ["material_name"]=>
-//     string(18) "ターメリック"
-//     ["amount"]=>
-//     string(10) "大さじ1"
-//   }
-  
-// ["id"]=>
-// array(1) {
-//   [0]=>
-//   string(1) "4"
-// }
+    //     ["material_name"]=>
+    //     string(18) "ターメリック"
+    //     ["amount"]=>
+    //     string(10) "大さじ1"
+    //   }
+    
+    // ["id"]=>
+    // array(1) {
+    //   [0]=>
+    //   string(1) "4"
+    // }
 // ↑'parent_category'は配列に入っているから、ぐるぐる回して取り出す必要がある。
 $parent_categoryId = $_GET['id'];
 

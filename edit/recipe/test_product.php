@@ -10,9 +10,6 @@ require_once('../../class/db/CreateRecipes.php');
 try {
 
 
-    // 送信データを受け取る レシピId
-
-
     $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
     $date = $dt->format('Y-m-d');
 
@@ -141,15 +138,15 @@ try {
         <!-- DIV containerおわり -->
         <!-- カルーセルおわり -->
     <?php } else {
-        //    なんにも<表示>しないデス。
+        //    なにも<表示>しない。
     } ?>
-<!-- End hidari -->
+    <!-- End hidari -->
     </div>
-    
+
 
     <!-- 一口レシピを表示/非表示をコントロールするjavaScript -->
     <script src="main.js"></script>
-    
+
 </body>
 
 </html>

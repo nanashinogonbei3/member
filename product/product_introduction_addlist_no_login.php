@@ -53,8 +53,8 @@ try {
         // ページ数= 全商品数/1ページの表示数
         // トータルページ数※ceilは小数点を切り上げる関数1.6⇒2
         $pages = ceil($total_count / max_view);
-        
- 
+
+
 
         //現在いるページのページ番号を取得
         if (!isset($_GET['page_id'])) {
@@ -110,7 +110,7 @@ try {
     <link rel="stylesheet" href="css/stylesheet8.css">
     <!-- ページネーション -->
     <link rel="stylesheet" href="css/style_paging3.css">
-    
+
 
 </head>
 
@@ -124,14 +124,14 @@ try {
             <?php if ($_SESSION['member'] == 104) : ?>
                 <div class="div_logout1">
                     <input type="button" value='商品の編集' class="logout_btn" onclick="location.href='./edit/confirm.php?id=<?php echo $id  ?>'">
-                    
+
                 </div>
             <?php endif ?>
         <?php endif ?>
         <!-- マイページ -->
         <div class="div_logout1">
             <input type="button" value='マイページ' class="logout_btn" onclick="location.href='../login/process.php'">
-            
+
         </div>
         <!-- 商品一覧ボタン -->
         <div class="div_logout2">
@@ -179,7 +179,7 @@ try {
             </div>
         </div>
         </form>
-       
+
 
 
         <div class="item_6">
@@ -212,9 +212,9 @@ try {
 
 
                 </div>
-            <!-- edit_6おわり -->        
+                <!-- edit_6おわり -->
             </div>
-            
+
 
 
 

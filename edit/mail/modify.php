@@ -19,7 +19,7 @@ $id = $_SESSION['id'];
 // ./member/edit/acount/confirm.phpからリダイレクト（書き直し）するために戻ってきたときに、$_SESSION['id']を受け取るときのid
 // パラメータに$_GET、もしくは$_SESSION['id']が入っていたら処理を始める
 if (!empty($_GET['id']) || !empty($_SESSION['id']) || !empty($_SESSION['member'])) {
-    
+
 
     try {
 
@@ -47,7 +47,7 @@ if (!empty($_GET['id']) || !empty($_SESSION['id']) || !empty($_SESSION['member']
 
 
 
-    // 例外が発生したときの処理
+        // 例外が発生したときの処理
     } catch (Exception $e) {
         echo 'DBに接続できません: ',  $e->getMessage(), "\n";
     }
@@ -152,7 +152,7 @@ if (!empty($_POST)) {
                             <div class="line"></div>
                     </div>
 
-              
+
                     <!-- form action="" 空にしてエラーバリデーションを表示する。if (empty($error)) { header(Location: confirm.php)} にするのであえてロケーションは未入力にする -->
                     <form action="" method="post" enctype="multipart/form-data">
 

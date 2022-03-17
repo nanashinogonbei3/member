@@ -34,7 +34,7 @@ try {
 
 
     // 別のお届け先（billing_addressテーブル)の登録があるか確認する。
-    
+
     $sql = "SELECT * FROM billing_addresses WHERE member_id= '" . $_SESSION['member'] . "' ";
 
     $stmt = $dbh->prepare($sql);
@@ -44,9 +44,6 @@ try {
     $result = $dbh->query($sql);
 
     $address = $result->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -87,7 +84,6 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
     header('Location: ../../login/join.php');
     exit();
-    
 }
 ?>
 
@@ -106,7 +102,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- 郵便局JSONP URL -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
-    
+
     <!-- 全体CSS -->
     <link rel="stylesheet" href="stylesheet6.css">
 
@@ -140,11 +136,11 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                 <table>
                     <h3>●会員名</h3>
 
-                        <?php  if (!empty($address) ) { ?>
-                            <input type="button" value='別送の住所を編集' class="shop-order" onclick="location.href='./billing_address_lists.php'">
-                        <?php } else { ?>      
-                                <input type="button" value='別送の住所を登録' class="shop-order" onclick="location.href='./other_add_address.php'">
-                        <?php } ?>
+                    <?php if (!empty($address)) { ?>
+                        <input type="button" value='別送の住所を編集' class="shop-order" onclick="location.href='./billing_address_lists.php'">
+                    <?php } else { ?>
+                        <input type="button" value='別送の住所を登録' class="shop-order" onclick="location.href='./other_add_address.php'">
+                    <?php } ?>
 
                     <tr>
 
@@ -178,7 +174,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     </tr>
                 </table>
                 <table>
-                <h3>●お届け先のご住所を入力してください。</h3>
+                    <h3>●お届け先のご住所を入力してください。</h3>
                     <tbody>
                         <tr>
 
@@ -263,13 +259,13 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
             </form>
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-    
+
         </div>
 
     </div>
     <!-- DIV block1おわり -->
     </div>
-    
+
 
     <script src="japan_post_num.js"></script>
 

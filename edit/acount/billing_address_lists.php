@@ -35,9 +35,6 @@ try {
     $stmt->execute();
 
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -45,24 +42,23 @@ try {
 
 
 
-    // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
-    // 1時間以上たっていた場合,という意味
-    if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-        // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
-        $_SESSION['time'] = time();
-        // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
-        // 最後の時刻から１時間を記録することができるようになる。 
-    } elseif ($_SESSION['member'] = []) {
-        header('Location: ../../login/join.php');
-        exit();
-        // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
-        // ログイン画面に遷移する
-    } else {
-        // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
-        header('Location: ../../login/join.php');
-        exit();
-        
-    }
+// セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
+// 1時間以上たっていた場合,という意味
+if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+    // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
+    $_SESSION['time'] = time();
+    // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
+    // 最後の時刻から１時間を記録することができるようになる。 
+} elseif ($_SESSION['member'] = []) {
+    header('Location: ../../login/join.php');
+    exit();
+    // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
+    // ログイン画面に遷移する
+} else {
+    // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
+    header('Location: ../../login/join.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +76,7 @@ try {
     <!-- 郵便局JSONP URL -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
-    
+
     <!-- 全体CSS -->
     <link rel="stylesheet" href="stylesheet6.css">
 
@@ -106,62 +102,63 @@ try {
     <div class="block1">
         <div id="app">
 
-            
 
-              
-                <table>
-                    <h2>別送のお届け先</h2>
+
+
+            <table>
+                <h2>別送のお届け先</h2>
 
 
 
                 <form action="edit_other_address.php" method="POST">
-    
-                
-                <?php    
+
+
+                    <?php
                     foreach ($list as $key => $v) : ?>
 
-             
-                    <ul>
-                        <li>
-                            <input type="radio" name='id' value="<?php echo $v['id'] ?>">
-                            <?php echo $v['last_name'].$v['first_name'];   echo '  様 :   '; 
-                            echo $v['post_number'].$v['address1'].$v['address2'].$v['address3'].$v['address4'].$v['address5'].'<br>'; ?>
-                        </li>
-                    </ul>   
-                            
+
+                        <ul>
+                            <li>
+                                <input type="radio" name='id' value="<?php echo $v['id'] ?>">
+                                <?php echo $v['last_name'] . $v['first_name'];
+                                echo '  様 :   ';
+                                echo $v['post_number'] . $v['address1'] . $v['address2'] . $v['address3'] . $v['address4'] . $v['address5'] . '<br>'; ?>
+                            </li>
+                        </ul>
+
 
                     <?php endforeach ?>
-            
+
                     <input type="submit" name="send" value="確認" class="shop-order">
-                       
-                </form>    
-                
-                
-                </table>
 
-           
+                </form>
 
-            
+
+            </table>
+
+
+
+
             <!-- キャンセル -->
             <br><br><br>
             <input type="button" value='キャンセル' class="re-order" onclick="location.href='../../login/process.php'">
-  
+
 
             <!-- 戻る -->
             <input type="button" class="shop-order" onclick="location.href='./edit_address.php'" value="前のページに戻る">
             <?php if (!empty($_SESSION['cart'])) : ?>
-            <input type="button" class="re-order" onclick="location.href='../../product/cart/cart_show.php'" value="購入手続きへ戻る">
-            <?php endif ?>            
-           
+                <input type="button" class="re-order" onclick="location.href='../../product/cart/cart_show.php'" value="購入手続きへ戻る">
+            <?php endif ?>
+
         </div>
 
     </div>
     <!-- DIV block1おわり -->
     </div>
-    
+
 
     <script src="japan_post_num.js"></script>
-                
+
 </body>
 
 </html>

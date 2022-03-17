@@ -124,14 +124,13 @@ if (!empty($_POST)) {
         // $image（アップロードした画像を $_SESSION['members']['icon_img']に代入した
         $_SESSION['members'] = $_POST;
         $_SESSION['members']['icon_img'] = $image;
-        
     }
 
 
     // 入力にエラーが無ければ、次の会員登録確認画面に遷移する
     if (empty($error)) {
 
-        
+
 
         header('Location: confirm.php');
         exit();
@@ -168,183 +167,183 @@ if (!empty($_REQUEST['action']) && !empty($_SESSION['members'])) {
 
 <body>
 
-<div class='inline_block_1'>
+    <div class='inline_block_1'>
 
-    <div class='div_p'>
-        <p class="title_font">会員情報の変更</p>
-    </div>
-
-<div class="comprehensive">
-
-    <!--  新規会員登録 -->
-    <div class='inline_block_2'>
-
-
-    <div class="inline_block_3">
-
-        <div class="div_font_inline">
-            <div class="div_img3">
-                <dt>
-                    <span style="font-size:16px;color:green;"><?php echo $last_name ?>
-                    </span>様の会員登録の変更をします。「必須」の中は必ずご入力ください
-                </dt>
-            </div>
-            <p class="p_font_rarge"></p>
-            <div class="line"></div>
+        <div class='div_p'>
+            <p class="title_font">会員情報の変更</p>
         </div>
 
+        <div class="comprehensive">
 
-        <!-- form action="" 。enctype ="multipart/form-data" は画像アップロードする時に必要 -->
-        <form action="" method="post" enctype="multipart/form-data">
-
-            <?php foreach ($list as $v) : ?>
-
-
-                <!-- 今ログイン中のID 'id' を隠して送る -->
-                <input type="hidden" name="id" <?php echo $_SESSION['member'] ?>>
+            <!--  新規会員登録 -->
+            <div class='inline_block_2'>
 
 
-                <div class="div_img3">
-                    <dt>●現在ご登録されている、お名前
-                        <span style="font-size:13px;color:green;"><?php echo $last_name ?></span>様
-                    </dt>
+                <div class="inline_block_3">
+
+                    <div class="div_font_inline">
+                        <div class="div_img3">
+                            <dt>
+                                <span style="font-size:16px;color:green;"><?php echo $last_name ?>
+                                </span>様の会員登録の変更をします。「必須」の中は必ずご入力ください
+                            </dt>
+                        </div>
+                        <p class="p_font_rarge"></p>
+                        <div class="line"></div>
+                    </div>
+
+
+                    <!-- form action="" 。enctype ="multipart/form-data" は画像アップロードする時に必要 -->
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        <?php foreach ($list as $v) : ?>
+
+
+                            <!-- 今ログイン中のID 'id' を隠して送る -->
+                            <input type="hidden" name="id" <?php echo $_SESSION['member'] ?>>
+
+
+                            <div class="div_img3">
+                                <dt>●現在ご登録されている、お名前
+                                    <span style="font-size:13px;color:green;"><?php echo $last_name ?></span>様
+                                </dt>
+                            </div>
+
+                            <!-- 変更フォーム1 -->
+                            <p class="wf-sawarabimincho">あたらしい会員名<span style="color:red">※必須</span></p>
+                            <!-- maxlength= '入力できる制限文字数' -->
+                            <?php if (!empty($_SESSION['members']['last_name'])) { ?>
+                                <input type="text" name="last_name" size="35" placeholder='幸田弐' maxlength="255" value="<?php print(htmlspecialchars(
+                                                                                                                            $_SESSION['members']['last_name'],
+                                                                                                                            ENT_QUOTES
+                                                                                                                        )); ?>" />
+                            <?php } else { ?>
+                                <input type="text" name="last_name" size="35" placeholder='幸田弐' maxlength="255" value="" />
+                            <?php } ?>
+
+                            <!-- error -->
+                            <?php if (!empty($error['last_name'])) : ?>
+                                <p class="error">* お名前を入力してください</p>
+                            <?php endif ?>
+
+                            <!-- FETCH()された、現在のなまえ last nameカラム -->
+                            <div class="div_img3">
+                                <dt>●現在ご登録されている、お名前
+                                    <span style="font-size:13px;color:green;"><?php echo $v['first_name']; ?></span>様
+                                </dt>
+                            </div>
+
+                            <!-- 変更フォーム1 会員名のなまえの変更-->
+                            <p class="wf-sawarabimincho">あたらしい会員名<span style="color:red">※必須</span></p>
+                            <?php if (!empty($_SESSION['members']['first_name'])) { ?>
+                                <!-- maxlength= '入力できる制限文字数' -->
+                                <input type="text" name="first_name" size="35" placeholder='一郎' maxlength="255" value="<?php print(htmlspecialchars(
+                                                                                                                            $_SESSION['members']['first_name'],
+                                                                                                                            ENT_QUOTES
+                                                                                                                        )); ?>" />
+                            <?php } else { ?>
+                                <!-- maxlength= '入力できる制限文字数' -->
+                                <input type="text" name="first_name" size="35" placeholder='一郎' maxlength="255" value="" />
+                            <?php } ?>
+
+                            <!-- error -->
+                            <?php if (!empty($error['first_name'])) : ?>
+                                <p class="error">* お名前を入力してください</p>
+                            <?php endif ?>
+
+
+                            <!-- FETCH()された、現在のニックネーム nicknameカラム -->
+                            <div class="div_img3">
+                                <dt>●現在ご登録されている、ニックネーム
+                                    <span style="font-size:13px;color:green;"><?php echo $v['nickname']; ?></span>さん
+                                </dt>
+                            </div>
+                            <!-- --------------------------------------------------------------- -->
+                            <!-- 変更フォーム3 ニックネームの変更 -->
+                            <p class="wf-sawarabimincho">あたらしいニックネーム<span style="color:red">※必須</span><br /></p>
+                            <?php if (!empty($_SESSION['members']['nickname'])) { ?>
+                                <input type="text" name="nickname" size="30" placeholder='くま吉' maxlength="255" value="<?php print(htmlspecialchars(
+                                                                                                                            $_SESSION['members']['nickname'],
+                                                                                                                            ENT_QUOTES
+                                                                                                                        )); ?>">
+                            <?php } else { ?>
+                                <input type="text" name="nickname" size="30" placeholder='くま吉' maxlength="255" value="">
+                            <?php } ?>
+
+                            <!-- error -->
+                            <?php if (!empty($error['nickname'])) : ?>
+                                <p class="error">* ニックネームを入力してください</p>
+                            <?php endif ?>
+
+                            <!-------------------------------------------------------------------- -->
+
+                            <div class="div_img3">
+                                <dt>●現在ご登録されている、アイコン画像</dt>
+                                <img class="img3" src="../../member_picture/<?php echo $v['icon_img'] ?>" width="90px" height="auto">
+                            </div>
+                            <!-- 変更フォーム4 アイコン画像 -->
+                            <p class="wf-sawarabimincho">あたらしいアイコン画像<span style="color:red">※必須</span><br /></p>
+                            <input type="file" name="icon_img" maxlength="255" value="">
+
+                            <!-- error msg -->
+                            <!-- もしエラーがPOSTされた時に -->
+                            <?php if (!empty($error['image'])) : ?>
+                                <p class="error">* 写真などは「.gif」または「.jpg」「.png」の画像を指定してください</p>
+                            <?php endif ?>
+                            <?php if (!empty($error)) : ?>
+                                <!-- 確認画面からリライトして、もう一度ファイルを選びなおしてもらう時 -->
+                                <p class="error">*恐れ入りますが、画像を改めて指定してください</p>
+                            <?php endif ?>
+                            <!-- -------------------------------------------------------------------------- -->
+
+                            <!-- FETCH()された、現在の電話番号 phone_numberカラム -->
+                            <div class="div_img3">
+                                <dt>●現在ご登録されている、お電話番号
+                                    <span style="font-size:13px;color:green;"><?php echo $v['phone_number']; ?></span>
+                                </dt>
+
+                                <?php if (!empty($_SESSION['members']['phone_number'])) { ?>
+                                    <!-- 変更フォーム5   お電話番号の変更 -->
+                                    <p class="wf-sawarabimincho">あたらしいお電話番号(ハイフンなし）<span style="color:red">※必須</span></p>
+                                    <input type="text" name="phone_number" size="30" placeholder='08012345678' maxlength="11" value="<?php print(htmlspecialchars(
+                                                                                                                                            $_SESSION['members']['phone_number'],
+                                                                                                                                            ENT_QUOTES
+                                                                                                                                        )); ?>">
+                                <?php } else { ?>
+                                    <!-- 変更フォーム5   お電話番号の変更 -->
+                                    <p class="wf-sawarabimincho">あたらしいお電話番号(ハイフンなし）<span style="color:red">※必須</span></p>
+                                    <input type="text" name="phone_number" size="30" placeholder='08012345678' maxlength="11" value="">
+
+                                <?php } ?>
+
+                                <!-- error -->
+                                <?php if (!empty($error['phone_number'])) : ?>
+                                    <p class="error">* お電話番号を入力してください</p>
+                                <?php endif ?>
+                            </div>
+                            <!-- ----------------------------------------------------------------------- -->
+                            <div class="div_img3">
+                                <!-- 戻る ボタン -->
+                                <dt class="wf-sawarabimincho">
+                                    <input type="button" value='キャンセル' style="width: 115px; height: 25px" onclick="location.href='../../login/process.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
+
+                                    <!-- 送信ボタン -->
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="submit" value="入力内容を確認する" />
+                                </dt>
+                            </div>
+
+                        <?php endforeach ?>
+                    </form>
+
                 </div>
 
-                <!-- 変更フォーム1 -->
-                <p class="wf-sawarabimincho">あたらしい会員名<span style="color:red">※必須</span></p>
-                <!-- maxlength= '入力できる制限文字数' -->
-                <?php if (!empty($_SESSION['members']['last_name'])) { ?>
-                    <input type="text" name="last_name" size="35" placeholder='幸田弐' maxlength="255" value="<?php print(htmlspecialchars(
-                                                                                                                $_SESSION['members']['last_name'],
-                                                                                                                ENT_QUOTES
-                                                                                                            )); ?>" />
-                <?php } else { ?>
-                    <input type="text" name="last_name" size="35" placeholder='幸田弐' maxlength="255" value="" />
-                <?php } ?>
+            </div>
 
-                <!-- error -->
-                <?php if (!empty($error['last_name'])) : ?>
-                    <p class="error">* お名前を入力してください</p>
-                <?php endif ?>
-
-                <!-- FETCH()された、現在のなまえ last nameカラム -->
-                <div class="div_img3">
-                    <dt>●現在ご登録されている、お名前
-                        <span style="font-size:13px;color:green;"><?php echo $v['first_name']; ?></span>様
-                    </dt>
-                </div>
-
-                <!-- 変更フォーム1 会員名のなまえの変更-->
-                <p class="wf-sawarabimincho">あたらしい会員名<span style="color:red">※必須</span></p>
-                <?php if (!empty($_SESSION['members']['first_name'])) { ?>
-                    <!-- maxlength= '入力できる制限文字数' -->
-                    <input type="text" name="first_name" size="35" placeholder='一郎' maxlength="255" value="<?php print(htmlspecialchars(
-                                                                                                                $_SESSION['members']['first_name'],
-                                                                                                                ENT_QUOTES
-                                                                                                            )); ?>" />
-                <?php } else { ?>
-                    <!-- maxlength= '入力できる制限文字数' -->
-                    <input type="text" name="first_name" size="35" placeholder='一郎' maxlength="255" value="" />
-                <?php } ?>
-
-                <!-- error -->
-                <?php if (!empty($error['first_name'])) : ?>
-                    <p class="error">* お名前を入力してください</p>
-                <?php endif ?>
-
-
-                <!-- FETCH()された、現在のニックネーム nicknameカラム -->
-                <div class="div_img3">
-                    <dt>●現在ご登録されている、ニックネーム
-                        <span style="font-size:13px;color:green;"><?php echo $v['nickname']; ?></span>さん
-                    </dt>
-                </div>
-                <!-- --------------------------------------------------------------- -->
-                <!-- 変更フォーム3 ニックネームの変更 -->
-                <p class="wf-sawarabimincho">あたらしいニックネーム<span style="color:red">※必須</span><br /></p>
-                <?php if (!empty($_SESSION['members']['nickname'])) { ?>
-                    <input type="text" name="nickname" size="30" placeholder='くま吉' maxlength="255" value="<?php print(htmlspecialchars(
-                                                                                                                $_SESSION['members']['nickname'],
-                                                                                                                ENT_QUOTES
-                                                                                                            )); ?>">
-                <?php } else { ?>
-                    <input type="text" name="nickname" size="30" placeholder='くま吉' maxlength="255" value="">
-                <?php } ?>
-
-                <!-- error -->
-                <?php if (!empty($error['nickname'])) : ?>
-                    <p class="error">* ニックネームを入力してください</p>
-                <?php endif ?>
-
-                <!-------------------------------------------------------------------- -->
-
-                <div class="div_img3">
-                    <dt>●現在ご登録されている、アイコン画像</dt>
-                    <img class="img3" src="../../member_picture/<?php echo $v['icon_img'] ?>" width="90px" height="auto">
-                </div>
-                <!-- 変更フォーム4 アイコン画像 -->
-                <p class="wf-sawarabimincho">あたらしいアイコン画像<span style="color:red">※必須</span><br /></p>
-                <input type="file" name="icon_img" maxlength="255" value="">
-
-                <!-- error msg -->
-                <!-- もしエラーがPOSTされた時に -->
-                <?php if (!empty($error['image'])) : ?>
-                    <p class="error">* 写真などは「.gif」または「.jpg」「.png」の画像を指定してください</p>
-                <?php endif ?>
-                <?php if (!empty($error)) : ?>
-                    <!-- 確認画面からリライトして、もう一度ファイルを選びなおしてもらう時 -->
-                    <p class="error">*恐れ入りますが、画像を改めて指定してください</p>
-                <?php endif ?>
-                <!-- -------------------------------------------------------------------------- -->
-
-                <!-- FETCH()された、現在の電話番号 phone_numberカラム -->
-                <div class="div_img3">
-                    <dt>●現在ご登録されている、お電話番号
-                        <span style="font-size:13px;color:green;"><?php echo $v['phone_number']; ?></span>
-                    </dt>
-
-                    <?php if (!empty($_SESSION['members']['phone_number'])) { ?>
-                        <!-- 変更フォーム5   お電話番号の変更 -->
-                        <p class="wf-sawarabimincho">あたらしいお電話番号(ハイフンなし）<span style="color:red">※必須</span></p>
-                        <input type="text" name="phone_number" size="30" placeholder='08012345678' maxlength="11" value="<?php print(htmlspecialchars(
-                                                                                                                                $_SESSION['members']['phone_number'],
-                                                                                                                                ENT_QUOTES
-                                                                                                                            )); ?>">
-                    <?php } else { ?>
-                        <!-- 変更フォーム5   お電話番号の変更 -->
-                        <p class="wf-sawarabimincho">あたらしいお電話番号(ハイフンなし）<span style="color:red">※必須</span></p>
-                        <input type="text" name="phone_number" size="30" placeholder='08012345678' maxlength="11" value="">
-
-                    <?php } ?>
-
-                    <!-- error -->
-                    <?php if (!empty($error['phone_number'])) : ?>
-                        <p class="error">* お電話番号を入力してください</p>
-                    <?php endif ?>
-                </div>
-                <!-- ----------------------------------------------------------------------- -->
-                <div class="div_img3">
-                    <!-- 戻る ボタン -->
-                    <dt class="wf-sawarabimincho">
-                        <input type="button" value='キャンセル' style="width: 115px; height: 25px" onclick="location.href='../../login/process.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
-
-                        <!-- 送信ボタン -->
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="submit" value="入力内容を確認する" />
-                    </dt>
-                </div>
-
-            <?php endforeach ?>
-        </form>
+        </div>
 
     </div>
-
-</div>
-
-</div>
-
-</div>
-</div>
+    </div>
 
 </body>
 

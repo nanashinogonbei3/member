@@ -19,7 +19,6 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 } else {
     header('Location: ../../login/join.php');
     exit();
-   
 }
 
 ?>
@@ -39,7 +38,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
     <link rel="stylesheet" href="stylesheet2.css">
-    
+
 
 </head>
 
@@ -69,21 +68,21 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
                         <!-- フォーム1 氏名（郵便番号） -->
                         <p class="p_font_rarge">●郵便番号</p>
-                            <p class="p_font_rarge">
-                                <!-- htmlspecialchars は、安全に出力するための記述です -->
-                                <?= (htmlspecialchars($_SESSION['address']['post_number'], ENT_QUOTES)); ?>
-                            
+                        <p class="p_font_rarge">
+                            <!-- htmlspecialchars は、安全に出力するための記述です -->
+                            <?= (htmlspecialchars($_SESSION['address']['post_number'], ENT_QUOTES)); ?>
+
 
 
                             <!-- フォーム1 住所1 -->
                         <p class="p_font_rarge">●住所1</p>
                         <p class="p_font_rarge">
-                             <!-- htmlspecialchars は、安全に出力するための記述です -->
+                            <!-- htmlspecialchars は、安全に出力するための記述です -->
                             <?= (htmlspecialchars($_SESSION['address']['address1'], ENT_QUOTES)); ?>
-                           
 
 
-                        <!-- フォーム2 住所2 -->
+
+                            <!-- フォーム2 住所2 -->
                         <p class="p_font_rarge"></p>
                         <p class="p_font_rarge">●住所2</p>
                         <dd><?= (htmlspecialchars($_SESSION['address']['address2'], ENT_QUOTES)); ?></dd>
@@ -125,14 +124,14 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
 
 
                         <p class="wf-sawarabimincho"></p>
-                        
+
                         <!-- 書き直すボタン -->
                         <input type="button" value='&laquo;&nbsp;書き直す' style="width: 115px; height: 25px" onclick="location.href='./address.php?id=<?php echo $_SESSION['id'] ?> action=rewrite'" class="btn-border">
 
                         <!-- 送信ボタン -->
                         <input type="submit" id="submit" value="登録する" />
 
-               
+
                     </form>
 
 

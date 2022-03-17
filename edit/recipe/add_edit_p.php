@@ -6,7 +6,7 @@ session_start();
 require_once('../../create/recipe/class/db/Base.php');
 require_once('../../create/recipe/class/db/CreateRecipes.php');
 
-// 調理手順・の画像のエラーチェックと画像一時保管先を指定します
+    // 調理手順・の画像のエラーチェックと画像一時保管先を指定します
     // 調理手順テーブル：proceduresのイメージ画像カラム名は、”p_img"
     $fileName = $_FILES['p_img']['name']; 
 

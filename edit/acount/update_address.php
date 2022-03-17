@@ -59,6 +59,7 @@ try {
     // 処理が完了したら、あたらしいログインID（メールアドレス）で再ログインするために、（./login/join.php）へリダイレクト
     header("Location: ../../login/process.php?id=" . $_SESSION['id']);
     exit;
+    
 } catch (PDOException $e) {
     echo 'proceduresのDBに接続できません: ',  $e->getMessage(), "\n";
     var_dump($e);

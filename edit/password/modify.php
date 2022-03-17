@@ -90,7 +90,7 @@ if (isset($_POST['send'])) {
     // if (isset($_POST)) {    
 
     foreach ($list as $v) {
-    
+
         // 実行結果 / 91b92669ecf0fa9c6e550fd5fd76c31b5c969f57
         if ($v['password'] === sha1($_POST['password'])) {
             $error['password_duplicate'];

@@ -63,7 +63,6 @@ try {
             $address5 = $value;
         }
     }
-
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -72,7 +71,7 @@ try {
 
 if (isset($_POST['kakunin'])) {
     // エラーチェック項目：
-    
+
     if ($_POST['post_number'] === '') {
         $error['post_number'] = 'blank';
     }
@@ -89,24 +88,23 @@ if (isset($_POST['kakunin'])) {
         exit();
     }
 }
-    // セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
-    // 1時間以上たっていた場合,という意味
-    if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-        // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
-        $_SESSION['time'] = time();
-        // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
-        // 最後の時刻から１時間を記録することができるようになる。 
-    } elseif ($_SESSION['member'] = []) {
-        header('Location: ../../login/join.php');
-        exit();
-        // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
-        // ログイン画面に遷移する
-    } else {
-        // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
-        header('Location: ../../login/join.php');
-        exit();
-        
-    }
+// セッションに記録された時間が、今の時間よりも大きい、つまりログイン時間から
+// 1時間以上たっていた場合,という意味
+if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+    // （1時間が経過していたら、）ログアウトし、ログイン画面に遷移する
+    $_SESSION['time'] = time();
+    // 現在の時刻で上書きします。こうすることで、何か行動したことで上書きすることで
+    // 最後の時刻から１時間を記録することができるようになる。 
+} elseif ($_SESSION['member'] = []) {
+    header('Location: ../../login/join.php');
+    exit();
+    // 更新時刻より１時間経過していなくとも、クッキーの削除でセッション情報が空になったら
+    // ログイン画面に遷移する
+} else {
+    // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
+    header('Location: ../../login/join.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +122,7 @@ if (isset($_POST['kakunin'])) {
     <!-- 郵便局JSONP URL -->
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
-    
+
     <!-- 全体CSS -->
     <link rel="stylesheet" href="stylesheet6.css">
 
@@ -156,42 +154,42 @@ if (isset($_POST['kakunin'])) {
                 <br>
 
 
-              
+
                 <table>
                     <h3>●お届け先氏名</h3>
                     <div>
 
-                    <?php if (!empty($post_number)) { ?>
-                        <input type="button" value='登録の住所を編集' class="shop-order" onclick="location.href='./edit_address.php'">
-                    <?php } else { ?>
-                        <input type="button" value='ご自宅の住所を登録' class="shop-order" onclick="location.href='./address.php'">
-                    <?php } ?>
+                        <?php if (!empty($post_number)) { ?>
+                            <input type="button" value='登録の住所を編集' class="shop-order" onclick="location.href='./edit_address.php'">
+                        <?php } else { ?>
+                            <input type="button" value='ご自宅の住所を登録' class="shop-order" onclick="location.href='./address.php'">
+                        <?php } ?>
 
-                    <tr>
+                        <tr>
 
-                        <th>氏名：</th>
-                        <td>
-                            <input id="last_name" type="text" name="last_name" value="">
-                        </td>
-                    </tr>
+                            <th>氏名：</th>
+                            <td>
+                                <input id="last_name" type="text" name="last_name" value="">
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <th>名前：</th>
-                        <td>
-                            <input id="first_name" type="text" name="first_name" value="">
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>名前：</th>
+                            <td>
+                                <input id="first_name" type="text" name="first_name" value="">
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <th>お電話番号</th>
-                        <td>
-                            <input id="phone_number" type="text" name="phone_number" value="">
-                        </td>
-                    </tr>
+                        <tr>
+                            <th>お電話番号</th>
+                            <td>
+                                <input id="phone_number" type="text" name="phone_number" value="">
+                            </td>
+                        </tr>
                 </table>
-             
+
                 <table>
-                <h3>●お届け先のご住所を入力してください。</h3>
+                    <h3>●お届け先のご住所を入力してください。</h3>
                     <tbody>
                         <tr>
 
@@ -277,20 +275,20 @@ if (isset($_POST['kakunin'])) {
                 <br>
                 <td>
 
-                <div> 
+                    <div>
                         <input type="submit" name="kakunin" value="確認" class="shop-order">
                 </td>
 
             </form>
             <!-- 戻る -->
             <input type="button" class="re-order" onclick="location.href='./edit_address.php'" value="前のページに戻る">
-       
+
         </div>
 
     </div>
     <!-- DIV block1おわり -->
     </div>
-    
+
 
     <script src="japan_post_num.js"></script>
 

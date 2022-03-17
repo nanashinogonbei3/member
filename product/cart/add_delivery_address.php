@@ -152,12 +152,6 @@ if (empty($_SESSION['cart'])) {
     
 
 
-        // *****************************
-
-
-
-       
-
 
         //  billing_addressesテーブルのid  が送られてきたら、すでにbilling_addressesテーブルに登録のある
         //  住所であるということで更新します。

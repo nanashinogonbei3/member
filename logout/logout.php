@@ -6,8 +6,7 @@ $_SESSION = array();
 // セッションを空っぽにして、中の情報をログアウトすることで全部削除しますので、
 // ここは、array(空っぽ);の配列で$_SESSIONを上書きします。
 
-// ↓のしょりに失敗
-// でもセッションを消すなら、session_destroy()で消せるし、25行目のsetcookie('members_id)で、メールアドレスを消せていたので、下はいらないとのこと。
+// セッションを消すなら、session_destroy()で消せるし、25行目のsetcookie('members_id)で、メールアドレスを消せていたので、下はいらないとのこと。
 // if (ini_set('session.use_cookies')) {
 // ini_set(これは、セッションにクッキーをクッキーを使うかどうかという設定するファイルのこと)
 // この場合にクッキーの情報を削除するための処理をに書いていきます。
@@ -51,8 +50,6 @@ setcookie('members_id', '', time() - 3600);
 </head>
 
 
-<!-- ボディ メイン -->
-
 <body>
 
     <div class='inline_block_1'>
@@ -79,7 +76,7 @@ setcookie('members_id', '', time() - 3600);
                     </div>
 
 
-     
+
 
                     <div class="div_font_inline">
                         <input type="button" value='ログイン画面' style="width:20%;padding:10px;font-size:15px;" onclick="location.href='../login/join.php'" class="btn-border">
