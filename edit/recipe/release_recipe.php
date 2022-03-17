@@ -274,7 +274,6 @@ try {
         <dt class="title_font"><span style="font-size:33px"><a name="#">Recipe Note </a></span></dt>
 
         <!-- ログアウト -->
-
         <div class="div_logout">
             <!-- 既ログインなら -->
             <?php if (!empty($_SESSION['member'])) { ?>
@@ -315,9 +314,8 @@ try {
                     <input type="hidden" name="members_id" value="<?php echo $_SESSION['member'] ?>">
                     <input type="hidden" name="is_completed" value=1>
 
-                    <!-- ボタン -->
+                    <!-- 登録ボタン -->
                     <div class="favorite_btn">
-                        <!-- 登録する -->
                         <input type="image" src="../../icon_img/my_favorite0.png" alt="お気に入りに追加" width="50%">
                     </div>
                 </form>
@@ -346,7 +344,7 @@ try {
 
                     <!-- 重複しています。 -->
                 <?php } elseif ($array_count >= 1) { ?>
-                    <!-- ↓Updateソース -->
+                    <!-- お気に入りUpdateソース -->
                     <form action="./favorite/update_favorite_recipe.php" method="POST">
 
                         <input type="hidden" name="favorite_recipe_id" value="<?php echo $favorite['favorite_recipe_id'] ?>">
@@ -393,12 +391,13 @@ try {
 
                         <!-- もしもサブタイトルがあれば、区切り線も含めてサブタイトルを表示。 -->
                         <?php if (!empty($subtitle)) { ?>
-                            <!-- サブタイトル↓ -->
 
+                <!-- サブタイトル -->
                 <dt class="wf-sawarabimincho"><span style="font-size:23px"><?php echo $subtitle ?></span></dt>
 
+                <!-- 区切り線 -->
                 <div class="line"></div>
-                <!-- ↑区切り線 -->
+                
 
             <?php } elseif (empty($subtitle)) { ?>
                 <!-- サブタイトルが無ければ、区切り線も非表示に。 -->
@@ -406,16 +405,16 @@ try {
 
 
             <?php if (!empty($comment)) { ?>
-                <!-- レシピのコメント↓ -->
+                <!-- レシピのコメント -->
                 <dt class="wf-sawarabimincho"><span style="font-size:15px"><?php echo $comment ?></span></dt>
 
 
                 <br>
 
-                <!-- ↑区切り線 -->
+        
 
             <?php } elseif (empty($comment)) { ?>
-                <!--  -->
+              
             <?php } ?>
 
 
