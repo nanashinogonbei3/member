@@ -107,6 +107,7 @@ try {
         header('Location: ../login/join.php');
         exit();
     }
+    
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
