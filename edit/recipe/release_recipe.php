@@ -667,9 +667,11 @@ try {
 
             <!-- レシピを選び直すボタン -->
             <div class="div_re-order">
+
                 <input type="button" class="re-order" onclick="
-                         location.href='../../create/recipe/index.php?id=<?php echo $_SESSION['member'] ?> action=rewrite'" value='レシピを選び直す'>
+                location.href='../../top/confirm.php?id= action=rewrite'" value='レシピを選び直す'>
             </div>
+
             <div class="parent">
 
 
