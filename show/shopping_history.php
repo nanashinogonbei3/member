@@ -134,6 +134,7 @@ try {
         exit();
         // 何か行動した更新時刻より１時間経過したら、自動的にログイン画面に遷移します
     }
+
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -148,9 +149,9 @@ try {
     <meta charset="UTF-8">
     <title>購入履歴</title>
     <!-- 全体CSS -->
-    <link rel="stylesheet" href="stylesheet5.css">
+    <link rel="stylesheet" href="css/stylesheet5.css">
     <!-- ページネーション -->
-    <link rel="stylesheet" href="style_paging3.css">
+    <link rel="stylesheet" href="css/style_paging3.css">
 </head>
 
 <body>
