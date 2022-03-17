@@ -221,7 +221,7 @@ try {
 
                                 <div class="line"></div>
                                 <!-- データベースからFETCH()した、  レシピID -->
-                                <dt class="wf-sawarabimincho">レシピID：
+                                <dt class="wf-sawarabimincho">レシピID:
                                     <span style="color:green"><?php echo $id ?></span>
                                 </dt>
 
@@ -229,10 +229,8 @@ try {
 
                                 <!-- レシピを選びなおす ボタン -->
                                 <input type="button" onclick=" 
-        alert('このページを離れていいですか？')
-        location.href='./index.php?id= action=rewrite'" value='レシピを選び直す' style=" background-color:#FFF587; width: 210px; height: 30px; color:gray; border:5px dashed #F2F0CE; ">
-
-
+                                alert('このページを離れていいですか？')
+                                location.href='./index.php?id= action=rewrite'" value='レシピを選び直す' style=" background-color:#FFF587; width: 210px; height: 30px; color:gray; border:5px dashed #F2F0CE; ">
 
 
                                 <div class="item_l">
@@ -256,12 +254,9 @@ try {
                             <p class="wf-sawarabimincho">調理動画</P>
                             <img class="img" src="./images/<?php echo $video ?>" width="250px" height="auto">
                     </div>
-                    <!-- DIV 左側おわり -->
+                <!-- DIV 左側おわり -->
                 </div>
                 
-
-
-
 
 
                 <!-- DIV 右側はじまり -->
