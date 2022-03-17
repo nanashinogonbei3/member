@@ -5,10 +5,6 @@ session_start();
 require_once('./class/db/Base.php');
 require_once('./class/db/CreateRecipes.php');
 
-echo('<pre>');
-var_dump($_SESSION['recipe']['how_many_servings']);
-var_dump($_SESSION['recipe']['cost']);
-echo('<pre>');
 
 
    $fileName = $_FILES['video']['name']; 
@@ -31,7 +27,6 @@ echo('<pre>');
 
 
         './video/' . $image);
-        // $_SESSION['recipe'] = $_POST;
         $_SESSION['recipe']['video'] = $image;
         
 
@@ -49,13 +44,9 @@ try {
             $_SESSION['recipe']['complete_img'], $_SESSION['recipe']['cooking_time'], $_SESSION['recipe']['cost'], $_SESSION['recipe']['how_many_servings'], 
             $_SESSION['recipe']['created_date'], $_SESSION['recipe']['video']);
 
-            // レコードを全件取得する（期限日の古いものから並び替える）
-            // $list = $db->selectAll();
-
 
             // DB登録処理完了後、マイレシピページ（index.php）へリダイレクト
             header("Location: ./index.php?id=" . $_SESSION['id']);
-          
             exit; 
 
 
