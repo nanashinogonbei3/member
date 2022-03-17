@@ -14,15 +14,18 @@ $member_id = $_GET['idm'];
 
 try {
 
+    // index.phpから送った、my_recipeテーブルのid
     if (empty($_GET['id'])) {
-        // index.phpから送った、my_recipeテーブルのid
-
+        
         header("Location: index.php");
+        exit;
+
     } else {
         // 送信データを受け取る レシピId
         $id = $_GET["id"];
 
         $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+
         $date = $dt->format('Y-m-d');
 
         //データに接続するための文字列
@@ -34,11 +37,6 @@ try {
 
         $sql = "SELECT * FROM my_recipes WHERE id=" . $id;
 
-        // 内部結合
-        // SELECT * FROM my_recipes, materials WHERE my_recipes.id = materials.recipe_id;
-        // 外部結合
-        // 材料 が未登録の, レシピも表示が可能
-
         $stmt = $dbh->prepare($sql);
 
         $stmt->execute();
@@ -48,10 +46,9 @@ try {
         $record = $result->fetch(PDO::FETCH_ASSOC);
 
 
-
-        $is_released = $record['is_released'];
         // 公開カラム を変数に代入
-
+        $is_released = $record['is_released'];
+        
 
         $id = $record["id"];
         $recipe_name = $record["recipe_name"];
@@ -65,7 +62,6 @@ try {
         $dbh = null;
 
         // recipesデータベースに再度接続
-
         $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
 
         $dbh = new PDO($dsn, 'root', '');
@@ -82,7 +78,7 @@ try {
         $list = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
-        // ☆データベースに再度接続☆ 調理手順テーブルの開始
+        //データベースに再度接続 調理手順テーブルの開始
         //データに接続するための文字列
         $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
 
@@ -106,9 +102,9 @@ try {
 
 
         //membersテーブルを読み込む
-
-        $sql3 = "SELECT * FROM members WHERE id= '" . $member_id . "' ";
         // ログインのメンバー（index.phpから受信した$_GET['id']の代入変数$members_id）と紐づける
+        $sql3 = "SELECT * FROM members WHERE id= '" . $member_id . "' ";
+        
 
         $stmt3 = $dbh->prepare($sql3);
 
@@ -126,11 +122,11 @@ try {
 
         foreach ($group as $m) {
 
-
-            echo $m['id'];
             echo $m['nickname'];
         }
     }
+
+
 } catch (Exception $e) {
     echo 'DBに接続できません: ',  $e->getMessage(), "\n";
 }
@@ -278,14 +274,15 @@ try {
                     <!-- データベースからFETCH()した、 ビデオ動画 -->
 
                     <div class="item_l">
+
                         <!-- 調理動画を別ウィンドウで再生させます。 -->
-                        <!-- <img class="img" src="../../move/elefant.jpg" alt="象" width="50px" height="auto"> -->
                         <span style="color:green">
                             <p class="wf-sawarabimincho">調理動画</P>
                             <img class="img" src="./images/<?php echo $video ?>" width="250px" height="auto">
                     </div>
+                <!-- DIV 左側おわり -->           
                 </div>
-                <!-- DIV 左側おわり -->
+                
 
 
 
@@ -367,10 +364,7 @@ try {
                                         <!-- 入力フォーム値  分量 -->
                                         <td></td>
 
-                                        <td>
-                                            <!-- 追加ボタン -->
-
-                                        </td>
+      
 
                                     </tr>
                                 </tbody>
@@ -456,7 +450,6 @@ try {
 
 
             <!-- 表示欄 -->
-
             <div class="parent">
                 <!-- データの数だけ繰り返し -->
                 <?php foreach ($report as $v) : ?>
