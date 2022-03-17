@@ -1,0 +1,93 @@
+﻿@charset "utf-8";
+
+/* ユニバーサルセレクタでデフォルトの余白をリセット */
+* {
+	margin: 0;
+	padding: 0;
+}
+.div_carousel {
+	margin: 0 auto;
+	height: 250px;
+	display: inline-block;
+
+	width: 290px;
+	text-align: center;
+	padding-bottom: 10%;
+	margin-top: 10%;
+	margin-right: 30%;
+
+
+}
+
+/* ← ⇒のボタン全てが入る全体の外枠 */
+#carousel {
+	position: relative;
+	margin: 0 auto;
+	display: inline-block;
+	width: 200px;
+	height: 230px;
+	overflow: hidden;
+	border: solid #8C862A;
+	border-width: 0.05em;
+	border-radius: 5px;
+	
+}
+/* 前へボタンの絶対位置 */
+#carouselPrev {
+	position: relative;
+	/* top: 85px;
+	left: 0px; */
+	width: 2%;
+	cursor: pointer;
+}
+/* 次へボタンの絶対位置 */
+#carouselNext {
+	position: relative;
+	top: 85px;
+	right: 0px;
+	cursor: pointer;
+}
+
+#carouselInner ul.column {
+	width: 160px;
+	margin-right: 20px;
+	margin-left: 20px;
+
+	list-style: none;
+	float: left;
+}
+/* ul のliタグの子供要素、最初の画像の余白を決める */
+#carouselInner ul.column li:first-child {
+	margin-left: 24px;
+ }
+
+/* 画像のpadding余白を決める */
+#carouselInner ul.column li {
+	float: left;
+	padding-top: 10px;
+	margin-right: 10px;
+}
+/* [商品の詳細」ボタンのDIV */
+.btn_carousel {
+
+	text-align: center;
+	margin-left: 13%;
+}
+
+/* 画像の大きさ */
+img[id="img_carousel"] {
+	width: 125px;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 10px;
+	background-color: darkgrey;
+}
+ 
+ 
+/* 商品の詳細ボタン */
+button [id="carousel_btn"] {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+}
+

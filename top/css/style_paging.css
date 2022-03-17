@@ -1,0 +1,54 @@
+.flex {
+  width: 100%;
+  height: 25px;
+  line-height: 41px;
+  /* background-color: white; */
+  /* position: relative; */
+  top: 80%;
+  left: 100px;
+  margin-left: 24%;
+  /* margin-right: 25%; */
+  padding-bottom: 5%;
+ }
+  .flex ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    /* box-shadow: 0 0 8px #F2EAC2; */
+  }
+    .flex ul li {
+      flex: 1;
+      list-style: none;
+      text-align: center;
+      position: relative;
+      font-size: 17px;
+      font-weight: bold;
+      transition: 0.5s ease;
+      cursor: pointer;
+      user-select: none; 
+      color: #1FC7B7;
+    }
+
+      .flex ul li:hover {
+        /* background-color: rgba(255, 255, 255, 0.25); */
+        color: #FBA922; }
+        .flex ul li:hover:nth-of-type(2) ~ .bar {
+          left: 20%; }
+        .flex ul li:hover:nth-of-type(3) ~ .bar {
+          left: 40%; }
+        .flex ul li:hover:nth-of-type(4) ~ .bar {
+          left: 60%; }
+        .flex ul li:hover:nth-of-type(5) ~ .bar {
+          left: 80%; }
+
+    .flex ul .bar {
+      width: 20%;
+      background-color: #f564a9;
+      height: 5px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: 0.5s ease; 
+    }
+
+/*# sourceMappingURL=style_paging.css.map */

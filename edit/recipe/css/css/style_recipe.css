@@ -1,0 +1,442 @@
+body {
+  width: 1350px;
+  height: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: "Kokoro";
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+          local("Yu Gothic");
+  font-size: 13.5px;
+}
+.div_p {
+  margin: 0 auto;
+  width: 86%;
+  height: auto;
+
+  /* padding / 上 右 下 左 */
+  padding: 2% 2% 2% 2%;
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+
+  background-color: #F2CB05; 
+}
+
+/* 左側のdivと右側のdivを包括して横並びにする */
+.comprehensive {
+  width: 90%;
+  /* height: auto; */
+
+  margin: 0 auto;
+  /* ２つのdivを包括して横並びにする */
+  /* display: webkit-flex; */
+  display        : flex;                 
+  /* FlexBox定義         */
+  flex-wrap      : wrap;  
+  display: flex;
+  justify-content: flex-start;
+  background-color: #F2EB88;
+  align-content: stretch;
+} 
+  /* トップの左側DIV */
+.hidari {
+  width: 41%;
+  height: auto;
+  clear: both;
+  background-color: #F2EB88;
+  /* padding /上 右 下 左 */
+  padding: 2% 2% 2% 2%;
+}
+  /* トップの右側DIV */
+.migi {
+  width: 52%;
+  height: auto;
+  clear: both;
+  background-color: #F2EB88;
+  /* padding /上 右 下 左 */
+  padding: 5% 1% 2% 2%;
+}
+  /* コンテナー（左側・内側に入る） */
+.left_container {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  background-color: #F2EB88;
+  text-align: left;
+  /* padding/ 上 右 下 左 */
+  padding: 2% 2% 2% 10%;
+
+}
+/* カテゴリ登録一覧（右側・内側に入る） */
+.right_container {
+  width: 83%;
+  height: auto;
+  border-radius: 2px 2px 2px 2px;
+  border: 0.1px solid #a7a2a2e0;
+  /* padding/ 上 右 下 左 */
+  padding: 5% 1% 5% 1%;
+  margin-left: 5%;
+  background-color: #F2EB88;
+}
+.bottom {
+  margin: 0 auto;
+  width: 88%;
+  height: auto;
+  background-color: #F2EB88;
+  clear: both;
+  border-top: 0.1px dotted #a7a2a2e0;
+  padding: 2% 0% 2% 2%;
+}
+/* divを横並び*/
+.parent {
+  margin: 0 auto;
+  width: 94%;
+  height: auto;
+  overflow:hidden;
+  /* 横並びにして、横いっぱいになったら改行して表示する */
+  display: flex;                 
+  /* FlexBox定義         */
+  /* ある要素に定義するだけで、その直下の要素が並列になる便利なスタイルです */
+  flex-wrap: wrap;  
+  /* 横並びにして、横いっぱいになったら改行して表示する */
+  background-color: #F2EB88;
+  /* 上 右 下 左 */
+  padding: 2% 2% 2% 2%;
+}
+.footer {
+  margin: 0 auto;
+  width: 1215px;
+  height: 33px;
+  text-align: center;
+  background-color: #F2CB05; 
+  padding-top: 1%;
+  vertical-align:middle;
+  /* ボーダー / 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 10px 10px;
+}
+
+/* ---------------------------- */
+
+.div_100p {
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  width: 23%;
+  height: auto;
+
+  border: 0.1px solid #a7a2a2e0;
+  background-color: #F2D43D;
+ 
+  /* padding: 1%; */
+  /* margin-right: 1%; */
+  margin-left: 1%;
+  margin-top: 2%;
+  padding-bottom: 1%;
+  display: block;
+  /* DIVを並列させる */
+}
+.div_100 {
+  margin: 0 auto;
+  width: 92%;
+  height: auto;
+  writing-mode: horizontal-tb;
+  display: inline-block;
+
+  border: rgb(8, 8, 8);
+
+  background-color: #F2D43D;
+  margin-top: 5%;
+
+  display: flex; 
+ 
+}
+.div_102 {
+  margin: 0 auto;
+  width: 92%;
+  height: auto;
+  writing-mode: horizontal-tb;
+  display: inline-block;
+
+  text-align: center;
+  border: rgb(8, 8, 8);
+
+  background-color: #ffffff;
+  margin-top: 5%;
+
+  display: flex; 
+  overflow-wrap: break-word;
+  /* できるだけ単語の区切りで改行する   */
+  /* word-break: keep-all; */
+  /* 言語に関係なく単語の途中では改行せず、単語の切れ目で改行されます。 */
+  text-align: left;
+  padding: 3px;
+}
+
+/* ---------------------------- */
+
+/* 完成画像 */
+img[id="cimg"] {
+
+  width: 325px;
+  height: 325px;
+  position: relative; right: 1.5px;
+
+  /* 写真を同じ大きさにトリムする */
+  object-fit: cover; /* この一行を追加するだけ！ */
+
+  border-radius: 11px;
+  /* 角丸 */
+  border: 0.05px solid #bfb9b9e0;
+
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  /* 影 */
+  box-shadow: 2px 2px 0px 0 #bfb9b9e0(60, 194, 235);
+  /* ぼかし */
+}
+/* ラベルタグに、ボタン要素を付加する */
+label {
+  width: 160px;
+  height: 15px;
+  font-size: 12px;
+  color: gray; /* ラベルテキストの色を指定する */
+  background-color: #F2D43D;/* ラベルの背景色を指定する */
+  /* ラベルとテキスト間の余白を指定する */
+  text-align: center;
+  padding: 10px;
+
+  /* border: double 4px #AAAAAA;ラベルのボーダーを指定する */
+  border: double 2px #ffffff; /* ラベルのボーダーを指定する */
+  border-radius:5px;
+  margin-left: 15px;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+}
+.label_btn:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  transition    : .3s;         /* なめらか変化 */ 
+}
+  
+/* labelを囲むDIV */
+.label {
+  margin-top: 151px;
+}
+
+/* カテゴリ一覧表示・DIV */
+.spaceB { 
+  width: 90%;
+  height: auto;
+  
+  border: solid 0.1px #888282;
+  clear: both;
+
+  overflow:hidden;
+  /* 横並びにして、横いっぱいになったら改行して表示する */
+  flex-wrap: wrap;
+  display: flex;
+  padding: 3%;
+}
+.div_w {
+  margin: 0 auto;
+  width: 91%;
+  height: 60px;
+  margin-top: 16%;
+  clear: both; 
+
+  background-color: #F2EAC2;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+  border-bottom: transparent; /* 下辺が透明になる */
+  padding: 1% 1% 1% 1%;
+}
+.div_w_under {
+  margin: 0 auto;
+  width: 93%;
+  height: auto;
+  
+  padding-bottom: 24px;
+  background-color: #F3FEB0;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 10px 10px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+ 
+}
+  
+.img {
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  position: relative; right: 4.5px;
+
+  /* 写真を同じ大きさにトリムする */
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+/* 調理画像の大きさを揃える */
+img[id="pimg"] {
+  margin: 0 auto;
+  width: 100%;
+  height: 200px;
+  /* 画像縦サイズ */
+
+  object-fit: cover;
+  /* 画像を均一の大きさにトリミング */
+  text-align: center;
+  border-radius: 5px;
+  
+  margin-bottom: 2.5%;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left: 1.5%;
+}
+  
+/* --------------- */
+
+/* 「ログアウト」ボタン */
+    /* 「マイページ」 */
+/* type属性が「button」のボタン */
+.logout_btn { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+
+  width: 105px;
+  height: 35px;
+  color:gray;
+  border:1px solid #F2F0CE;
+  border-radius: 15px; 
+}
+/* ログアウト/ マウスホバー時 */
+/* type属性が「button」のボタン */
+input[type="button"]:hover {  
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #733702, #8C6542);
+
+  border: 1px solid #8C6542;
+  border-radius: 15px;
+  transition    : .5s;         /* なめらか変化 */
+  color: #FFFFFF;
+}
+.div_logout {
+  width: 105px;
+  height: 35px;
+  float: right;
+  padding-right: 5px;
+  margin-right: 3px;
+  margin-top: -50px;
+  margin-bottom: 2%;
+}
+/* お気に入りボタンDIV */
+.div_favorite {
+  width: 150px;
+  height: 35px;
+  float: right;
+  padding-left: 25px;
+  margin-left: 3px;
+  margin-top: -50px;
+  margin-bottom: 2%;
+}
+a {
+    text-decoration: none;
+  }
+
+/* -------------------------- */
+/*一口アドバイス  */
+.space_div{
+  margin: 0 auto;
+  width: 89%;
+  height: auto;
+  border: solid 0.1px #d6d2d2;
+  border-radius: 8px;
+  background-color: #F2F0CE;
+  background-image: url(../../icon_img/memo.jpg);
+  clear: both;
+
+  padding: 2% 2% 4% 2%;
+
+  margin-top: 3.8%;
+}
+
+/* ----------------------- */
+/* type属性が「button」のボタン */
+.order { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  width: 125px;
+  height: 30px;
+  color:gray;
+  border: 1.5px dashed #ffffff;
+  border-radius: 11px;
+  margin-top: -10px;
+}
+/* 「レシピを選びなおす」ボタン */
+
+/* type属性が「button」のボタン */
+.re-order { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  background-image: linear-gradient(0deg, #733702, #8C6542);
+
+  width: 130px;
+  height: 24px;
+  color: #ffffff;
+  border: 0.1px solid  rgb(240, 234, 234);
+  border-radius: 7px;
+}
+/* レシピを選びなおす/ マウスホバー時 */
+/* type属性が「button」のボタン */
+input[type="button"]:hover {  
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #da9e1c, #e5f4fc);
+  border: 1px dashed #ffffff;
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  border-radius: 15px;
+  transition    : .5s;         /* なめらか変化 */
+}
+/* ---フォント---------------- */
+
+/* 読みやすいゴシック文字　＝　説明文に */
+.p_font_rarge {
+
+  font-size: 28px;
+  font-family: "Sawarabi Mincho";
+  font-weight: 500px;
+}
+
+.p_font_small {
+  font-size: 2px;
+}
+
+.title_font {
+
+  /* google かわいい日本語漢字フォント */
+  /* font-family: "Sawarabi Mincho"; */
+  font-family: "Kokoro";
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+       local("Yu Gothic");
+  font-weight: 50;
+  font-size: 18px;
+}
+/* google おしゃれ日本語漢字フォント */
+.wf-sawarabimincho { 
+  font-family: "Sawarabi Mincho";
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.wf-notosansjapanese {
+
+  font-family: "Noto Sans Japanese";
+
+}
+/* タイトル下の黒いライン */
+.line {
+  border: 0.5px dashed gray;
+  width: 100%;
+
+  margin-bottom: 3%;
+  /* position: relative; */
+  padding-left: auto;
+  padding-right: auto;
+}  

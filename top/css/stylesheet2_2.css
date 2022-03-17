@@ -1,0 +1,1151 @@
+/* 上部全体ブロック */
+.block1 {
+  width: 68%;
+  height: 560px;
+
+  position: absolute;
+  top: 1%;
+  left: 315px;
+
+  /* margin-right: 20%; */
+
+  /* border: 0.1px solid rgb(233, 224, 224); */
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 10px 10px;
+   /* 画面中央にセンタリング */
+
+
+  padding-left: 1%;
+  /* sideバーと真ん中サムネイル画像の割合を制御する
+  1% ⇒ 2% サムネイル画像の左側の隙間が広くなり、
+  2% ⇒ 1.5% に減ずると狭くなると同時に、sideバーがその分広がります */
+  margin-right: 0%;
+
+
+}
+
+
+/* トップの左側DIV */
+.div_hidari {
+  width: 52%;
+  height: 30px;
+  float: left;
+  /* margin-right: 1%;
+  margin-top: -20px;
+  margin-left: -2%; */
+
+  position: absolute;
+  top: 1%;
+  left: 1.0%;
+  padding-left: 24%;
+
+}
+/* トップ右側DIV */
+.div_migi {
+  width: 62%;
+  height: 550px;
+
+  position: absolute;
+  top: -105px;
+  left: 554px;
+  /* padding-left: 24%;
+  /* ↑このpadding-leftのワザわいで、スクロール動かなかった */
+  /* margin-right: 10%;  */
+}
+
+/* 更新する調理時間・材料費・何人分フォームのDIV 左側*/
+.div_edit {
+  padding-left: 8px;
+  width: 90%;
+  height: 650px;
+  padding-top: 5%;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color:#F2E18D;
+  margin-top: 10%;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  /* border-radius: 5px 10px 10px 10px;
+  border: solid 0.1px #FFF4EC; */
+  /* 隣のDIVと上をそろえて横並びにする。 */
+  /* display: inline-block; */
+
+  margin-top: 2%;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  margin-left: 1%;
+  }
+
+/* 更新する調理時間・材料費・何人分フォームのDIV 右側*/
+.div_edit_r {
+  padding-left: 8px;
+  width: 94%;
+  height: auto;
+ 
+  padding-top: 5%;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-bottom: 5%;
+ 
+  background-color: #F2E18D;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+  /* display: inline-block; */
+  margin-bottom: auto;
+
+  }
+
+
+/* レシピID、レシピ名、作った人、公開日の項目を入力するDIV */
+.div_w {
+  padding-left: 8px;
+  width: 96%;
+  height: 11%;
+  margin-top: 28%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+ 
+  background-color: #F2EAC2;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 5px 5px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+  /* display: inline-block; */
+  margin-left: 2.5%;
+  margin-right: auto;
+  padding-left: 3%;
+  background-color: #FDD540;
+  background-color: #F2CB05;
+  
+  }
+
+/* 材料を入力するDIV */
+.div_w_under {
+  /* padding-left: 8px; */
+  width: 95%;
+  /* float: left; */
+  height: 328px;
+  margin-top: 1%;
+  
+  padding-bottom: 24px;
+  /* background-color: #F3FEB0; */
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  /* border-radius: 0px 0px 10px 10px; */
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+
+  margin-left: 2.5%;
+  margin-right: auto;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: #ffffff;
+  /* 背景画像 紙の質感 */
+  background-image:url(./css_img/paper.png);
+  /* 古い紙 */
+  background-image:url(./css_img/paper03.png);
+  }
+
+  .div_w2 {
+    clear: both;
+    padding-right: 35%;
+    width: 54%;
+    height: auto;
+    padding-top: 5px;
+    padding-left: 10%;
+   
+    background-color: #F2EAC2;
+   
+
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 0px 0px 5px 5px;
+    border: solid 0.1px #CCCCFF;
+    /* 隣のDIVと上をそろえて横並びにする。 */
+    /* display: inline-block; */
+    margin-left: 2.5%;
+    margin-right: auto;
+    margin-bottom: 5%;
+    background-color: #FDD540;
+    background-color: #F2CB05;
+
+  }
+ /* MORE ボタン */
+  .div_w3 {
+    clear: both;
+    padding-left: 8px;
+    width: 97%;
+    height: 24%;
+    padding-top: 5px;
+   
+    /* background-color: #F2EAC2; */
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    /* border-radius: 0px 0px 10px 10px;
+    border: solid 0.1px #CCCCFF; */
+    /* 隣のDIVと上をそろえて横並びにする。 */
+    /* display: inline-block; */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3%;
+    text-align: center;
+  }
+  
+  .inlineBlock {
+    display: inline-block;
+  }
+  
+  /* divを横並び（親） */
+  .contents {
+    display: inline-block;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 0.5px solid rgb(183, 170, 170);
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 10px 10px 10px 10px;
+    height: 650px;
+    
+}
+  
+
+
+  /* 全体画面 */
+  .inline_block_2 {
+
+    /* width: 54%; */
+    height: 750px;
+    width: 92%;
+    position: absolute;
+    top: 155px;
+    left: 0px;
+ 
+    background-color: #d4e6b0;
+    background-image:url(../icon_img/back/green_background/green_background.png);
+    /* float: ; */
+    padding-left: 1%;
+    padding-right: 2.5%;
+    padding-bottom: 1%;
+    margin-top: 0%;
+    
+    /* ボーダーRadius  // 上左: 上右: 右下: 左下: */
+    border-radius: 0px 0px 10px 10px;
+    background-color: #434142;
+    
+    border: solid #1A1A1A;
+    margin-right: 0%;
+    /* background-color: #1A1A1A; */
+    background-color: #1B342D;
+    background-color: #12221D;
+}
+
+
+
+
+img {
+  width: auto;
+  height: 300px;
+  object-fit: contain;
+  overflow: hidden;
+  width: 300px;/* トリミングしたい枠の幅 */
+  height: auto;/* トリミングしたい枠の高さ */
+  position: relative;
+  display: inline-block;
+}
+
+
+body {
+  margin: 0 auto;
+  width: 1000px;
+  height: 400px;
+  background-color: #fff;
+  font-family: "Kokoro";
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+       local("Yu Gothic");
+  margin-left: 10%;
+  margin-bottom: 10%;
+
+
+  font-size: 13.5px;
+  /* 画面中央にセンタリング */
+  margin: 0 auto; 
+  /* font-family: "Kokoro"; */
+  /* 背景画像　黒板風 */
+  background-image:url(./css_img/black_bord.png);
+
+  /* 背景画像 ｓｋｙ */
+  /* background-image:url(./css_img/sky.png); */
+  /* アーグラ要塞（インド） */
+  background-image:url(./css_img/tergi.png);
+  background-position: top 0% center;
+	background-repeat: repeat;
+	background-size: 150% auto;
+
+
+
+  /* スクロールバー・デザイン */
+
+scrollbar-face-color:#1B342D;
+scrollbar-track-color:white;
+scrollbar-arrow-color:white;
+scrollbar-highlight-color:#1B342D;
+scrollbar-shadow-color:#1B342D;
+scrollbar-3dlight-color:#1B342D;
+scrollbar-darkshadow-color:#1B342D;
+scrollbar-track-color: #1B342D;
+ /*スライドさせる背面部分の色*/
+
+}
+
+
+/* divを横並び（子） */
+.item {
+  width: 30%;
+  /* background-color: #9ec34b; */
+  clear: both;
+  float: left;
+
+  height: auto;
+  text-align: left;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-top: 1%;
+
+  position: absolute;
+  top: -20%;
+  left: 750px;
+  padding-left: 24%;
+
+  border: 0.5px solid rgb(183, 170, 170);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  object-fit: contain;
+  padding-left: 11px;
+  
+
+}
+/* クリアボス */
+.clear_both {
+  width: 100%;
+
+ 
+  margin-top: 20px;
+  text-align: left;
+
+  /* background-color: #9ec34b; */
+  /* display: flex; */
+  clear: both;
+
+}
+
+
+.textarea {
+  /* 横方向の拡大を禁止し、縦のみリサイズを許可する */
+  overflow: hidden;
+  resize: vertical;
+  width:600px;
+  height:200px;
+}
+
+.error {
+    font-style: inherit;
+    color: red;
+    font-size: 12px;
+    font-family: "YuGothic M";
+    src: local("Yu Gothic Medium"),
+         local("Yu Gothic");
+    font-weight: 500px;
+   
+}
+
+/* 読みやすいゴシック文字　＝　説明文に */
+.p_font_rarge {
+
+    font-size: 24px;
+    font-family: "Sawarabi Mincho";
+    font-weight: 500px;
+}
+
+
+/* タイトル下の黒いライン */
+.line {
+  border: 0.5px dashed gray;
+  width: 96%;
+  margin-top: 0.5px;
+  margin-bottom: 3%;
+  /* position: relative; */
+  margin-left: auto;
+  margin-right: 3%;
+}  
+
+.div_font_inline {
+    display: inline-block;
+    margin-bottom:0px;
+    height: 50px;
+    /* background-color: burlywood; */
+    width: 95%;
+    margin-top: 20px;
+    margin-right: 5%;
+    margin-bottom: 25px;
+    /* background-color: cadetblue; */
+}
+
+.inline_block_1 {
+
+  width: 100%;
+  background-color: #fff;
+  display: inline-block;
+
+ 
+}
+/* 左側のdivと右側のdivを包括して横並びにする */
+.comprehensive {
+
+ 
+  /* ２つのdivを包括して横並びにする */
+  display: webkit-flex;
+  height: 610px;
+  padding: 0%;
+
+  /* margin-bottom: 20%; */
+  /* background-color: #9ec34b; */
+  border-radius: 0px 0px 30px 0px;
+ 
+  
+
+} 
+
+
+/* フォーム画面 */
+.inline_block_3 {
+
+  width: 100%;
+  /* 子要素の内容よって高さが変わるheight:auto */
+  height: auto;
+  background-color: #fff;
+  /* border: 0.1px solid rgb(233, 224, 224); */
+  padding-top: 0;
+  padding-left: 0%;
+  padding-right: 0%;
+  /* background-color: #333; */
+  margin-top: 0%;
+
+ 
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+   /* 画面中央にセンタリング */
+
+}
+/* inline_block_4の上にスペースを作る */
+.space {
+  width: 98px;
+  height: 22%;
+  clear: both;
+  background-color: #A6BF4B;
+  margin-bottom: 5%;
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+
+}
+/* フォーム画面 */
+.inline_block_4 {
+
+  /* display: inline-block; */
+  width: 98%;
+  height: auto;
+
+  background-color: #fff;
+  border-top: 0.5px dashed gray;
+  /* border: 0.1px solid rgb(233, 224, 224); */
+  padding-top: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  /* background-color: #D8F0F2; */
+  /* margin-top: 0.5%; */
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  /* border-radius: 20px 20px 20px 20px; */
+  /* 割り込み禁止 */
+  clear: both;
+  margin-top: 5%;
+ 
+}
+
+/* divを横並び　成功 */
+.parent {
+  
+  width: 100%;
+  /* height: auto; */
+  overflow:hidden;
+  /* 横並びにして、横いっぱいになったら改行して表示する */
+  flex-wrap: wrap;
+
+  display: flex;
+
+  margin-bottom: 5%;
+
+ 
+  
+}
+
+.div_inlin {
+
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  padding-left: 1em;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: #fff;
+  vertical-align: middle;
+  text-justify: unset;
+  border-radius: 5px 5px 5px 5px;
+  /* 背景画像　黒板風 */
+  background-image:url(./css_img/black_bord.png);
+  color: #CCCCFF;
+  /* 背景画像を横の位置／縦の位置 */
+  background-position:50% 50%;
+
+}
+
+.div_wrap {
+  width: 100%;
+  height: 5%;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+  padding-left: 2px;
+  
+}
+
+/* レシピネーム・調理時間のテキスト */
+.div_text {
+
+  float: right;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+
+
+}
+
+/* 写真 */
+.div_photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px 5px 5px 5px;
+  /* border: solid 0.1em rgb(133, 129, 120); */
+  clear: both;
+}
+
+
+
+.div_p {
+  margin: 0 auto;
+  width: 91.75%;
+  text-align: left;
+  height: 75.2px;
+  position: absolute;
+  top: -5%;
+  left: 0px;
+  margin-bottom: -50%;
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+
+  background-color: #F2CB05; 
+  /* background-color: #FDEE00; */
+
+
+  font-size: 25px;
+  font: green;
+  padding-left: 4%;
+  
+  padding-top: 1%;
+  padding-bottom: 2%;
+
+  margin-top: 5%;
+
+
+
+}
+
+.p_size {
+  font-size: 12px; 
+}
+
+
+/* google おしゃれ日本語ひらがなフォント */
+.kokoro{
+
+ font-family: "Kokoro";
+ font-size: 15px;
+
+}
+/* google おしゃれ日本語漢字フォント */
+.wf-sawarabimincho { 
+  font-family: "Sawarabi Mincho";
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.wf-notosansjapanese {
+
+  font-family: "Noto Sans Japanese";
+
+}
+
+
+.container {
+    
+    width: 500px;
+    background-color: white;
+    display: inline;
+  
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  /* background: #419be0; */
+}
+
+.slick-slide {
+  text-align: center;
+  /* color: #419be0; */
+  background: white;
+}
+
+.div_1 {
+
+    width: 60%;
+    overflow: hidden;
+    
+    margin: 10% 10% 20% 20%;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 0px 0px;
+} 
+
+
+.logo2 {
+    margin-left: 10px;
+}
+
+
+.select {
+    width: 70%;
+    font-size: 1em;
+    overflow: hidden;
+    
+    border-color:#CCCCFF;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 0px 0px;
+
+    margin: 15% 15% -5% 15%;
+}
+
+
+/* ここから下がボタン関係のCSS　*/
+
+.btn { 
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN',
+  'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif; 
+  text-align: left; 
+  padding-top: 40px;
+  padding-left: 40px;
+
+  margin-top: 0%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+}
+
+.btn-border:hover {
+  background-color: #9ec34b;
+  border-color: #cbe585;
+  color: #FFF;
+}
+
+
+
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+input .btn_green {
+  color: #9ec34b;
+}
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+/* type属性 <input type="submit" */
+.f_left {
+  float: left;
+  /* background-color: limegreen; */
+  clear: both;
+  padding-left: 65px;
+  padding-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+} 
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+/* type属性 <input type="submit" */
+
+.update:hover {
+  transition    : .2s;        
+  box-shadow    : 2px 2px 16px #666888; 
+}
+/* 調理手順の 「削除Delete」・「編集」ボタン */
+/* <input type="submit" value="実行", value="編集" */
+input[type="submit"]:hover {
+  /* マウスが載ったとき */
+    background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+   
+    border: 1px dashed #ffffff;
+    border-radius:3px;
+    transition    : .3s;      
+  } 
+  
+
+
+
+
+/* <input type="submit" */
+input {
+  /* ボタンの間隔を指定 */
+  margin-left: 8px;
+  border:0.4px dashed #ffffff;
+  border-radius:3px;
+  color: #58555A; /* ラベルテキストの色を指定する */
+}
+
+
+
+/* 調理手順の 「削除Delete」ボタン */
+/* <input type="submit" value="Delete" */
+.execution-btn:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  color: red; /* ラベルテキストの色を指定する */
+}
+
+
+
+
+
+
+/* レシピを選びなおす：ボタン */
+/* type属性が「button」のボタン */
+.re-order { 
+  background-color:#FFF587;
+  width: 210px;
+  height: 30px;
+  color:gray;
+  border:5px dashed #F2F0CE;
+}
+
+/* レシピを選びなおす/ マウスホバー時 */
+/* type属性が「button」のボタン */
+input[type="button"]:hover {  
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+  border: 1px dashed #ffffff;
+  border-radius:3px;
+  transition    : .5s;  
+} 
+
+
+
+/* submitボタン */
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+.update:hover {
+  transition    : .2s;        
+  box-shadow    : 2px 2px 16px #666888; 
+}
+
+
+/* ファイル */
+
+/* レシピ完成画像の、 「選択されていません」を敢えて表示するボタン*/
+/* input[type="file"]:hover */
+input[type="file"]:hover {
+  
+    background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+    border: 1px solid #D4DA1C;
+    border-radius:3px;
+    transition    : .3s; 
+}
+
+.div_error {
+  position: absolute;
+  top: 70px;
+  left: 350px;
+  width: 430px;
+
+  /* divの中を横並び */
+  display: flex;
+  font-size: 16px;
+  margin-top: -1px;
+}
+
+/* 調理手順の保存の、「画像アップロード」ボタン */
+/* 調理手順の画像ファイルの、「選択されていません」を非表示にする */
+.file {
+  display: none;
+  /* 「選択されていません」を非表示にする */
+}
+
+
+/* 調理手順の「保存」ボタン */
+/* <input type="submit" value="保存" */
+.procedure_seve_btn {
+  background-image: linear-gradient(0deg, #A6BF4B, #eaf6fd); /* グラデーション */
+  /* 背景色グラデーション */
+}
+
+/* 材料の「追加」ボタン */
+/* <input type="submit" */
+.material_add_btn {
+  background-image: linear-gradient(0deg, #F2B705, #eaf6fd); /* グラデーション */
+}
+
+/* procesureテーブルのIDカラム表示DIVタグ */
+.div_pid {
+   padding-left: auto;
+   padding-right: auto;
+   text-align: center;
+   padding-bottom: 1px;
+   color: gray;
+}
+
+
+/* 調理手順の作成 保存 div class = "flex" */
+.flex {
+  width: 500px;
+  display:inline-flex;
+  padding-left: 5px;
+
+}
+
+.btn_migi {
+  margin-top: 5px;
+  margin-left: 2%;
+}
+
+.btn_migi2 {
+  margin-top: 0px;
+  height: 70px;
+  float: right;
+  
+}
+
+
+/* 「ログアウト」ボタン */
+
+/* type属性が「button」のボタン */
+.logout_btn { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  width: 85px;
+  height: 35px;
+  color:gray;
+  border:1px solid #F2F0CE;
+  border-radius: 15px;
+  margin-top: 1%;
+}
+
+
+
+.div_logout1{
+  width: 105px;
+  height: 35px;
+  float: right;
+  padding-right: 5px;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+
+/* 矢印ボタン MORE */
+.arrow_button {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px 10px 47px;
+  background: #ffa899; /* デフォルトの背景色 */
+  border-radius: 10px;
+  color: #fff; /* テキストの色 */
+  transition: background-color 1s, box-shadow 1.5s;
+}
+ 
+.arrow_button::before { /* 矢印の表示設定 */
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+}
+ 
+.arrow_button::after { /* 矢印の丸枠の表示設定 */
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 13px;
+  width: 23px;
+  height: 23px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+ 
+.arrow_button:hover { 
+  background-color: #ff6347; 
+  box-shadow: 2px 3px 2px rgba(0,0,0,0.3) 
+} 
+
+/* 新しいレシピを作成を促す id="new" */
+input[type="button"] {
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  width: 102px;
+  height: 35px;
+  color:gray;
+  border:1px solid #F2F0CE;
+  border-radius: 15px;
+}
+
+a:hover {
+  color: rgb(255, 0, 128);
+} 
+
+a:active {
+  color: green;
+}
+
+a.no-color-change:link,
+a.no-color-change:visited,
+a.no-color-change:hover,
+a.no-color-change:active {
+  color: greenyellow;
+} 
+
+a {
+  /* リンクの下線を消す */
+ text-decoration:none; 
+}  
+
+/* レシピ検索のDIV */
+.div_serch {
+  width: 90%;
+  background-color: #B0CCAD;
+  float: left;
+  text-align: left;
+  padding-top: 5%;
+  padding-left: 5%;
+  margin-left: 5%;
+
+}
+
+.div_clear {
+  width: 100%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+/* 注:) ページネーションの’選択ページの数字の色’のCSSは、style_paging.css で設定しています */
+
+
+/* 検索レシピ画像の大きさを揃える */
+img[id="rc_img"] {
+  /* 大きい画像を均一の大きさにトリミング */
+    width: 185px;
+    /* 横サイズを300pxにすると、小さい画像が２列になる */
+    height: 185px;
+    /* 画像縦サイズ */
+    object-fit: cover;
+    /* どのサイズの画像も（大きい画像）サイズを同じに表示する */
+  }
+
+
+/* 調理手順の入る */
+/* div_100 を囲む */
+.div_100p {
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  height: auto;
+  border-radius: 15px 15px 15px 15px;
+  border: 0.1px solid #a7a2a2e0;
+  margin-top: 20px;
+  margin-left: 6px;
+  background-color: #F2D43D;
+  padding: 2%;
+}
+
+/* 調理手順DIV */
+.div_100 {
+ writing-mode: horizontal-tb;
+ display: inline-block;
+ /* float: left; */
+ width: 150px;
+ height: auto;
+ margin: 5px;
+
+ background-color: #F2D43D;
+ display: flex;
+
+}
+
+/* 調理画像の大きさを揃える */
+img[id="pimg"] {
+  width: 200px;
+  /* 画像横サイズ */
+  height: 170px;
+  /* 画像縦サイズ */
+  object-fit: cover;
+  /* 画像を均一の大きさにトリミング */
+  padding-left: 3%;
+
+}
+
+/* メンバーアイコン画像 */
+img[id="mimg"] {
+  width: 65px;
+  /* 画像横サイズ */
+  height: 75px;
+  /* 画像縦サイズ */
+  object-fit: cover;
+  /* 画像を均一の大きさにトリミング */
+
+  text-align: center;
+  /* 画像を横方向を中央に配置 */
+  /* vertical-align: middle;  */
+  /* 画像を縦方向を中央に配置 */
+
+  /* 画像のdesign、ここから */
+  border-radius: 10%;  /* 角丸半径を10%にする(50％だと円形になる) */
+    
+  display: block;
+  content: "";
+  top: 0; 
+  left: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: rotate(-5deg); 
+  /* 回転させる */
+  background: #fff;
+  /* z-index: -1; */
+  box-shadow: inset -60px 0 100px #fff;
+   /* -60pxずらす  */
+  padding-top: 1px;
+}
+/* id=mimg,とclass="img5" どちらかをけしてもNGで、両方聞いて画像編集ができている */
+.img5 {
+  /* 画像ここから */
+  border-radius: 10%;  /* 角丸半径を10%にする(50％だと円形になる) */
+    
+  display: block;
+  content: "";
+  top: 0; 
+  left: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: rotate(-5deg); /* 回転させる */
+  background: #fff;
+  z-index: -1;
+  box-shadow: inset -30px 0 100px #fff; /* -60pxずらす */
+}
+/* メンバーアイコン画像を納めているDIV */
+.div_img3{
+  /* width: 98%; */
+  /* 背景画像 黒板風 */
+  background-image:url(./css_img/black_bord.png);
+  padding: 10px;
+  border-radius: 3px;
+  float: left;
+  margin-top: 1%;
+  margin-left: 2%;
+
+}
+
+/* 調理手順"レシピ名"タイトルフォント */
+.font_title {
+  font-size: 22px;
+  font-family: "Sawarabi Mincho";
+  font-weight: 500px;
+}
+/* 調理手順”作った人（ニックネーム）”のフォント */
+  .p_font_midiam {
+  font-family: "Sawarabi Mincho";
+  font-size: 18px;
+  font-weight: 250px;
+}
+/* 「作った人」（のフォント） */
+.p_font_small {
+  font-family: "Sawarabi Mincho";
+  font-size: 13px;
+  font-weight: 250px;
+}
+
+.title_font {
+
+  /* google おしゃれ日本語漢字フォント */
+  font-family: "Sawarabi Mincho";
+  font-weight: 100;
+  font-size: 18px;
+}
+/* 調理手順「作った人」の文字を納めるDIV */
+.creater {
+  width: 90px;
+  height: 50px;
+  float: right;
+  margin-right: 75%;
+  margin-top: 3%;
+}
+
+.side {
+    width: 272px;
+    height: auto;
+    background-color: #ffffff;
+    padding-top: 2%;
+    padding-left: 1%;
+    padding-bottom: 0%;
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 0px 0px 0px 10px;
+    background-image:url(../icon_img/back/green_background/green_background.png);
+    
+    background-image: url(../icon_img/back/green_background/green_background.png); 
+    /* background-color: #1A1A1A; */
+    background-color: #1B342D;
+    background-color: #12221D;
+
+}
+
+input[id="material_text"] {
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 5px 10px 10px 10px;
+    border: solid 0.1px #D9CD25; 
+}
+
+
+.mushimegane {
+  float: rigth;
+}
+
+/* ページング・レシピ一覧のユーザーアイコン画像 */
+
+img[id="users"] {
+  /* 大きい画像を均一の大きさにトリミング */
+    width: 10px;
+
+    object-fit: cover;
+    /* どのサイズの画像も（大きい画像）サイズを同じに表示する */
+  }
+
+  
+.td {
+
+  /* background-color: aqua; */
+
+  width: 120px;
+  height: 10px;
+  
+  }

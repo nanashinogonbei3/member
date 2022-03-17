@@ -1,0 +1,1452 @@
+/* 上部全体ブロック */
+.block1 {
+  width: 96%;
+  height: auto;
+  background-color: #fff;
+  border: 0.1px solid rgb(233, 224, 224);
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+   /* 画面中央にセンタリング */
+  padding-left: 2%;
+  margin-bottom: 2%;
+}
+/* 上部全体ブロック */
+.block2 {
+  width: 43%;
+  height: auto;
+  background-color: #fff;
+  /* border: 0.1px solid rgb(233, 224, 224); */
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+   /* 画面中央にセンタリング */
+
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+
+/* トップの右側DIV */
+.div_migi {
+  position: absolute;
+  top: 4.7%;
+  left: 49%;
+  width: 33%;
+  height: auto;
+
+  margin-bottom: 10px;
+  /* background-color: lightskyblue; */
+  margin-top: 3.9%;
+}
+/* トップの右側DIV */
+.div_migi3 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 32%;
+  height: 500px;
+ 
+  margin-bottom: 10px;
+  /* background-color: lightskyblue; */
+  margin-top: 3.9%;
+}
+
+/* トップひだり側DIV */
+.div_hidari {
+  width: 20%;
+  height: 600px;
+  float: left;
+
+  margin-left: -2.5%;
+}
+/* 右側 登録するレシピ名、調理時間・材料費・何人分フォームのDIV */
+.div_edit {
+  padding-left: 8px;
+  width: 96%;
+  height: 750px;
+
+  padding-top: 5%;
+  padding-left: 13px;
+  padding-right: 2%;
+
+  background-color: #F2EB88;
+  /* background-color: #F2F0CE; */
+
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 15x 15px 15px 15px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+  /* display: inline-block; */
+  margin-bottom: 15%;
+  padding-bottom: 10%;
+  margin-left: 1%;
+  
+  margin-top: -2%;
+  margin-right: 10%;
+
+  
+  }
+
+/* ひだり側 登録レシピ画像一覧表示 */
+.div_edit_r {
+
+  width: 87%;
+  height: 350px;
+  padding-top: 5%;
+  padding-left: 13px;
+  padding-right: 2%;
+
+  /* background-color: #F2EB88; */
+  background-color: #ffffff;
+
+  border: 0.5px solid rgb(197, 188, 188);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 5%;
+  padding-bottom: 13%;
+  /* 右側のDIVの枠の高さを制御する */
+  margin-left: 0%;
+  
+  margin-top: 5%;
+  padding-right: 5%;
+  padding-left: 5%;
+  
+  }
+  /* product_introduction.php用 */
+  .div_edit_r3 {
+
+    width: 87%;
+    height: auto;
+    display: inline-block;
+
+ 
+    /* background-color: #F2EB88; */
+    background-color: #ffffff;
+  
+    border: 0.1px solid rgb(233, 224, 224);
+    border: 0.1px solid #dddddd;;
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 10px 10px 10px 10px;
+    
+
+    /* 右側のDIVの枠の高さを制御する */
+
+    
+    margin-top: 5%;
+    margin-bottom: 15%;
+  
+    padding: 5%;
+    
+    }
+
+/* product_introduction_addlist.php用 */
+.div_edit_r6 {
+
+  position: absolute;
+  top: 4.3%;
+  left: 48%;
+  width: 28%;
+  height: 285px;
+  padding-bottom: 5%;
+  /* background-color: #F2EB88; */
+  background-color: #ffffff;
+
+  border: 0.1px solid rgb(233, 224, 224);
+  border: 0.1px solid #dddddd;;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+
+  margin-top: 5%;
+  padding: 1%;
+  }
+
+/* 材料を入力するDIV */
+/* 調理手順を入力するDIV */
+.div_w {
+  padding-left: 8px;
+ 
+  width: 97%;
+  height: 60px;
+  margin-top: 25%;
+  padding-top: 5px;
+ 
+  background-color: #F2EAC2;
+
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+  /* display: inline-block; */
+  margin-left: auto;
+  margin-right: 10px;
+  padding-left: 3%;
+  height: 75px;
+  }
+
+/* 材料を入力するDIV */
+.div_w_under {
+  /* padding-left: 8px; */
+  width: 97%;
+  /* float: left; */
+  height: auto;
+  margin-top: 1%;
+  
+  padding-bottom: 24px;
+  background-color: #F3FEB0;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 10px 10px;
+  border: solid 0.1px #CCCCFF;
+  /* 隣のDIVと上をそろえて横並びにする。 */
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3%;
+
+
+  }
+  
+  
+  .inlineBlock {
+    display: inline-block;
+  }
+  
+  /* divを横並び（親） */
+  .contents {
+    display: inline-block;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 0.5px solid rgb(183, 170, 170);
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    border-radius: 10px 10px 10px 10px;
+    height: 650px;
+    
+}
+  
+
+
+  /* 全体画面 */
+  .inline_block_2 {
+    width: 41%;
+    height: auto;
+    width: 98%;
+ 
+    background-color: #d4e6b0;
+    /* display: inline-block; */
+    /* float: ; */
+    padding: 1%;
+
+    margin-top: 0.5%;
+    
+    /* ボーダーRadius  // 上左: 上右: 右下: 左下: */
+    border-radius: 0px 0px 20px 20px;
+}
+/* 全体画面 product_introduction.php用 */
+.inline_block_5 {
+  width: 98%;
+  height: auto;
+  display: inline-block;
+  /* height autoを効かせるためには、inline-blockが必要です。 */
+
+  padding: 1%;
+  padding-bottom: 3%;
+  padding-top: 4%;
+
+  margin-top: 0.5%;
+  
+  border: 0.1px solid rgb(233, 224, 224);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 0px 0px;
+  padding-left: 1%;
+  background-color: cornsilk;
+}
+/* 全体画面 product_introduction_addlist.php用 */
+.inline_block_6 {
+  width: 98%;
+  height: 295px;
+  display: inline-block;
+  /* height autoを効かせるためには、inline-blockが必要です。 */
+
+  padding: 1%;
+  padding-bottom: 3%;
+  padding-top: 4%;
+
+  margin-top: 0.5%;
+  
+  border: 0.1px solid rgb(233, 224, 224);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 0px 0px;
+  padding-left: 1%;
+  background-color: cornsilk;
+}
+
+/* 全体画面 product_introduction.php用 */
+.inline_block_7 {
+  width: 99%;
+  height: auto;
+  display: inline-block;
+  /* height autoを効かせるためには、inline-blockが必要です。 */
+
+  display: block;
+  /* 画面中央寄せ */
+  margin-top: 1%;
+
+  padding-left: 1%;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  
+  border: 0.1px solid rgb(233, 224, 224);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 10px 10px;
+  background-color: cornsilk;
+}
+/* divを横並び（左寄せ） */
+.item_0 {
+  width: 96%;
+  height: auto;
+
+  clear: both;
+  text-align: left;
+
+  float: left;
+  border: 1px solid #dddddd;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  /* box-shadow    : 2px 2px 16px #c4c5c9; */
+  /* 影の設定 */
+  object-fit: contain;
+
+  margin-left: 1%;
+  margin-right: 2%;
+  padding-bottom: 2%;
+  margin-top: -5%;
+ 
+  display: block;
+  background-color: #ffffff;
+  margin-bottom: 2%;
+
+  padding: 2%;
+ 
+}
+.item_6 {
+  width: 96%;
+  height: auto;
+
+  clear: both;
+  text-align: left;
+
+  float: left;
+  border: 1px solid #dddddd;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  /* border-radius: 10px 10px 10px 10px; */
+  /* box-shadow    : 2px 2px 16px #c4c5c9; */
+  /* 影の設定 */
+  object-fit: contain;
+
+  margin-right: 2%;
+  padding-bottom: 2%;
+  margin-top: -1%;
+ 
+  display: block;
+  background-color: #ffffff;
+  margin-bottom: 2%;
+
+  padding: 2%;
+ 
+}
+/* divを横並び（左寄せ） */
+.item_l {
+  width: 98%;
+  height: auto;
+
+  clear: both;
+  text-align: left;
+
+  float: left;
+  border: 1px solid #dddddd;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  /* box-shadow    : 2px 2px 16px #c4c5c9; */
+  /* 影の設定 */
+  object-fit: contain;
+
+  margin-left: 1%;
+  padding-bottom: 2%;
+  margin-top: 12px;
+  padding: 1%;
+ 
+  display: block;
+  background-color: #ffffff;
+  margin-bottom: 5%;
+ 
+}
+/* 画像をdivを横並び（右寄せ） */
+.item_2 {
+  width: 27%;
+  height: auto;
+  /* background-color: #9ec34b; */
+  clear: both;
+  text-align: left;
+ 
+  float: right;
+
+  border: 0.5px solid rgb(183, 170, 170);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 5px 5px 5px 5px;
+  object-fit: contain;
+  padding: 2%;
+  margin: 1%;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.form {
+  /* margin-top: 5%; */
+  width: 90%;
+  clear: both;
+}
+
+
+.img {
+
+  width: 160px;
+  height: auto;
+  /* position: relative; right: 4.5px; */
+
+  /* 写真を同じ大きさにトリムする */
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+/* .img:hover{
+  transform: scale(1.2);/* 拡大 */
+/* } */ 
+
+/* product_introduction.phpの商品詳細画像 */
+img[id="img2"] {
+  width: auto;
+  height: 240px;
+  max-height: 70%;
+  /* 親要素のwidth幅の100%の値 */
+  /* 親要素よりはみ出ない */
+
+  object-fit: cover; /* この一行を追加するだけ！ */
+  /* 写真を同じ大きさにトリムする */
+  /* border: solid 0.5px #666888;
+  box-shadow: grey; */
+  margin: 2%;
+  margin-bottom: -0.5%;
+  padding: 3%;
+}
+
+
+img[id="img3"] {
+
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* この一行を追加するだけ！ */
+  max-width: 50%;
+  /* 親要素のwidth幅の100%の値 */
+  /* 親要素よりはみ出ない */
+
+  object-fit: cover; /* この一行を追加するだけ！ */
+  /* 写真を同じ大きさにトリムする */
+  /* border: solid 0.5px #666888;
+  box-shadow: grey; */
+  margin: 2%;
+  margin-bottom: -0.5%;
+  padding: 3%;
+}
+
+
+/* 検索バー DIV */
+.toolbar {
+  width: 94%;
+  height: auto;
+  background-color: #BFB636;
+  border: 0.5px solid  #BFB636;
+  padding: 2%;
+  margin-top: 1%;
+  margin-bottom: -5%;
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 2px 2px;
+  border: solid 0.1px #CCCCFF;
+  margin-left: 2%;
+ 
+}
+
+
+body {
+  margin: 0 auto;
+  width: 1250px;
+  height: 3000px;
+  background-color: #fff;
+  font-family: "Kokoro";
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+       local("Yu Gothic");
+  margin-left: 10%;
+  margin-bottom: 10%;
+  height: 3000px;
+  font-size: 13.5px;
+  /* 画面中央にセンタリング */
+  margin: 0 auto; 
+  /* font-family: "Kokoro"; */
+
+}
+
+
+/* divを横並び（子） */
+.item {
+  width: 30%;
+  /* background-color: #9ec34b; */
+  clear: both;
+  float: left;
+
+  height: auto;
+  text-align: left;
+  margin-top: 10px;
+  margin-right: 24px;
+
+  border: 0.5px solid rgb(183, 170, 170);
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 10px 10px;
+  object-fit: contain;
+  padding-left: 5px;
+  
+
+}
+/* クリアボス */
+.clear_both {
+  width: 100%;
+
+ 
+  margin-top: 20px;
+  text-align: left;
+
+  /* background-color: #9ec34b; */
+  /* display: flex; */
+  clear: both;
+
+}
+
+
+.textarea {
+  /* 横方向の拡大を禁止し、縦のみリサイズを許可する */
+  overflow: hidden;
+  resize: vertical;
+  width:600px;
+  height:200px;
+}
+
+.error {
+    font-style: inherit;
+    color: red;
+    font-size: 11px;
+    font-family: "wf-sawarabimincho";
+    /* src: local("Yu Gothic Medium"),
+         local("Yu Gothic"); */
+    font-weight: 500px;
+   
+}
+
+/* 読みやすいゴシック文字　＝　説明文に */
+.p_font_rarge {
+
+    font-size: 18px;
+    font-family: "Sawarabi Mincho";
+    font-weight: 500px;
+}
+
+.p_font_small {
+    font-size: 2px;
+}
+
+.title_font {
+
+    /* google おしゃれ日本語漢字フォント */
+    font-family: "Sawarabi Mincho";
+    font-weight: 100;
+    font-size: 18px;
+}
+/* タイトル下の黒いライン */
+.line {
+  border: 0.5px dashed gray;
+  width: 100%;
+  margin-top: 0.5px;
+  margin-bottom: 3%;
+  /* position: relative; */
+  padding-left: auto;
+  padding-right: auto;
+}  
+
+.div_font_inline {
+    display: inline-block;
+    margin-bottom:0px;
+    height: 50px;
+    /* background-color: burlywood; */
+    width: 95%;
+    margin-top: 20px;
+    margin-right: 5%;
+    margin-bottom: 25px;
+    /* background-color: cadetblue; */
+}
+
+.inline_block_1 {
+
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  display: inline-block;
+  background-color: greenyellow;
+
+ 
+}
+/* 左側のdivと右側のdivを包括して横並びにする */
+.comprehensive {
+
+  /* ２つのdivを包括して横並びにする */
+  display: webkit-flex;
+
+  /* background-color: chartreuse; */
+  height: 100px;
+  margin-bottom: 10%;
+} 
+
+
+/* フォーム画面 */
+.inline_6 {
+
+  width: 100%;
+  /* 子要素の内容よって高さが変わるheight:auto */
+  height: auto;
+  background-color: #fff;
+  border: 0.1px solid rgb(233, 224, 224);
+  padding-top: 0;
+  padding-left: 0%;
+  padding-right: 0%;
+  /* background-color: #333; */
+  margin-top: 0%;
+
+ 
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+   /* 画面中央にセンタリング */
+
+}
+
+/* フォーム画面 */
+.inline_block_4 {
+
+  /* display: inline-block; */
+  width: 96%;
+  height: auto;
+
+  background-color: #fff;
+  border-top: 0.5px dashed gray;
+  border: 0.1px solid rgb(233, 224, 224);
+  padding-top: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  /* background-color: #D8F0F2; */
+  /* margin-top: 0.5%; */
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 20px 20px 20px 20px;
+  /* 割り込み禁止 */
+  clear: both;
+  /* margin-bottom: 3%; */
+  margin-top: 15%;
+}
+/* product_introduction.php用 */
+.inline_block_8 {
+
+  /* display: inline-block; */
+  width: 96%;
+  height: auto;
+
+  background-color: #fff;
+  border-top: 0.5px dashed gray;
+  border: 0.1px solid rgb(233, 224, 224);
+  padding-top: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  /* background-color: #D8F0F2; */
+  /* margin-top: 0.5%; */
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 20px 20px 20px 20px;
+  /* 割り込み禁止 */
+  clear: both;
+  /* margin-bottom: 3%; */
+
+  /* 割り込み禁止 */
+  clear: both;
+
+}
+/* divを横並び　成功 */
+.parent {
+  
+  width: 100%;
+  /* height: auto; */
+  overflow:hidden;
+  /* 横並びにして、横いっぱいになったら改行して表示する */
+  flex-wrap: wrap;
+
+  display: flex;
+
+  margin-bottom: 5%;
+
+ 
+  
+}
+
+/* div_100 を囲む */
+.div_100p {
+   /* ボーダー // 上左: 上右: 右下: 左下: */
+   width: 45%;
+   height: auto;
+   border-radius: 5px 5px 5px 5px;
+   border: 0.1px solid #a7a2a2e0;
+   margin-top: 20px;
+
+   background-color: #F2D43D;
+   padding: 1%;
+   margin-left: 1%;
+}
+
+/* 調理手順DIV */
+.div_100 {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  /* float: left; */
+  width: 145px;
+  height: auto;
+  margin: 0.2%;
+
+  background-color: #F2D43D;
+  /* display: flex ある要素に定義するだけで、その直下の要素が並列になる便利なスタイルです */
+  display: flex;
+  text-align: left;
+  margin-left: 5px;
+ 
+
+}
+
+.div_inlin {
+
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  padding-left: 1em;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: #fff;
+  vertical-align: middle;
+  text-justify: unset;
+  border-radius: 5px 5px 5px 5px;
+  /* 背景画像　黒板風 */
+  background-image:url(./css_img/black_bord.png);
+  color: #CCCCFF;
+  /* 背景画像を横の位置／縦の位置 */
+  background-position:50% 50%;
+
+}
+
+.div_wrap {
+  width: 100%;
+  height: 10%;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+  padding-left: 2px;
+  
+}
+
+/* レシピネーム・調理時間のテキスト */
+.div_text {
+
+  float: right;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+
+
+}
+
+/* 写真 */
+.div_photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px 5px 5px 5px;
+  /* border: solid 0.1em rgb(133, 129, 120); */
+  clear: both;
+}
+
+
+
+.div_p {
+    
+  width: 98%;
+  text-align: left;
+  height: 25px;
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 10px 10px 0px 0px;
+  border: solid 0.1px #F2E641;
+
+  background-color: #75cec7; 
+  background-color: #F2E641;
+
+  font-size: 25px;
+  padding-left: 2%;
+  vertical-align: bottom;
+  padding-top: 8px;
+  padding-bottom: 5%;
+ 
+}
+
+.p_size {
+  font-size: 12px; 
+}
+
+
+/* google おしゃれ日本語ひらがなフォント */
+.kokoro{
+
+ font-family: "Kokoro";
+ font-size: 15px;
+
+}
+/* google おしゃれ日本語漢字フォント */
+.wf-sawarabimincho { 
+  font-family: "Sawarabi Mincho";
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.wf-notosansjapanese {
+
+  font-family: "Noto Sans Japanese";
+
+}
+
+
+.container {
+    
+    width: 500px;
+    background-color: white;
+    display: inline;
+  
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  /* background: #419be0; */
+}
+
+.slick-slide {
+  text-align: center;
+  /* color: #419be0; */
+  background: white;
+}
+
+.div_1 {
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 2px 2px;
+    padding: 2%;
+    margin-top: 10%;
+  
+} 
+
+
+.logo2 {
+    margin-left: 10px;
+}
+
+
+.select {
+    width: 70%;
+    font-size: 1em;
+    overflow: hidden;
+    
+    border-color:#CCCCFF;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 0px 0px;
+
+    margin: 15% 15% -5% 15%;
+}
+
+/* ここから下がボタン関係のCSS　*/
+
+ .btn { 
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif; 
+    text-align: left; 
+    padding-top: 40px;
+    padding-left: 40px;
+
+    margin-top: 0%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+  }
+
+  .btn-border:hover {
+    background-color: #9ec34b;
+    border-color: #cbe585;
+    color: #FFF;
+  }
+
+  /* テーブル */ 
+  
+table {
+    margin: 0 auto;
+    width: 1200px;
+
+    border: 1px solid #CCCCFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 3%;
+    background-color: #F2F0CE;
+    padding-right: 1%;
+  
+  }
+
+  table > thead > tr  {
+    
+    background-color: #F2F0CE;
+    /* width: 25%; */
+    padding: 1%;
+    border: 1px solid #CCCCFF;
+
+  }
+  table > tbody > tr > td {
+    
+    background-color: #F2F0CE;
+    /* width: 25%; */
+    padding: 1%;
+    border: 1px solid #CCCCFF;
+
+  }
+/* table > tr {
+   
+    padding: .5em 2em;
+    border: 1px solid #CCCCFF;
+    border-radius: 10px;
+  }
+
+    
+table > td {
+
+    padding: .5em 2em;
+    border: 1px solid #CCCCFF;
+    width: 20%;
+    padding: 1%;
+
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #CCCCFF;
+  } */
+
+
+
+/* ボタン ここから */
+
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+input .btn_green {
+  color: #9ec34b;
+}
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+/* type属性 <input type="submit" */
+.f_left {
+  float: left;
+  /* background-color: limegreen; */
+  clear: both;
+  padding-left: -5px;
+  padding-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 29%;
+
+} 
+/* my_recipe テーブルのレシピ名を「更新する」ボタン */
+/* type属性 <input type="submit" */
+/* input[type="submit"]:hover ボタンホバー時*/
+.update:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+}
+
+
+
+/* <input type="submit" */
+input {
+  /* ボタンの間隔を指定 */
+  margin-left: 8px;
+  border:0.4px dashed #ffffff;
+  border-radius:3px;
+  color: #58555A; /* ラベルテキストの色を指定する */
+
+}
+
+/* 調理手順の 「削除Delete」・「編集」ボタン */
+/* <input type="submit" value="実行", value="編集" */
+input[type="submit"]:hover {
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+ 
+  border: 1px dashed #ffffff;
+  border-radius:3px;
+  transition    : .3s;         /* なめらか変化 */
+}
+
+/* 調理手順の 「削除Delete」ボタン */
+/* <input type="submit" value="Delete" */
+.execution-btn:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  color: red; /* ラベルテキストの色を指定する */
+}
+
+
+
+
+/* 「レシピを選びなおす」ボタン */
+
+/* type属性が「button」のボタン */
+.re-order { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  width: 125px;
+  height: 30px;
+  color:gray;
+  border: 1.5px dashed #ffffff;
+  border-radius: 13px;
+ 
+}
+
+.re-order3 { 
+  background-color:#FFF587;
+  background-color: #D9CC1E;
+  width: 350px;
+  height: 30px;
+  color:#ffffff;
+  border: 1.5px solid #ffffff;
+  border-radius: 1px;
+}
+/* レシピを選びなおす/ マウスホバー時 */
+/* type属性が「button」のボタン */
+input[type="button"]:hover {  
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+  border: 1px dashed #ffffff;
+  border-radius: 15px;
+  transition    : .5s;         /* なめらか変化 */
+}
+/* DIV .re-order */
+.div_re-order {
+  margin-bottom: 5px;
+  margin-top: 2%;
+}
+
+
+
+
+/* ファイル */
+
+/* レシピ完成画像の、 「選択されていません」を敢えて表示するボタン*/
+/* input[type="file"]:hover */
+input[type="file"]:hover {
+  
+    background-image: linear-gradient(0deg, #D4DA1C, #e5f4fc);
+    border: 1px solid #D4DA1C;
+    border-radius:3px;
+    transition    : .3s;         /* なめらか変化 */ 
+}
+
+
+
+/* ↑のボタンとは別もの */
+/* 調理手順の保存の、「画像アップロード」ボタン */
+
+/* ↑のボタンとは別もの */
+/* 調理手順の保存の、「画像アップロード」ボタン */
+input[type="file"] {
+  /* 「選択していません」を非表示にする */
+  display: none;
+}
+.file {
+  /* 画像ファイル「選択されていません」を非表示にする */
+  width: 90px;
+  height: 9px;
+  font-size: 12px;
+  color: gray; /* ラベルテキストの色を指定する */
+  background-color: #F2D43D;/* ラベルの背景色を指定する */
+}
+/* 画像選択ボタン用・<label>ラベルタグに、ボタン要素を付加する */
+label {
+  width: 85px;
+  height: 15x;
+  font-size: 13px;
+  color: gray; /* ラベルテキストの色を指定する */
+  background-color: #F2D43D;/* ラベルの背景色を指定する */
+  background-color: #FEFAF6;
+  /* ラベルとテキスト間の余白を指定する */
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding: 5px;
+
+  /* border: double 4px #AAAAAA;ラベルのボーダーを指定する */
+  border: double 2px #ffffff; /* ラベルのボーダーを指定する */
+  border-radius:5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* <label class="label_btn"> */
+.label_btn:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  transition    : .3s;         /* なめらか変化 */ 
+  }
+/* 画像・動画ファイル選択ボタン */
+/* label タグを包括するdiv */
+.div_file {
+  margin-top: 5px;
+  margin-bottom: 13px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+/* 調理手順の「保存」ボタン */
+/* <input type="submit" value="保存" */
+.procedure_seve_btn {
+  background-image: linear-gradient(0deg, #A6BF4B, #eaf6fd); /* グラデーション */
+  /* 背景色グラデーション */
+}
+
+/* 材料の「追加」ボタン */
+/* <input type="submit" */
+.material_add_btn {
+  background-image: linear-gradient(0deg, #F2B705, #eaf6fd); /* グラデーション */
+}
+
+
+/* ボタンおわり */
+
+
+
+
+
+/* procesureテーブルのIDカラム表示DIVタグ */
+.div_pid {
+   margin-top: 15px;
+   padding-left: auto;
+   padding-right: auto;
+   
+   padding-bottom: 5px;
+   text-align: center;
+   padding-bottom: 1px;
+   color: gray;  
+}
+
+
+
+
+/* 調理手順の作成 保存 div class = "flex" */
+.flex {
+  width: 500px;
+  display:inline-flex;
+  padding-left: 5px;
+
+}
+.div_clear {
+  margin-top: 5%;
+}
+
+/* divを横並び（左寄せ） */
+.item_3 {
+  width: 43%;
+  height: auto;
+  /* background-color: #9ec34b; */
+  clear: both;
+  text-align: left;
+  /* margin-top: 25px; */
+  float: left;
+
+  /* border: 0.5px solid rgb(183, 170, 170); */
+  /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+  /* border-radius: 10px 10px 10px 10px; */
+  object-fit: contain;
+
+
+
+
+  padding-left: 1%;
+  margin-bottom: 20px;
+
+
+
+  /* gamen center  */
+  display: block; 
+  margin: auto;
+  margin-top: -5%;
+ 
+}
+
+
+/* divを横並び（左寄せ） */
+.item_5 {
+  width: 46%;
+  height: auto;
+  /* background-color: #9ec34b; */
+
+  text-align: left;
+  /* margin-top: 25px; */
+  float: right;
+
+
+  object-fit: contain;
+
+  padding-left: 1%;
+  margin-top: 5%;
+ 
+}
+
+
+
+.file {
+  /* 画像ファイル「選択されていません」を非表示にする */
+  width: 90px;
+  height: 9px;
+  font-size: 11px;
+  color: gray; /* ラベルテキストの色を指定する */
+  background-color: #F2D43D;/* ラベルの背景色を指定する */
+}
+/* 画像選択ボタン用・<label>ラベルタグに、ボタン要素を付加する */
+label {
+  width: 85px;
+  height: 15x;
+  font-size: 12px;
+  color: gray; /* ラベルテキストの色を指定する */
+  background-color: #F2D43D;/* ラベルの背景色を指定する */
+ 
+  /* ラベルとテキスト間の余白を指定する */
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding: 5px;
+
+  /* border: double 4px #AAAAAA;ラベルのボーダーを指定する */
+  border: double 2px #ccc; /* ラベルのボーダーを指定する */
+
+  border-radius:5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* <label class="label_btn"> */
+.label_btn:hover {
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  transition    : .3s;         /* なめらか変化 */ 
+  }
+/* 画像・動画ファイル選択ボタン */
+/* label タグを包括するdiv */
+.div_file {
+  margin-top: 5px;
+  margin-bottom: 13px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 登録確認ボタン */
+.div_register {
+  margin-top: 25px;
+  margin-bottom: 13px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* 日付入力 */
+
+/* input type ="date" をデザインする */
+input[type="date"] {
+  position: relative;
+  padding: 2px;
+  width: 125px;
+  height: 18px;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #999;
+  
+}
+input[type="date"]:hover {
+  position: relative;
+  padding: 2px;
+  width: 125px;
+  height: 18px;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: gray;
+
+  transition    : .2s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 16px #666888;  /* 影の設定 */
+  transition    : .3s;         /* なめらか変化 */ 
+}
+.label_date {
+  position: relative;
+  display: inline-block;
+  width: 125px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 18px;
+}
+
+/* 「ログアウト」ボタン */
+
+/* type属性が「button」のボタン */
+.logout_btn { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+  width: 85px;
+  height: 35px;
+  color:gray;
+  border:1px solid #F2F0CE;
+  border-radius: 15px;
+  margin-top: 1%;
+}
+
+/* ログアウトボタン */
+.div_logout1{
+  width: 105px;
+  height: 35px;
+  float: right;
+  padding-right: 15px;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+/* ログアウトボタン */
+.div_logout2{
+  width: 105px;
+  height: 35px;
+  float: left;
+  padding-right: 15px;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+/* product_introduction.phpレシピ画像用 */
+img[id="recipe"] {
+  width: 150px;
+  height: 150px;
+  /* 写真を同じ大きさにトリムする */
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+
+/* product_introduction_addlist.phpの商品用画像 */
+img[id="img3"] {
+
+  width: 145px;
+  height: 250px;
+  max-width: 65%;
+  /* 親要素のwidth幅の100%の値 */
+  /* 親要素よりはみ出ない */
+
+  object-fit: cover; /* この一行を追加するだけ！ */
+  /* 写真を同じ大きさにトリムする */
+  /* border: solid 0.5px #666888;
+  box-shadow: grey; */
+  margin: 2%;
+  margin-bottom: -0.5%;
+  padding: 3%;
+}
+.shop {
+  position: absolute;
+  top: 5%;
+  left: 200px;
+  width: 100px;
+  height: 20px;
+
+}
+.errorMsg {
+  color: blue;
+  font-size: 13px;
+}
+.favorite_btn {
+  width: 24%;
+  margin-left: -20px;
+  float: left;
+  margin-top: -13px;
+  margin-left: 40%;
+}
+
+/* 個数入力するinputタグのdesign */
+.input_count {
+  border: 2px solid #0a0;  /* 枠線 */
+  border-radius: 0.5em;   /* 角丸 */
+  padding: 0.5em;          /* 内側の余白量 */
+}
+/* type属性が「button」のボタン */
+/* 買い物カゴ */
+.shop-order { 
+  background-color:#668C4A;
+  width: 125px;
+  height: 30px;
+  color:white;
+  border: 1.5px solid #ffffff;
+  border-radius: 13px;
+}
+
+/* ログアウトボタン */
+.div_logout1{
+  width: 105px;
+  height: 35px;
+  float: right;
+  padding-right: 15px;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+/* ログアウトボタン */
+.div_logout2{
+  width: 105px;
+  height: 35px;
+  float: left;
+  padding-right: 15px;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+/* 買い物カゴボタン */
+.div_logout3{
+  width: 105px;
+  height: 35px;
+  float: left;
+  padding-right: 15px;
+  margin-left: 15px;
+  margin-top: -5px;
+}
+.del {
+  color: #c68975;
+  font-size: 14px;
+  border: none;  /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+  cursor: pointer;
+}
+

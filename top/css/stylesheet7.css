@@ -1,0 +1,35 @@
+.form-button {
+
+    width: 2.74%;
+    /* 虫眼鏡ボタンの幅 */
+    height: 11%;
+    padding-right: 0.1px;
+    background-color: #000000;
+    border: none;
+    margin-top: 8px;
+    padding-top: 3px;
+    padding-left: 0.5px;
+    margin-right: 10px;
+    margin-left: 3px;
+  
+
+}
+
+/* 虫眼鏡検索 DIV*/
+/* 「検索ボックス」ボタン */
+.mushi-megane {
+  
+    margin-top: -25px;
+ 
+    float: right;
+    background-color: aqua;
+   
+  }
+  
+  /* 虫眼鏡 動画どおり */
+  img[id="mushimegane"] {
+    width: 30px;
+    height: 27px;
+    object-fit: cover;
+  }
+

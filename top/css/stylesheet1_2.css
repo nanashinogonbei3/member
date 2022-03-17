@@ -1,0 +1,88 @@
+.imageList {
+  width: 526px;
+  /* 全体のDIVの横幅 */
+  display: flex; }
+  .imageList__view {
+    flex: 0 0 362px;
+    /* ↑小さい画像の配置距離 */
+    height: 350px; }
+    /* 大きい画像の縦高さ */
+  .imageList__thumbs {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    height: 362px;
+    /* 横の小さい画像が入るDIVの高さ */
+    overflow: scroll; 
+    overflow-x: hidden;
+    /* 横のスクロールバーを消す */
+  }
+
+  .imageList__thumbnail {
+    margin-left: 5px;
+    /* 小さい画像の左側の隙間 */
+    flex: 0 1 calc(50% - 10px); }
+    .imageList__thumbnail:nth-child(n + 3) {
+      margin-top: 5px; }
+      /* 小さい画像の上部隙間 */
+  .imageList img {
+    width: 100%;
+    /* 大きい画像の尺度 */
+    display: block; }
+
+.selected {
+  position: relative; }
+  .selected::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    /* 小さい画像の背景色 */
+    opacity: .7; }
+
+img[id="img"] {
+/* 大きい画像を均一の大きさにトリミング */
+  width: 362px;
+  /* 横サイズを300pxにすると、小さい画像が２列になる */
+  height: 362px;
+  /* 画像縦サイズ */
+  object-fit: cover;
+  /* どのサイズの画像も（大きい画像）サイズを同じに表示する */
+  border-radius: 2%;
+}
+
+img[id="img_s"] {
+/* 小さい画像を均一の大きさにトリミング */
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+
+/* https://kouhekikyozou.com/css_scrollbar_design */
+/* スクロールバー・デザイン */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  /* スクロールバーの幅 */
+}
+
+
+::-webkit-scrollbar-track {
+   /* background: rgba(0,0,0,0.5); */
+   /* スクロールバーの背景色 */
+   border-radius: 5px;
+   background: #1B342D;
+   background: #12221D;
+   
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F29F05;
+  border-radius: 5px;
+  /* つまみの色を指定して丸みを付ける */
+  height: 102px;
+}

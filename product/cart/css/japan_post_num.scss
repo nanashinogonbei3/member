@@ -1,0 +1,62 @@
+#app {
+    width: 96%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    padding: 28px;
+    line-height: 1.5;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: 2px 2px 5px 0px rgba(200, 200, 200, 1);
+    font-family: "Times New Roman";
+}
+
+#error {
+    margin: 5px 0 0 0;
+    color: #ff0000;
+    font-size: .84rem;
+    font-weight: bold;
+}
+
+table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    
+    tbody {
+        tr {
+            th {
+                width: 80px;
+                padding: 20px 10px;
+                text-align: left;
+                border-bottom: 2px solid #384878;
+            }
+            
+            td {
+                width: calc(100% - 80px);
+                padding: 20px 10px;
+                border-bottom: 2px solid #cccccc;
+                
+                input {
+                    padding: 5px;
+                    border: 0;
+                    border: 1px solid #cccccc;
+                }
+                
+                button {
+                    padding: 3px 10px;
+                    color: #ffffff;
+                    background-color: #00c2bc;
+                    border: 0;
+                    box-shadow: none;
+                    cursor: pointer;
+                }
+                
+                .zipcode {
+                    width: 75px;
+                }
+            }
+        }
+    }
+}

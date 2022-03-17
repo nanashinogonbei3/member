@@ -1,0 +1,55 @@
+.div_width {
+  width: 250px;
+  /* 検索バーの全体の幅 */
+  background-color: #ffffff;
+  /* 背景色 */
+  margin-top: 4.3%;
+  margin-right: 3%;
+  
+  position: relative;
+
+}
+
+.acd-check{
+    display: none;
+    /* 既存チェックド非表示 */
+  }
+  .acd-label{
+    background: #F2CB05;
+    /* 検索バーの背景色 */
+    color: #000000;
+    font-size: 11px;
+    /* 文字色 */
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+  }
+  .acd-content{
+    border: 1px solid #D9D9D9;
+    /* 枠線色 */
+    height: 0;
+    /* 閉じている時のheight */
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    /* 滑らかに開く */
+    visibility: hidden;
+  }
+  .acd-check:checked + .acd-label + .acd-content{
+/* input id=, label for=, div class=,を制御 */
+    height: auto;
+    /* 開いた時のheight */
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+  }
+
+ img[id="acd"] {
+   width: 20px;
+   width: 20px;
+ }
+
+ img[id="acd"]:hover {
+  transform: scale(3);
+  transition-duration: 0.5s;
+ }

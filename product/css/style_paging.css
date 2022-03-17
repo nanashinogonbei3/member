@@ -1,0 +1,94 @@
+.flex {
+    width: 120%;
+    height: 25px;
+    line-height: 41px;
+    /* background-color: white; */
+    /* position: relative; */
+    /* top: 80%;
+    left: 30px; */
+    margin-left: -26%;
+    /* margin-right: 25%; */
+    padding-bottom: 8%;
+    padding-left: -2%;
+   }
+  .flex ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    /* box-shadow: 0 0 8px #F2EAC2; */
+    /* ↑影をつける透明の。 */
+  }
+
+
+
+    .flex ul li {
+      flex: 1;
+      list-style: none;
+      text-align: center;
+      position: relative;
+      font-size: 17px;
+      font-weight: bold;
+      transition: 0.5s ease;
+      cursor: pointer;
+      user-select: none; 
+      color: #1FC7B7;
+    }
+
+      .flex ul li:hover {
+        /* background-color: rgba(255, 255, 255, 0.25); */
+        color: #FBA922; }
+        .flex ul li:hover:nth-of-type(2) ~ .bar {
+          left: 20%; }
+        .flex ul li:hover:nth-of-type(3) ~ .bar {
+          left: 40%; }
+        .flex ul li:hover:nth-of-type(4) ~ .bar {
+          left: 60%; }
+        .flex ul li:hover:nth-of-type(5) ~ .bar {
+          left: 80%; }
+
+    .flex ul .bar {
+      width: 20%;
+      background-color: #f564a9;
+      height: 5px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: 0.5s ease; 
+    }
+
+
+    .pre {
+        width: 50px;
+        height: 60px;
+        float: left;
+        background-color: aquamarine;
+    }
+
+
+
+/*# sourceMappingURL=style_paging.css.map */
+.div_w2 {
+    clear: both;
+    /* padding-right: 26%; */
+    width: 77.3%;
+    height: 41px;
+    padding-top: 5px;
+    
+   
+    /* background-color: #F2EAC2; */
+    /* ボーダーRadius // 上左: 上右: 右下: 左下: */
+    /* border-radius: 0px 0px 5px 5px; */
+    /* border: solid 0.1px #CCCCFF; */
+    /* 隣のDIVと上をそろえて横並びにする。 */
+    display: inline-block;
+    margin-left: -2%;
+    margin-right: auto;
+    margin-bottom: 1%;
+    margin-left: -4%;
+    
+  }
+
+a {
+  text-decoration: none;
+  text-decoration: black;
+}

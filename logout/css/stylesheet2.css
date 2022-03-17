@@ -1,0 +1,363 @@
+body {
+  width: 800px;
+  background-color: #fff;
+  font-family: "Kokoro";
+  margin-left: 10%;
+  margin-bottom: 10%;
+  height: 3000px;
+  /* 画面中央にセンタリング */
+  margin: 0 auto; 
+  /* font-family: "Kokoro"; */
+}
+
+.error {
+    /* font-style: inherit; */
+    color: red;
+    font-size: 12px;
+    font-family: "YuGothic M";
+    src: local("Yu Gothic Medium"),
+         local("Yu Gothic");
+    font-weight: 500;
+}
+
+/* 読みやすいゴシック文字　＝　説明文に */
+.p_font_rarge {
+
+    font-size: 15px;
+    font-family: "YuGothic M";
+    src: local("Yu Gothic Medium"),
+         local("Yu Gothic");
+    font-weight: 500;
+}
+
+.p_font_small {
+    font-size: 2px;
+}
+
+.title_font {
+
+    /* google おしゃれ日本語漢字フォント */
+    font-family: "Sawarabi Mincho";
+    font-weight: 100;
+    font-size: 18px;
+}
+/* タイトル下の黒いライン */
+.line {
+    border: 2px solid black;
+    width: 95%;
+    margin-top: 20px;
+    margin-right: 5%;
+
+} 
+
+.div_font_inline {
+    display: inline-block;
+    margin-bottom:0px;
+    height: 50px;
+    /* background-color: burlywood; */
+    width: 95%;
+    margin-top: 20px;
+    margin-right: 5%;
+    margin-bottom: 25px;
+    /* background-color: cadetblue; */
+}
+
+.inline_block_1 {
+
+  width: 100%;
+  background-color: #fff;
+  display: inline-block;
+  padding-bottom: -20px;
+ 
+}
+/* 左側のdivと右側のdivを包括して横並びにする */
+.comprehensive {
+
+  /* ２つのdivを包括して横並びにする */
+  display: -webkit-flex;
+}
+
+/* フォーム画面 */
+.inline_block_3 {
+
+  width: 94%;
+  background-color: #fff;
+  border: 0.1px solid #bfb9b9e0;
+  padding: 3%;
+
+  /* background-color: #333; */
+  margin-top: 0.5%;
+  height: 1500px;
+ 
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+   /* 画面中央にセンタリング */
+   margin : 0 auto;
+}
+
+/* 全体画面 */
+.inline_block_2 {
+
+  width: 100%;
+  background-color: #d4e6b0;
+  /* display: inline-block; */
+  /* float: ; */
+  padding: 5%;
+  margin-top: 0.5%;
+  height: 1700px;
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 0px 0px 20px 20px;
+
+}
+
+.div_inlin {
+
+  display: inline-block;
+  width: 240px;
+  height: 60px;
+  padding-left: 1em;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: #fff;
+  vertical-align: middle;
+  text-justify: unset;
+  border-radius: 5px 5px 5px 5px;
+  /* 背景画像　黒板風 */
+  background-image:url(./css_img/black_bord.png);
+  color: #CCCCFF;
+  /* 背景画像を横の位置／縦の位置 */
+  background-position:50% 50%;
+
+}
+
+.div_wrap {
+  width: 70%;
+  height: 10%;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+  
+}
+
+/* レシピネーム・調理時間のテキスト */
+.div_text {
+
+  float: right;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  background-color: aqua;
+
+
+}
+
+/* 写真 */
+.div_photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 0.1em rgb(133, 129, 120);
+  clear: both;
+
+}
+
+
+
+.div_p {
+    
+  width: 95%;
+  text-align: left;
+  height: 45px;
+
+  /* ボーダー // 上左: 上右: 右下: 左下: */
+  border-radius: 20px 20px 0px 0px;
+  border: solid 0.1px #CCCCFF;
+
+  background-color: #75cec7; 
+
+  font-size: 25px;
+  padding-left: 5%;
+  vertical-align: bottom;
+  padding-top: 5%;
+ 
+}
+
+.p_size {
+  font-size: 12px; 
+}
+
+
+/* google おしゃれ日本語ひらがなフォント */
+.kokoro{
+
+ font-family: "Kokoro";
+ font-size: 15px;
+
+}
+/* google おしゃれ日本語漢字フォント */
+.wf-sawarabimincho { 
+  font-family: "Sawarabi Mincho";
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.wf-notosansjapanese {
+
+  font-family: "Noto Sans Japanese";
+
+}
+
+
+.container {
+    
+    width: 500px;
+    background-color: white;
+    display: inline;
+  
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  /* background: #419be0; */
+}
+
+.slick-slide {
+  text-align: center;
+  /* color: #419be0; */
+  background: white;
+}
+
+.div_1 {
+
+    width: 60%;
+    overflow: hidden;
+    
+    margin: 10% 10% 20% 20%;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 0px 0px;
+} 
+
+
+.logo2 {
+    margin-left: 10px;
+}
+
+
+.select {
+    width: 70%;
+    font-size: 1em;
+    overflow: hidden;
+    
+    border-color:#CCCCFF;
+
+    border: solid 0.1px #CCCCFF;
+    border-radius: 5px 5px 0px 0px;
+
+    margin: 15% 15% -5% 15%;
+}
+
+/* ここから下がボタン関係のCSS　*/
+
+ .btn { 
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif; 
+    text-align: left; 
+    padding-top: 40px;
+    padding-left: 40px;
+
+    margin-top: 0%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+  }
+/* 
+.btn-border {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #9ec34b;
+    font-size: 16px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+  }
+  */ 
+  .btn-border:hover {
+    background-color: #9ec34b;
+    border-color: #cbe585;
+    color: #FFF;
+  }
+
+  /* テーブル */ 
+  
+  .table {
+    
+    width: 60%;
+    margin: 10% 20% 10% 20%;
+
+    border: 1px solid #CCCCFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    border-radius: 100px 5px 5px 5px;
+  
+  }
+
+
+  .table tr {
+   
+    padding: .5em 2em;
+    border: 1px solid #CCCCFF;
+    border-radius: 10px;
+  }
+
+
+    
+  .table td {
+
+    padding: .5em 2em;
+    border: 1px solid #CCCCFF;
+
+    border-radius: 5px 5px 5px 5px;
+  }
+
+ 
+  /* テーブル終り */
+
+/* 「ログアウト」ボタン */
+    /* 「マイページ」 */
+/* type属性が「button」のボタン */
+.logout_btn { 
+  background-color:#FFF587;
+  background-color: #F8DB05;
+
+  width: 175px;
+  height: 35px;
+  color:gray;
+  border:1px solid #F2F0CE;
+  border-radius: 15px; 
+}
+/* 「みんなのレシピ」ボタン */
+/* type属性が「button」のボタン */
+input[type="button"]:hover {  
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #733702, #8C6542);
+
+  border: 1px solid #8C6542;
+  border-radius: 15px;
+  transition    : .5s;         /* なめらか変化 */
+  color: #FFFFFF;
+}
+.div_logout {
+  width: 155px;
+  height: 35px;
+  float: right;
+  padding-right: 33px;
+  margin-right: 5px;
+  margin-top: -33px;
+  margin-bottom: 2%;
+}

@@ -1,0 +1,123 @@
+/* これは、リリース・レシピ画面の「レシピ・カテゴリー」のラベル専用CSS */
+
+/* ./edit/recipe/release_recipe.phpの「レシピ・カテゴリー」のラベルを囲むDIV */
+.div_width3 {
+  width: 170px;
+  /* 横並び全体の幅 */
+  float: left;
+  margin-right:1px;
+  margin-left: -1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+/* ./edit/recipe/release_recipe.phpの「レシピ・カテゴリー」のラベルを囲むDIV */
+.acd-label3 {
+  background: #D9D277;
+  /* ラベルの背景色 */
+  color: #000000;
+  /* 文字色 */
+  font-size: 12px;
+  /* フォントサイズ */
+  display: block;
+  margin-bottom: 1px;
+  margin-left: 3%;
+  padding: 10px;
+  /* ラベルの文字から枠の隙間・縦方向の大きさが決まる */
+  width: 120px;
+  /* ラベルの幅 */
+}
+
+
+
+
+
+/* ここからは検索アコーディオン */
+.div_width {
+  width: 190px;
+  /* 検索バーの全体の幅 */
+  float: left;
+  margin-right: 2px;
+  margin-left: 13px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+
+}
+.acd-check{
+    display: none;
+    /* 既存チェックド非表示 */
+  }
+  /* 検索アコーディオンラベル用 */
+  .acd-label{
+    background: #D9D277;
+    /* ラベルの背景色 */
+    color: #000000;
+    /* 文字色 */
+    font-size: 13px;
+    /* フォントサイズ */
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+    /* width: 150px; */
+    /* ラベルの幅 */
+  }
+  .acd-content{
+    /* border: 0.3px solid #D9D9D9; */
+    /* 枠線色 */
+    height: 0;
+    /* 閉じている時のheight */
+    opacity: 0;
+    padding: 0 15px;
+    transition: .3s;
+    /* 滑らかに開く */
+    visibility: hidden;
+  }
+  .acd-check:checked + .acd-label + .acd-content{
+/* input id=, label for=, div class=,を制御 */
+
+    width: 200px;
+    height: auto;
+    /* 開いた時のheight */
+    opacity: 1;
+    padding: 15px;
+    visibility: visible;
+    background-color: honeydew;
+    
+  }
+
+/* 全体を包括するdiv */
+  .div_categorie {
+    width: 95%;
+    height: 100px;
+    clear: both;
+    background-color: #F2EA79;
+    border-radius: 2px 2px 2px 2px;
+    border: 0.1px solid #a7a2a2e0;
+    padding: 0%;
+    margin-top: -8%;
+    margin-left: -5%;
+  }
+  /* カテゴリFETCHデータの表示DIV
+   */
+  .space {
+    width: 90%;
+    height: auto;
+    border: dashed 0.1px #888282;
+    background-color: #F2F0CE;
+    clear: both;
+    padding: 2% ;
+    margin-left: 0%;
+    margin-top: 5%;
+  
+  }
+  
+  /* 左側のdivと右側のdivを包括して横並びにする */
+  .categories_comprehensive {
+  
+    /* ２つのdivを包括して横並びにする */
+    display: webkit-flex;
+    height: auto;
+    padding: 0%;
+  
+    margin-bottom: 0%;
+  } 
+

@@ -1,0 +1,90 @@
+h5 {
+    font-size: 16px;
+    border-bottom: 1px solid;
+    padding: 8px 16px;
+    /* padding 左右/上下/ */
+    margin-bottom: 16px;
+}
+
+dl[id="memo"] {
+    margin: 0;
+}
+
+dl[id="memo"] > div[id="memo"] {
+    margin-bottom: 8px;
+}
+
+dt[id="memo"] {
+    padding: 8px;
+    cursor: pointer;
+    /* ↑指のマークを出す */
+    user-select: none;
+    /* ↑ユーザーがWクリックでテキスト選択不可にする */
+    position: relative;
+    /* ↑今は特に意味がない */
+}
+
+dt[id="memo"]::before {
+    content: '';
+    font-weight: 0.5cm;
+    font-style: italic;
+}
+/* dtタグの後ろに、＋を離れた所に配置する。 */
+dt[id="memo"]::after {
+    content: '+';
+    width: 20px;
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    transition:transform.3s;
+    /* 0.3秒 */
+    border: solid 0.5px #F2E205;
+    background-color:#F2D64B;
+  
+    text-align: center;
+    border-radius: 100%;
+}
+
+dl[id="memo"] > div[id="memo"].appear dt::after {
+    transform: rotate(45deg);
+    /* dtの'＋'が右に45度傾きます。 */
+}
+
+dd[id="memo"] {
+    padding: 8px;
+    margin: 0;
+    display: none;
+    /* +ボタンを押さない限り非表示 */
+}
+
+dd[id="memo"]::before {
+    content: '';
+    /* +で開く前に、'先頭につく文字 "Qestion:"' など。 */
+}
+
+dd[id="memo"]::after {
+    background-image:url(./css_img/black_bord.png);
+    width: 5%;
+}
+
+dl[id="memo"] > div[id="memo"].appear dd{
+  /* dlタグの直下のdivに対しての動き */
+  display:block;
+  /* appearクラスが、クリックしたら出てくるように */
+  animation: .3s fadeln;
+    /*@keyframesとanimationはセット  */
+}
+
+@keyframes fadeln {
+    0% {
+      opacity:0;
+      /* 要素の透明度 */
+      transform:translateY(-10px);
+      /* Y軸方向だけ-10px */
+    }
+    100%{
+        opacity: 1;
+        /* 黒文字がはっきり見える:1 */
+        transform:none;
+    }
+}
