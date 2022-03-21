@@ -47,7 +47,7 @@ if (isset($_POST['send'])) {
     }
 
     if (!empty($_POST['password2']) && !empty($_POST['password'])) {
-        // // もし2番目のパスワード['password2']と1番目に入力したパスワード['password']が相違していたらエラー
+        // もし2番目のパスワード['password2']と1番目に入力したパスワード['password']が相違していたらエラー
         if ($_POST['password2'] !== $_POST['password']) {
             $error['password2'] = 'difference';
         }
