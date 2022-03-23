@@ -107,11 +107,8 @@ if (!empty($_POST['kakunin'])) {
     <link rel="stylesheet" href="japan_post_num.css">
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
-
-    
-
     <!-- 全体CSS -->
-    <link rel="stylesheet" href="stylesheet6.css">
+    <link rel="stylesheet" href="css/stylesheet6.css">
 
 </head>
 
@@ -312,7 +309,7 @@ if (!empty($_POST['kakunin'])) {
     </div>
 
     <!-- 郵便局API JavaScript -->
-    <script src="japan_post_num.js"></script>
+    <script src="js/japan_post_num.js"></script>
 
 
 </body>
