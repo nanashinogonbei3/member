@@ -120,15 +120,12 @@ if (isset($_POST['kakunin'])) {
     <!-- https://into-the-program.com/javascript-get-address-zipcode-search-api/ -->
     <!-- 上記のライブラリを読み込んでJSONPが使用できるようにしておきます。 -->
 
+    <!-- 郵便局API CSS -->
+    <link rel="stylesheet" href="css/japan_post_num.css">
     <!-- 郵便局API css -->
-    <link rel="stylesheet" href="japan_post_num.css">
-    <!--　JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
-
-    
-
     <!-- 全体CSS -->
-    <link rel="stylesheet" href="stylesheet6.css">
+    <link rel="stylesheet" href="css/stylesheet6.css">
 
 </head>
 
@@ -294,7 +291,7 @@ if (isset($_POST['kakunin'])) {
     </div>
 
     <!-- 郵便局API JavaScript -->
-    <script src="japan_post_num.js"></script>
+    <script src="js/japan_post_num.js"></script>
 
 
 </body>

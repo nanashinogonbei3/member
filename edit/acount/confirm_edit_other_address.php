@@ -37,7 +37,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheet2.css">
+    <link rel="stylesheet" href="css/stylesheet2.css">
 
 
 </head>

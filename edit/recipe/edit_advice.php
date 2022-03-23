@@ -109,17 +109,16 @@ if (!empty($_POST['send'])) {
 
             <!-- ログアウト -->
             <div class="div_logout"><input type="button" value='ログアウト' class="logout_btn" onclick="location.href='../../logout/process.php'">
-                <!-- /member/logout/process.php -->
-            </div>
+  
             <!-- マイページ -->
             <div class="div_logout"><input type="button" value='マイページ' class="logout_btn" onclick="location.href='../../login/process.php'">
-                <!-- /member/logout/process.php -->
+ 
             </div>
             <!-- みんなのレシピ -->
             <div class="div_logout"><input type="button" value='みんなのレシピ' class="logout_btn" onclick="location.href='../../top/confirm.php'">
-                <!-- /member/top/confirm.php -->
+         
             </div>
-            <!-- div_p おわり -->
+        <!-- div_p おわり -->
         </div>
 
 
@@ -133,15 +132,16 @@ if (!empty($_POST['send'])) {
 
                     <div class="div_font_inline">
                         <dt class="p_font_rarge"><span style="font-size:18px">アドバイスの編集</span></dt>
+                        <!-- 区切り線 -->
                         <div class="line"></div>
-                        <!-- ↑区切り線 -->
+                        
                     </div>
                     <br>
                     <pre></pre><br>
 
 
                     <div class="categories_comprehensive">
-                        <!-- <div class="div_hidari3"> -->
+                      
 
                         <!-- 左側 はじまり -->
                         <div class="div_width">
@@ -268,7 +268,6 @@ if (!empty($_POST['send'])) {
                 <div class="div_font_inline">
                     <!-- 戻る -->
                     <input type="button" class="re-order" onclick="window.history.back();" value="前のページに戻る">
-                    <!-- 戻るおわり -->
                 </div>
             </div>
         </div>

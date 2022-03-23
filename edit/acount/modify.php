@@ -161,6 +161,7 @@ if (!empty($_REQUEST['action']) && !empty($_SESSION['members'])) {
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
     <!-- google おしゃれ日本語漢字フォント -->
     <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
+    <!-- 全体css -->
     <link rel="stylesheet" href="css/stylesheet2.css">
 </head>
 

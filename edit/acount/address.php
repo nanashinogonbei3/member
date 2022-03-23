@@ -271,7 +271,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     </div>
 
     <!-- 郵便局API JavaScript -->
-    <script src="japan_post_num.js"></script>
+    <script src="js/japan_post_num.js"></script>
 
 
 </body>
