@@ -199,7 +199,7 @@ try {
                                     // 現在表示されているページなら、リンクは付けない。
                                     echo "<span style='padding: 5px;'>$now</span>";
                                 } else {
-                                    echo "<a href='./favorite_recipe.php?page_id=$n' style='padding: 5px;'>$n</a>";
+                                    echo "<a href='./favorite_product.php?page_id=$n' style='padding: 5px;'>$n</a>";
                                     // それ以外のページの数字には、リンクを貼る
                                     // hrefのリンクは、表示現在表示するリンクに修正して使うこと。
                                 }
