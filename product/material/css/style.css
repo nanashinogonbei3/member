@@ -1,0 +1,165 @@
+﻿@charset "utf-8";
+
+/* ユニバーサルセレクタでデフォルトの余白をリセット */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* ← ⇒のボタン全てが入る全体の外枠 */
+#carousel {
+	position: absolute;
+	top: 20px;
+	left: 200px;
+	margin: 0 auto;
+	display: inline-block;
+	width: 550px;
+	height: 450px;
+	overflow: hidden;
+	border: solid #8C862A;
+	/* background-color: bisque; */
+	border-width: 0.05em;
+	border-radius: 5px;
+
+	padding-left: 15px;
+	padding-right: 50px;	
+}
+/* 前へボタンの絶対位置 */
+#carouselPrev {
+	position: absolute;
+	top: 215px;
+	left: 0px;
+	cursor: pointer;
+}
+/* 次へボタンの絶対位置 */
+#carouselNext {
+	position: absolute;
+	top: 215px;
+	right: 0px;
+	cursor: pointer;
+}
+
+#carouselInner ul.column {
+	width: 550px;
+	margin-right: 20px;
+	margin-left: 20px;
+
+	list-style: none;
+	float: left;
+}
+/* ul のliタグの子供要素、最初の画像の余白を決める */
+#carouselInner ul.column li:first-child {
+	margin-left: 24px;
+ }
+
+/* 画像のpadding余白を決める */
+#carouselInner ul.column li {
+	float: left;
+	padding-top: 10px;
+	margin-right: 10px;
+}
+/* [商品の詳細」ボタンのDIV */
+.btn_carousel {
+
+	text-align: center;
+	margin-left: 13%;
+}
+
+/* 画像の大きさ */
+img[id="img"] {
+	width: 221px;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 10px;
+	background-color: darkgrey;
+	float: left;
+	margin-top: 80px;
+}
+ 
+ .div_carousel {
+	height: auto;
+	display: inline-block;
+
+	width: 550px;
+	text-align: center;
+	padding-bottom: 10%;
+	
+
+} 
+/* 商品の詳細ボタン */
+button [id="carousel_btn"] {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+}
+ /* 「材料の小さじ1」（量）と[材料に追加]ボタンの2つのDIVを横並びにする */
+ .inline_block{
+	/* ２つのdivを包括して横並びにする */
+	  /* 隣のDIVと上をそろえて横並びにする。 */
+    display: inline-block;
+	width: 280px;
+	display: webkit-flex;
+	height: auto;
+	padding: 0%;
+
+	margin-bottom: 0%;
+
+	margin-left: -52px;
+	margin-top: 100px;
+}
+/* 「量」（inputタグ）が入るDIV */
+.side_left {
+	width: 150px;
+	height: 60px;
+	float: left;
+}
+/* ボタン⓵ [材料に追加]のCSSの*ID */
+input[id="button"] {
+	color: #ffffff;
+	height: 33px;
+	font-size: 16px;
+	border-radius: 6px;
+	border: none;
+	background-color: #E9C8A7;
+	background-color: #8C6A03;
+}
+  /* inputテキスト枠を角丸にする */
+  input[type="text"] {
+	border-radius: 8px;
+	height: 30px;
+	width: 100px;
+	padding-left: 11px;
+}
+  /* [材料を追加]ボタンが入るDIV */
+  .side_right {
+	height: 60px;
+	float: left;
+	margin-left: -10px;
+}
+  /* [戻る]ボタンが入るDIV */
+  .back {
+	height: 60px;
+	float: left;
+	margin-top: 150px;
+	margin-left: 140px;
+	color: #4D4D3D;
+}
+
+   /* ボタン⓶⓷ [商品詳細/この商品のレシピ一覧] */
+   input[id="button3"] {
+	color: #4D4D3D;
+	width: 155px;
+	height: 33px;
+	
+	font-size: 16px;
+	border-radius: 6px;
+	border: none;
+	background-color: #E9C8A7;
+	margin-left: 5.5px;
+	margin-top: -3px;
+}
+#carouselButtons {
+	margin-left: 10px;
+	position: absolute;
+	bottom: 0;
+  }

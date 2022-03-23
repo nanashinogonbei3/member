@@ -3,11 +3,7 @@
 session_start();
 
 
-// ログインメンバーが管理者でなかったら、ログイン画面に遷移する
-if ($_SESSION['member'] !== 104) {
-    header('Location: ../../member/login/join.php');
-    exit();
-}
+
 
 // 必要なファイルを読み込む
 require_once('../class/db/Base.php');
@@ -16,94 +12,103 @@ require_once('../class/db/CreateRecipes.php');
 // 1ページの$list でFETCH ALL の表示数
 define('max_view', 6);
 
+// ログインメンバーが管理者でなかったら、ログイン画面に遷移する
+if ($_SESSION['member'] !== 104) {
 
-try {
+    try {
 
-    $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
-    $date = $dt->format('Y-m-d');
+        $dt = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+        $date = $dt->format('Y-m-d');
 
-    // データベースに接続するための文字列（DSN・接続文字列）
-    $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
+        // データベースに接続するための文字列（DSN・接続文字列）
+        $dsn = 'mysql:dbname=recipes;host=localhost;charset=utf8';
 
-    // エラーが起きたときのモードを指定する
-    // 「PDO::ERRMODE_EXCEPTION」を指定すると、エラー発生時に例外がスローされる
-    $dbh = new PDO($dsn, 'root', '');
-
-
-    //  membersテーブルmenbers.id=104 の管理者の「アイコン画像」だけ表示)
-    //  このページは、members.id=104の人だけしか入出不可（管理者特権！）。
-    //  ※詳細は、/login/process.phpで説明。
-    $sql = "SELECT * FROM members WHERE id = 104";
-
-    $stmt = $dbh->prepare($sql);
-
-    $stmt->execute();
-
-    $result = $dbh->query($sql);
-
-    $member = $result->fetchAll(PDO::FETCH_ASSOC);
+        // エラーが起きたときのモードを指定する
+        // 「PDO::ERRMODE_EXCEPTION」を指定すると、エラー発生時に例外がスローされる
+        $dbh = new PDO($dsn, 'root', '');
 
 
-    // 商品アイテムリストに、メーカー名を表示するためにリレーションします。
-    // 商品テーブルの：メーカーid と、メーカーテーブルの：id をリレーション
-    $sql = "SELECT * FROM product_lists lEFT JOIN makers ON product_lists.maker_id = makers.id
-            ";
-    // left JOIN は、左側が条件に合致しなくても（空）でも、表示します
-    // JOINの前に記述したテーブルを左、JOINの後に記述したテーブルを右としてかんがえます
-    // 一方、内部結合だと、INNER JOIN の場合、どちらかが（空）だと表示してくれません
+        //  membersテーブルmenbers.id=104 の管理者の「アイコン画像」だけ表示)
+        //  このページは、members.id=104の人だけしか入出不可（管理者特権！）。
+        //  ※詳細は、/login/process.phpで説明。
+        $sql = "SELECT * FROM members WHERE id = 104";
 
-    $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-    $stmt->execute();
+        $stmt->execute();
 
-    $result = $dbh->query($sql);
+        $result = $dbh->query($sql);
 
-    $list = $result->fetchAll(PDO::FETCH_ASSOC);
+        $member = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
+        // 商品アイテムリストに、メーカー名を表示するためにリレーションします。
+        // 商品テーブルの：メーカーid と、メーカーテーブルの：id をリレーション
+        $sql = "SELECT * FROM product_lists lEFT JOIN makers ON product_lists.maker_id = makers.id
+                ";
+        // left JOIN は、左側が条件に合致しなくても（空）でも、表示します
+        // JOINの前に記述したテーブルを左、JOINの後に記述したテーブルを右としてかんがえます
+        // 一方、内部結合だと、INNER JOIN の場合、どちらかが（空）だと表示してくれません
 
-    // ここから、マイレシピのページングの処理
-    $total_count = count($list);
+        $stmt = $dbh->prepare($sql);
 
+        $stmt->execute();
 
-    // ページ数= 全商品数/1ページの表示数
-    // トータルページ数※ceilは小数点を切り捨てる関数
-    $pages = ceil($total_count / max_view);
+        $result = $dbh->query($sql);
+
+        $list = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-    //現在いるページのページ番号を取得
-    if (!isset($_GET['page_id'])) {
-        $now = 1;
-    } else {
-        $now = $_GET['page_id'];
+        // ここから、マイレシピのページングの処理
+        $total_count = count($list);
+
+
+        // ページ数= 全商品数/1ページの表示数
+        // トータルページ数※ceilは小数点を切り捨てる関数
+        $pages = ceil($total_count / max_view);
+
+
+
+        //現在いるページのページ番号を取得
+        if (!isset($_GET['page_id'])) {
+            $now = 1;
+        } else {
+            $now = $_GET['page_id'];
+        }
+
+        // ページネーションの1ページ目のsqlの処理・1ページ以外のsqlの処理
+        //表示するページを取得するSQLを準備
+
+        $select = $dbh->prepare("SELECT *
+                FROM product_lists
+                LEFT OUTER JOIN makers ON product_lists.maker_id = makers.id
+                WHERE product_lists.is_deleted = 0 ORDER BY product_lists.id DESC LIMIT :start,:max ");
+        // 最新のものをトップで１番最初に表示させる！
+
+        if ($now == 1) {
+            //1ページ目の処理
+            $select->bindValue(":start", $now - 1, PDO::PARAM_INT);
+            $select->bindValue(":max", max_view, PDO::PARAM_INT);
+        } else {
+            //1ページ目以外の処理
+            $select->bindValue(":start", ($now - 1) * max_view, PDO::PARAM_INT);
+            $select->bindValue(":max", max_view, PDO::PARAM_INT);
+        }
+        //実行し結果を取り出しておく
+        $select->execute();
+        $data = $select->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (Exception $e) {
+        echo 'DBに接続できません: ',  $e->getMessage(), "\n";
     }
 
-    // ページネーションの1ページ目のsqlの処理・1ページ以外のsqlの処理
-    //表示するページを取得するSQLを準備
-
-    $select = $dbh->prepare("SELECT *
-            FROM product_lists
-            LEFT OUTER JOIN makers ON product_lists.maker_id = makers.id
-            WHERE product_lists.is_deleted = 0 ORDER BY product_lists.id DESC LIMIT :start,:max ");
-    // 最新のものをトップで１番最初に表示させる！
-
-    if ($now == 1) {
-        //1ページ目の処理
-        $select->bindValue(":start", $now - 1, PDO::PARAM_INT);
-        $select->bindValue(":max", max_view, PDO::PARAM_INT);
-    } else {
-        //1ページ目以外の処理
-        $select->bindValue(":start", ($now - 1) * max_view, PDO::PARAM_INT);
-        $select->bindValue(":max", max_view, PDO::PARAM_INT);
-    }
-    //実行し結果を取り出しておく
-    $select->execute();
-    $data = $select->fetchAll(PDO::FETCH_ASSOC);
-} catch (Exception $e) {
-    echo 'DBに接続できません: ',  $e->getMessage(), "\n";
+// もしログインメンバーidが101では無ければ、
+// マイページへ遷移する
+} else {
+    header('Location: ../../member/login/process.php');
+    exit();
 }
-
 
 
 
