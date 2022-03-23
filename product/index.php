@@ -103,7 +103,7 @@ if ($_SESSION['member'] !== 104) {
         echo 'DBに接続できません: ',  $e->getMessage(), "\n";
     }
 
-// もしログインメンバーidが101では無ければ、
+// もしログインメンバー管理者でなければ、
 // マイページへ遷移する
 } else {
     header('Location: ../../member/login/process.php');
