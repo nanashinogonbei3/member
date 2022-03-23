@@ -69,7 +69,7 @@ session_start();
             echo '<pre>';
             var_dump($e);
             echo '</pre>';
-            // echo $e->getMessage();
+            echo $e->getMessage();
             exit;
     }
 

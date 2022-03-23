@@ -87,7 +87,7 @@ $_SESSION['parent_category_id'] = $_GET['parent_category_id'];
             echo '<pre>';
             var_dump($e);
             echo '</pre>';
-            // echo $e->getMessage();
+            echo $e->getMessage();
             exit;
     }
 
