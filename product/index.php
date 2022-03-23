@@ -4,13 +4,13 @@ session_start();
 
 
 
-
 // 必要なファイルを読み込む
 require_once('../class/db/Base.php');
 require_once('../class/db/CreateRecipes.php');
 
 // 1ページの$list でFETCH ALL の表示数
 define('max_view', 6);
+
 
 // ログインメンバーが管理者でなかったら、ログイン画面に遷移する
 if ($_SESSION['member'] !== 104) {
